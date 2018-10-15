@@ -1,0 +1,9 @@
+grammar org.xtext.project.browserautomationdsl.Domainmodel with org.eclipse.xtext.common.Terminals
+
+generate domainmodel "http://www.xtext.org/project/browserautomationdsl/Domainmodel"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
