@@ -2,7 +2,7 @@
 
 # EXAMPLE
 
-PROCEDURE principale
+PROCEDURE main
 	play procedure pro_1 'DOSSIERS DE PRESSE'
 	play procedure pro_1 'DOSSIERS DE PRESSE'
 	play procedure pro_1 'DOSSIERS DE PRESSE'
