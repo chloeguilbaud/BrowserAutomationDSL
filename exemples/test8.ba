@@ -1,0 +1,9 @@
+PROCEDURE main
+  open FIREFOX
+  go to "http://www.imt-atlantique.fr/fr"
+  fill in SEARCHFIELD with "2007"
+  click on BUTTON indentified by LABEL "Appliquer les filtres"
+  count ELEMENT identified by CLASS 'views-row' and save in nbResults
+  select 'Le mois dernier' in COMBOBOX
+  click on BUTTON identified by LABEL "Appliquer les filtres"
+  verify that count ELEMENT identified by CLASS 'views-row' equals saved nbResults

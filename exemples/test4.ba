@@ -1,0 +1,6 @@
+PROCEDURE main
+  open FIREFOX
+  go to "http://www.imt-atlantique.fr/fr"
+  fill SEARCHFIELD with "Donald Trump"
+  click on BUTTON identified by LABEL "Appliquer les filtres"
+  verify that PAGE contains 'Aucun résultat ne correspond à votre rechercher'

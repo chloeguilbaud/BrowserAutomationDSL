@@ -1,0 +1,8 @@
+PROCEDURE main
+  open FIREFOX
+  go to "http://www.imt-atlantique.fr/fr"
+  uncheck all CHECKBOX
+  check all CHECKBOX identified by LABEL "Anglais"
+  check all CHECKBOX identified by LABEL "A domicile"
+  click on BUTTON identified by LABEL "Appliquer les critères"
+  verify that PAGE contains "Aucune formation trouvée répondant à vos critères"
