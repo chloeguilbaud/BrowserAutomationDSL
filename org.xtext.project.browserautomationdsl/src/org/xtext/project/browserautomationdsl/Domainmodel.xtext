@@ -2,8 +2,108 @@ grammar org.xtext.project.browserautomationdsl.Domainmodel with org.eclipse.xtex
 
 generate domainmodel "http://www.xtext.org/project/browserautomationdsl/Domainmodel"
 
-Model:
-	greetings+=Greeting*;
+Import:
+	'import' importedNamespace=QualifiedImportName
+;
 	
-Greeting:
-	'Hello' name=ID '!';
+QualifiedImportName:
+	QualifiedName '.*'?
+;
+	
+QualifiedName:
+	ID ('.' ID)*
+;
+
+PROGRAMME:
+	{PROGRAMME} ('PROCEDURE' name=PROCEDURENAME ('with' (params+=STRING)+)?
+		(inst+=INSTRUCTION)*
+	)?
+;
+
+INSTRUCTION: 
+	{INSTRUCTION} OPEN 
+	| {INSTRUCTION} GOTO 
+	| {INSTRUCTION} CLICK 
+	| {INSTRUCTION} FILL 
+	| {INSTRUCTION} CHECK 
+	| {INSTRUCTION} UNCHECK 
+	| {INSTRUCTION} SELECT 
+	| {INSTRUCTION} READ 
+	| {INSTRUCTION} COUNT 
+	| {INSTRUCTION} VERIFY 
+	| PLAY
+;
+
+OPEN: 
+	'open' ('firefox' | 'chrome')
+;
+
+GOTO: 
+	'go' 'to' (URL | 'given' PARAM)
+;
+
+CLICK: 
+	'click' 'on' ('BUTTON' | 'LINK' | 'IMAGE' | 'TEXT') ELEMENTIDENTIFIER
+;
+
+FILL: 
+	'fill' ('TEXTFIELD' | 'SEARCHFIELD') (ELEMENTIDENTIFIER)? 'with' ('saved' VARNAME | '"' STRING '"')
+;
+
+CHECK: 
+	'check' ('all')? 'CHECKBOX' (ELEMENTIDENTIFIER)? 
+;
+	
+UNCHECK: 
+	'uncheck' ('all')? 'CHECKBOX' (ELEMENTIDENTIFIER)?
+;
+
+SELECT: 
+	'select' '"' STRING '"' 'in' 'COMBOBOX' (ELEMENTIDENTIFIER)?
+;
+
+READ:
+	'read' 'url' 'from' ('BUTTON' | 'LINK' | 'IMAGE' | 'TEXT') ELEMENTIDENTIFIER (SAVEVAR)?
+;
+
+ELEMENTIDENTIFIER: 
+	'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') '"' STRING '"'
+;
+
+COUNT: 
+	'count' 'ELEMENT' ELEMENTIDENTIFIER (SAVEVAR)?
+;
+
+SAVEVAR: 
+	'and' 'save' 'in' VARNAME
+;
+
+VERIFY:
+	'verify' 'that' ( (COUNT) | (('PAGE' | 'TEXT') (ELEMENTIDENTIFIER)?) ) 'contains' '"' STRING '"'
+;
+
+PLAY: 
+	{PLAY} 'play' 'procedure' PROCEDURENAME ('"' params+=STRING '"')*
+;
+
+
+
+PROCEDURENAME: 
+	VAR
+;
+
+PARAM: 
+	VAR
+;
+
+terminal URL: 
+	STRING
+;
+
+terminal VARNAME: 
+	VAR
+;
+
+terminal VAR: 
+	(('A'..'Z')|('a'..'z')|('0'..'9')|'_'|'-')*
+;
