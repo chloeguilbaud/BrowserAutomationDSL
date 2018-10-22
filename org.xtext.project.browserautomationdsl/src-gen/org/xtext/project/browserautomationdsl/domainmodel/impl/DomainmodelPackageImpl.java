@@ -40,13 +40,6 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass gotoEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass fillEClass = null;
 
   /**
@@ -219,26 +212,6 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getGOTO()
-  {
-    return gotoEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getGOTO_Val()
-  {
-    return (EAttribute)gotoEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getFILL()
   {
     return fillEClass;
@@ -319,16 +292,6 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSAVEVAR_Var()
-  {
-    return (EAttribute)savevarEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getVERIFY()
   {
     return verifyEClass;
@@ -342,6 +305,16 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
   public EAttribute getVERIFY_Value()
   {
     return (EAttribute)verifyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVERIFY_Var()
+  {
+    return (EAttribute)verifyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -402,9 +375,6 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
 
     instructionEClass = createEClass(INSTRUCTION);
 
-    gotoEClass = createEClass(GOTO);
-    createEAttribute(gotoEClass, GOTO__VAL);
-
     fillEClass = createEClass(FILL);
     createEAttribute(fillEClass, FILL__VAR);
     createEAttribute(fillEClass, FILL__VALUE);
@@ -417,10 +387,10 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     countEClass = createEClass(COUNT);
 
     savevarEClass = createEClass(SAVEVAR);
-    createEAttribute(savevarEClass, SAVEVAR__VAR);
 
     verifyEClass = createEClass(VERIFY);
     createEAttribute(verifyEClass, VERIFY__VALUE);
+    createEAttribute(verifyEClass, VERIFY__VAR);
 
     playEClass = createEClass(PLAY);
     createEAttribute(playEClass, PLAY__PARAMS);
@@ -455,7 +425,6 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    gotoEClass.getESuperTypes().add(this.getINSTRUCTION());
     fillEClass.getESuperTypes().add(this.getINSTRUCTION());
     selectEClass.getESuperTypes().add(this.getINSTRUCTION());
     readEClass.getESuperTypes().add(this.getINSTRUCTION());
@@ -475,9 +444,6 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
 
     initEClass(instructionEClass, org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION.class, "INSTRUCTION", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(gotoEClass, org.xtext.project.browserautomationdsl.domainmodel.GOTO.class, "GOTO", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGOTO_Val(), ecorePackage.getEString(), "val", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.GOTO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(fillEClass, org.xtext.project.browserautomationdsl.domainmodel.FILL.class, "FILL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFILL_Var(), ecorePackage.getEString(), "var", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.FILL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFILL_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.FILL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -490,10 +456,10 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     initEClass(countEClass, org.xtext.project.browserautomationdsl.domainmodel.COUNT.class, "COUNT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(savevarEClass, org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR.class, "SAVEVAR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSAVEVAR_Var(), ecorePackage.getEString(), "var", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(verifyEClass, org.xtext.project.browserautomationdsl.domainmodel.VERIFY.class, "VERIFY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVERIFY_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVERIFY_Var(), ecorePackage.getEString(), "var", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(playEClass, org.xtext.project.browserautomationdsl.domainmodel.PLAY.class, "PLAY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPLAY_Params(), ecorePackage.getEString(), "params", null, 0, -1, org.xtext.project.browserautomationdsl.domainmodel.PLAY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

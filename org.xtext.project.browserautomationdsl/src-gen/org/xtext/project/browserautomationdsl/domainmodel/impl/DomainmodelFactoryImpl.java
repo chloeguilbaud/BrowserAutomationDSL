@@ -67,7 +67,6 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
     {
       case DomainmodelPackage.PROGRAMME: return createPROGRAMME();
       case DomainmodelPackage.INSTRUCTION: return createINSTRUCTION();
-      case DomainmodelPackage.GOTO: return createGOTO();
       case DomainmodelPackage.FILL: return createFILL();
       case DomainmodelPackage.SELECT: return createSELECT();
       case DomainmodelPackage.READ: return createREAD();
@@ -100,17 +99,6 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
   {
     INSTRUCTIONImpl instruction = new INSTRUCTIONImpl();
     return instruction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GOTO createGOTO()
-  {
-    GOTOImpl goto_ = new GOTOImpl();
-    return goto_;
   }
 
   /**

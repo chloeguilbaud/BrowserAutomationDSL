@@ -17,7 +17,6 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.project.browserautomationdsl.domainmodel.COUNT;
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
 import org.xtext.project.browserautomationdsl.domainmodel.FILL;
-import org.xtext.project.browserautomationdsl.domainmodel.GOTO;
 import org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION;
 import org.xtext.project.browserautomationdsl.domainmodel.PLAY;
 import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME;
@@ -54,9 +53,6 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				else break;
 			case DomainmodelPackage.FILL:
 				sequence_FILL(context, (FILL) semanticObject); 
-				return; 
-			case DomainmodelPackage.GOTO:
-				sequence_GOTO(context, (GOTO) semanticObject); 
 				return; 
 			case DomainmodelPackage.INSTRUCTION:
 				sequence_INSTRUCTION(context, (INSTRUCTION) semanticObject); 
@@ -102,7 +98,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     VERIFY returns COUNT
 	 *
 	 * Constraint:
-	 *     (var=VARTYPE? value=STRING?)
+	 *     (var=VARTYPE? (value=STRING | var=VARTYPE | var=VARTYPE | value=STRING)?)
 	 */
 	protected void sequence_COUNT_SAVEVAR_VERIFY(ISerializationContext context, COUNT semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -118,19 +114,6 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (var=VARTYPE | value=STRING)
 	 */
 	protected void sequence_FILL(ISerializationContext context, FILL semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     INSTRUCTION returns GOTO
-	 *     GOTO returns GOTO
-	 *
-	 * Constraint:
-	 *     (val=VARTYPE | val=VARTYPE)
-	 */
-	protected void sequence_GOTO(ISerializationContext context, GOTO semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -165,7 +148,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     PROGRAMME returns PROGRAMME
 	 *
 	 * Constraint:
-	 *     (name=VARTYPE (param=VARTYPE params+=VARTYPE*)? inst+=INSTRUCTION*)
+	 *     (name=VARTYPE (param=VARTYPE params+=VARTYPE*)? inst+=INSTRUCTION*)+
 	 */
 	protected void sequence_PROGRAMME(ISerializationContext context, PROGRAMME semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -194,8 +177,8 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_SAVEVAR(ISerializationContext context, SAVEVAR semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SAVEVAR__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SAVEVAR__VAR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.VERIFY__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.VERIFY__VAR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSAVEVARAccess().getVarVARTYPETerminalRuleCall_3_0(), semanticObject.getVar());
@@ -217,7 +200,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SELECT__ELEM));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSELECTAccess().getElemSTRINGTerminalRuleCall_2_0(), semanticObject.getElem());
+		feeder.accept(grammarAccess.getSELECTAccess().getElemSTRINGTerminalRuleCall_1_0(), semanticObject.getElem());
 		feeder.finish();
 	}
 	
@@ -228,16 +211,10 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     VERIFY returns VERIFY
 	 *
 	 * Constraint:
-	 *     value=STRING
+	 *     (value=STRING | var=VARTYPE | var=VARTYPE | value=STRING)
 	 */
 	protected void sequence_VERIFY(ISerializationContext context, VERIFY semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.VERIFY__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.VERIFY__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVERIFYAccess().getValueSTRINGTerminalRuleCall_4_1_1_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

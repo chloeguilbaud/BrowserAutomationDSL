@@ -41,10 +41,10 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//// IMPORT Procédure
 		//PROGRAMME:
 		//	('procedure' name=VARTYPE ('with' param=VARTYPE params+=VARTYPE*)?
-		//	inst+=INSTRUCTION*)?;
+		//	inst+=INSTRUCTION*)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('procedure' name=VARTYPE ('with' param=VARTYPE params+=VARTYPE*)? inst+=INSTRUCTION*)?
+		//('procedure' name=VARTYPE ('with' param=VARTYPE params+=VARTYPE*)? inst+=INSTRUCTION*)*
 		public Group getGroup() { return cGroup; }
 		
 		//'procedure'
@@ -99,7 +99,9 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCOUNTParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cVERIFYParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cSELECTParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cGOTOParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
+		private final Action cINSTRUCTIONAction_8_0 = (Action)cGroup_8.eContents().get(0);
+		private final RuleCall cGOTOParserRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
 		private final RuleCall cFILLParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		private final RuleCall cPLAYParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		
@@ -112,13 +114,13 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//	| COUNT
 		//	| VERIFY
 		//	| SELECT
-		//	| GOTO
+		//	| {INSTRUCTION} GOTO
 		//	| FILL
 		//	| PLAY;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{INSTRUCTION} OPEN | {INSTRUCTION} CLICK | {INSTRUCTION} CHECK | {INSTRUCTION} UNCHECK | READ | COUNT | VERIFY | SELECT
-		//| GOTO | FILL | PLAY
+		//| {INSTRUCTION} GOTO | FILL | PLAY
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{INSTRUCTION} OPEN
@@ -169,8 +171,14 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//SELECT
 		public RuleCall getSELECTParserRuleCall_7() { return cSELECTParserRuleCall_7; }
 		
+		//{INSTRUCTION} GOTO
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//{INSTRUCTION}
+		public Action getINSTRUCTIONAction_8_0() { return cINSTRUCTIONAction_8_0; }
+		
 		//GOTO
-		public RuleCall getGOTOParserRuleCall_8() { return cGOTOParserRuleCall_8; }
+		public RuleCall getGOTOParserRuleCall_8_1() { return cGOTOParserRuleCall_8_1; }
 		
 		//FILL
 		public RuleCall getFILLParserRuleCall_9() { return cFILLParserRuleCall_9; }
@@ -208,61 +216,25 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	public class GOTOElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.browserautomationdsl.Domainmodel.GOTO");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cGoKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Keyword cQuotationMarkKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
-		private final Assignment cValAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
-		private final RuleCall cValVARTYPETerminalRuleCall_2_0_1_0 = (RuleCall)cValAssignment_2_0_1.eContents().get(0);
-		private final Keyword cQuotationMarkKeyword_2_0_2 = (Keyword)cGroup_2_0.eContents().get(2);
-		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final Keyword cGivenKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cValAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cValVARTYPETerminalRuleCall_2_1_1_0 = (RuleCall)cValAssignment_2_1_1.eContents().get(0);
+		private final Keyword cGoToKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cGivenKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cSTRINGTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//GOTO:
-		//	'go' 'to' ('"' val=VARTYPE '"' | 'given' val=VARTYPE);
+		//	'go to' 'given'? STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'go' 'to' ('"' val=VARTYPE '"' | 'given' val=VARTYPE)
+		//'go to' 'given'? STRING
 		public Group getGroup() { return cGroup; }
 		
-		//'go'
-		public Keyword getGoKeyword_0() { return cGoKeyword_0; }
+		//'go to'
+		public Keyword getGoToKeyword_0() { return cGoToKeyword_0; }
 		
-		//'to'
-		public Keyword getToKeyword_1() { return cToKeyword_1; }
+		//'given'?
+		public Keyword getGivenKeyword_1() { return cGivenKeyword_1; }
 		
-		//'"' val=VARTYPE '"' | 'given' val=VARTYPE
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//'"' val=VARTYPE '"'
-		public Group getGroup_2_0() { return cGroup_2_0; }
-		
-		//'"'
-		public Keyword getQuotationMarkKeyword_2_0_0() { return cQuotationMarkKeyword_2_0_0; }
-		
-		//val=VARTYPE
-		public Assignment getValAssignment_2_0_1() { return cValAssignment_2_0_1; }
-		
-		//VARTYPE
-		public RuleCall getValVARTYPETerminalRuleCall_2_0_1_0() { return cValVARTYPETerminalRuleCall_2_0_1_0; }
-		
-		//'"'
-		public Keyword getQuotationMarkKeyword_2_0_2() { return cQuotationMarkKeyword_2_0_2; }
-		
-		//'given' val=VARTYPE
-		public Group getGroup_2_1() { return cGroup_2_1; }
-		
-		//'given'
-		public Keyword getGivenKeyword_2_1_0() { return cGivenKeyword_2_1_0; }
-		
-		//val=VARTYPE
-		public Assignment getValAssignment_2_1_1() { return cValAssignment_2_1_1; }
-		
-		//VARTYPE
-		public RuleCall getValVARTYPETerminalRuleCall_2_1_1_0() { return cValVARTYPETerminalRuleCall_2_1_1_0; }
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_2() { return cSTRINGTerminalRuleCall_2; }
 	}
 	public class CLICKElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.browserautomationdsl.Domainmodel.CLICK");
@@ -321,17 +293,14 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSavedKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
 		private final Assignment cVarAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
 		private final RuleCall cVarVARTYPETerminalRuleCall_4_0_1_0 = (RuleCall)cVarAssignment_4_0_1.eContents().get(0);
-		private final Group cGroup_4_1 = (Group)cAlternatives_4.eContents().get(1);
-		private final Keyword cQuotationMarkKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cValueAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_4_1_1_0 = (RuleCall)cValueAssignment_4_1_1.eContents().get(0);
-		private final Keyword cQuotationMarkKeyword_4_1_2 = (Keyword)cGroup_4_1.eContents().get(2);
+		private final Assignment cValueAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cValueAssignment_4_1.eContents().get(0);
 		
 		//FILL:
-		//	'fill' ('TEXTFIELD' | 'SEARCHFIELD') ELEMENTIDENTIFIER? 'with' ('saved' var=VARTYPE | '"' value=STRING '"');
+		//	'fill' ('TEXTFIELD' | 'SEARCHFIELD') ELEMENTIDENTIFIER? 'with' ('saved' var=VARTYPE | value=STRING);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'fill' ('TEXTFIELD' | 'SEARCHFIELD') ELEMENTIDENTIFIER? 'with' ('saved' var=VARTYPE | '"' value=STRING '"')
+		//'fill' ('TEXTFIELD' | 'SEARCHFIELD') ELEMENTIDENTIFIER? 'with' ('saved' var=VARTYPE | value=STRING)
 		public Group getGroup() { return cGroup; }
 		
 		//'fill'
@@ -352,7 +321,7 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//'with'
 		public Keyword getWithKeyword_3() { return cWithKeyword_3; }
 		
-		//'saved' var=VARTYPE | '"' value=STRING '"'
+		//'saved' var=VARTYPE | value=STRING
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 		
 		//'saved' var=VARTYPE
@@ -367,20 +336,11 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//VARTYPE
 		public RuleCall getVarVARTYPETerminalRuleCall_4_0_1_0() { return cVarVARTYPETerminalRuleCall_4_0_1_0; }
 		
-		//'"' value=STRING '"'
-		public Group getGroup_4_1() { return cGroup_4_1; }
-		
-		//'"'
-		public Keyword getQuotationMarkKeyword_4_1_0() { return cQuotationMarkKeyword_4_1_0; }
-		
 		//value=STRING
-		public Assignment getValueAssignment_4_1_1() { return cValueAssignment_4_1_1; }
+		public Assignment getValueAssignment_4_1() { return cValueAssignment_4_1; }
 		
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_4_1_1_0() { return cValueSTRINGTerminalRuleCall_4_1_1_0; }
-		
-		//'"'
-		public Keyword getQuotationMarkKeyword_4_1_2() { return cQuotationMarkKeyword_4_1_2; }
+		public RuleCall getValueSTRINGTerminalRuleCall_4_1_0() { return cValueSTRINGTerminalRuleCall_4_1_0; }
 	}
 	public class CHECKElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.browserautomationdsl.Domainmodel.CHECK");
@@ -440,44 +400,36 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.browserautomationdsl.Domainmodel.SELECT");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSelectKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cQuotationMarkKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cElemAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cElemSTRINGTerminalRuleCall_2_0 = (RuleCall)cElemAssignment_2.eContents().get(0);
-		private final Keyword cQuotationMarkKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cInKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cCOMBOBOXKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final RuleCall cELEMENTIDENTIFIERParserRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Assignment cElemAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElemSTRINGTerminalRuleCall_1_0 = (RuleCall)cElemAssignment_1.eContents().get(0);
+		private final Keyword cInKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cCOMBOBOXKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cELEMENTIDENTIFIERParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//SELECT:
-		//	'select' '"' elem=STRING '"' 'in' 'COMBOBOX' ELEMENTIDENTIFIER?;
+		//	'select' elem=STRING 'in' 'COMBOBOX' ELEMENTIDENTIFIER?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'select' '"' elem=STRING '"' 'in' 'COMBOBOX' ELEMENTIDENTIFIER?
+		//'select' elem=STRING 'in' 'COMBOBOX' ELEMENTIDENTIFIER?
 		public Group getGroup() { return cGroup; }
 		
 		//'select'
 		public Keyword getSelectKeyword_0() { return cSelectKeyword_0; }
 		
-		//'"'
-		public Keyword getQuotationMarkKeyword_1() { return cQuotationMarkKeyword_1; }
-		
 		//elem=STRING
-		public Assignment getElemAssignment_2() { return cElemAssignment_2; }
+		public Assignment getElemAssignment_1() { return cElemAssignment_1; }
 		
 		//STRING
-		public RuleCall getElemSTRINGTerminalRuleCall_2_0() { return cElemSTRINGTerminalRuleCall_2_0; }
-		
-		//'"'
-		public Keyword getQuotationMarkKeyword_3() { return cQuotationMarkKeyword_3; }
+		public RuleCall getElemSTRINGTerminalRuleCall_1_0() { return cElemSTRINGTerminalRuleCall_1_0; }
 		
 		//'in'
-		public Keyword getInKeyword_4() { return cInKeyword_4; }
+		public Keyword getInKeyword_2() { return cInKeyword_2; }
 		
 		//'COMBOBOX'
-		public Keyword getCOMBOBOXKeyword_5() { return cCOMBOBOXKeyword_5; }
+		public Keyword getCOMBOBOXKeyword_3() { return cCOMBOBOXKeyword_3; }
 		
 		//ELEMENTIDENTIFIER?
-		public RuleCall getELEMENTIDENTIFIERParserRuleCall_6() { return cELEMENTIDENTIFIERParserRuleCall_6; }
+		public RuleCall getELEMENTIDENTIFIERParserRuleCall_4() { return cELEMENTIDENTIFIERParserRuleCall_4; }
 	}
 	public class READElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.browserautomationdsl.Domainmodel.READ");
@@ -544,15 +496,17 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCLASSKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
 		private final Keyword cIDKeyword_2_2 = (Keyword)cAlternatives_2.eContents().get(2);
 		private final Keyword cALTKeyword_2_3 = (Keyword)cAlternatives_2.eContents().get(3);
-		private final Keyword cQuotationMarkKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Keyword cQuotationMarkKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final RuleCall cSTRINGTerminalRuleCall_3_0 = (RuleCall)cAlternatives_3.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
+		private final Keyword cGivenKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final RuleCall cVARTYPETerminalRuleCall_3_1_1 = (RuleCall)cGroup_3_1.eContents().get(1);
 		
 		//ELEMENTIDENTIFIER:
-		//	'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') '"' STRING '"';
+		//	'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') (STRING | 'given' VARTYPE);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') '"' STRING '"'
+		//'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') (STRING | 'given' VARTYPE)
 		public Group getGroup() { return cGroup; }
 		
 		//'identified'
@@ -576,14 +530,20 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//'ALT'
 		public Keyword getALTKeyword_2_3() { return cALTKeyword_2_3; }
 		
-		//'"'
-		public Keyword getQuotationMarkKeyword_3() { return cQuotationMarkKeyword_3; }
+		//STRING | 'given' VARTYPE
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getSTRINGTerminalRuleCall_3_0() { return cSTRINGTerminalRuleCall_3_0; }
 		
-		//'"'
-		public Keyword getQuotationMarkKeyword_5() { return cQuotationMarkKeyword_5; }
+		//'given' VARTYPE
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//'given'
+		public Keyword getGivenKeyword_3_1_0() { return cGivenKeyword_3_1_0; }
+		
+		//VARTYPE
+		public RuleCall getVARTYPETerminalRuleCall_3_1_1() { return cVARTYPETerminalRuleCall_3_1_1; }
 	}
 	public class COUNTElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.browserautomationdsl.Domainmodel.COUNT");
@@ -659,24 +619,38 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPAGEKeyword_2_1_0_0 = (Keyword)cAlternatives_2_1_0.eContents().get(0);
 		private final Keyword cTEXTKeyword_2_1_0_1 = (Keyword)cAlternatives_2_1_0.eContents().get(1);
 		private final RuleCall cELEMENTIDENTIFIERParserRuleCall_2_1_1 = (RuleCall)cGroup_2_1.eContents().get(1);
-		private final Keyword cContainsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Group cGroup_4_0 = (Group)cAlternatives_4.eContents().get(0);
-		private final Keyword cLINKKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
-		private final RuleCall cELEMENTIDENTIFIERParserRuleCall_4_0_1 = (RuleCall)cGroup_4_0.eContents().get(1);
-		private final Group cGroup_4_1 = (Group)cAlternatives_4.eContents().get(1);
-		private final Keyword cQuotationMarkKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cValueAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_4_1_1_0 = (RuleCall)cValueAssignment_4_1_1.eContents().get(0);
-		private final Keyword cQuotationMarkKeyword_4_1_2 = (Keyword)cGroup_4_1.eContents().get(2);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
+		private final Keyword cContainsKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Alternatives cAlternatives_3_0_1 = (Alternatives)cGroup_3_0.eContents().get(1);
+		private final Group cGroup_3_0_1_0 = (Group)cAlternatives_3_0_1.eContents().get(0);
+		private final Alternatives cAlternatives_3_0_1_0_0 = (Alternatives)cGroup_3_0_1_0.eContents().get(0);
+		private final Keyword cLINKKeyword_3_0_1_0_0_0 = (Keyword)cAlternatives_3_0_1_0_0.eContents().get(0);
+		private final Keyword cIMAGEKeyword_3_0_1_0_0_1 = (Keyword)cAlternatives_3_0_1_0_0.eContents().get(1);
+		private final RuleCall cELEMENTIDENTIFIERParserRuleCall_3_0_1_0_1 = (RuleCall)cGroup_3_0_1_0.eContents().get(1);
+		private final Assignment cValueAssignment_3_0_1_1 = (Assignment)cAlternatives_3_0_1.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_3_0_1_1_0 = (RuleCall)cValueAssignment_3_0_1_1.eContents().get(0);
+		private final Group cGroup_3_0_1_2 = (Group)cAlternatives_3_0_1.eContents().get(2);
+		private final Keyword cSavedKeyword_3_0_1_2_0 = (Keyword)cGroup_3_0_1_2.eContents().get(0);
+		private final Assignment cVarAssignment_3_0_1_2_1 = (Assignment)cGroup_3_0_1_2.eContents().get(1);
+		private final RuleCall cVarVARTYPETerminalRuleCall_3_0_1_2_1_0 = (RuleCall)cVarAssignment_3_0_1_2_1.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
+		private final Keyword cEqualsKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Alternatives cAlternatives_3_1_1 = (Alternatives)cGroup_3_1.eContents().get(1);
+		private final Group cGroup_3_1_1_0 = (Group)cAlternatives_3_1_1.eContents().get(0);
+		private final Keyword cSavedKeyword_3_1_1_0_0 = (Keyword)cGroup_3_1_1_0.eContents().get(0);
+		private final Assignment cVarAssignment_3_1_1_0_1 = (Assignment)cGroup_3_1_1_0.eContents().get(1);
+		private final RuleCall cVarVARTYPETerminalRuleCall_3_1_1_0_1_0 = (RuleCall)cVarAssignment_3_1_1_0_1.eContents().get(0);
+		private final Assignment cValueAssignment_3_1_1_1 = (Assignment)cAlternatives_3_1_1.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_3_1_1_1_0 = (RuleCall)cValueAssignment_3_1_1_1.eContents().get(0);
 		
 		//VERIFY:
-		//	'verify' 'that' (COUNT | ('PAGE' | 'TEXT') ELEMENTIDENTIFIER?) 'contains' ('LINK' ELEMENTIDENTIFIER | '"'
-		//	value=STRING '"');
+		//	'verify' 'that' (COUNT | ('PAGE' | 'TEXT') ELEMENTIDENTIFIER?) ('contains' (('LINK' | 'IMAGE') ELEMENTIDENTIFIER |
+		//	value=STRING | 'saved' var=VARTYPE) | 'equals' ('saved' var=VARTYPE | value=STRING));
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'verify' 'that' (COUNT | ('PAGE' | 'TEXT') ELEMENTIDENTIFIER?) 'contains' ('LINK' ELEMENTIDENTIFIER | '"' value=STRING
-		//'"')
+		//'verify' 'that' (COUNT | ('PAGE' | 'TEXT') ELEMENTIDENTIFIER?) ('contains' (('LINK' | 'IMAGE') ELEMENTIDENTIFIER |
+		//value=STRING | 'saved' var=VARTYPE) | 'equals' ('saved' var=VARTYPE | value=STRING))
 		public Group getGroup() { return cGroup; }
 		
 		//'verify'
@@ -706,35 +680,78 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//ELEMENTIDENTIFIER?
 		public RuleCall getELEMENTIDENTIFIERParserRuleCall_2_1_1() { return cELEMENTIDENTIFIERParserRuleCall_2_1_1; }
 		
+		//'contains' (('LINK' | 'IMAGE') ELEMENTIDENTIFIER | value=STRING | 'saved' var=VARTYPE) | 'equals' ('saved' var=VARTYPE |
+		//value=STRING)
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		
+		//'contains' (('LINK' | 'IMAGE') ELEMENTIDENTIFIER | value=STRING | 'saved' var=VARTYPE)
+		public Group getGroup_3_0() { return cGroup_3_0; }
+		
 		//'contains'
-		public Keyword getContainsKeyword_3() { return cContainsKeyword_3; }
+		public Keyword getContainsKeyword_3_0_0() { return cContainsKeyword_3_0_0; }
 		
-		//'LINK' ELEMENTIDENTIFIER | '"' value=STRING '"'
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		//('LINK' | 'IMAGE') ELEMENTIDENTIFIER | value=STRING | 'saved' var=VARTYPE
+		public Alternatives getAlternatives_3_0_1() { return cAlternatives_3_0_1; }
 		
-		//'LINK' ELEMENTIDENTIFIER
-		public Group getGroup_4_0() { return cGroup_4_0; }
+		//('LINK' | 'IMAGE') ELEMENTIDENTIFIER
+		public Group getGroup_3_0_1_0() { return cGroup_3_0_1_0; }
+		
+		//'LINK' | 'IMAGE'
+		public Alternatives getAlternatives_3_0_1_0_0() { return cAlternatives_3_0_1_0_0; }
 		
 		//'LINK'
-		public Keyword getLINKKeyword_4_0_0() { return cLINKKeyword_4_0_0; }
+		public Keyword getLINKKeyword_3_0_1_0_0_0() { return cLINKKeyword_3_0_1_0_0_0; }
+		
+		//'IMAGE'
+		public Keyword getIMAGEKeyword_3_0_1_0_0_1() { return cIMAGEKeyword_3_0_1_0_0_1; }
 		
 		//ELEMENTIDENTIFIER
-		public RuleCall getELEMENTIDENTIFIERParserRuleCall_4_0_1() { return cELEMENTIDENTIFIERParserRuleCall_4_0_1; }
-		
-		//'"' value=STRING '"'
-		public Group getGroup_4_1() { return cGroup_4_1; }
-		
-		//'"'
-		public Keyword getQuotationMarkKeyword_4_1_0() { return cQuotationMarkKeyword_4_1_0; }
+		public RuleCall getELEMENTIDENTIFIERParserRuleCall_3_0_1_0_1() { return cELEMENTIDENTIFIERParserRuleCall_3_0_1_0_1; }
 		
 		//value=STRING
-		public Assignment getValueAssignment_4_1_1() { return cValueAssignment_4_1_1; }
+		public Assignment getValueAssignment_3_0_1_1() { return cValueAssignment_3_0_1_1; }
 		
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_4_1_1_0() { return cValueSTRINGTerminalRuleCall_4_1_1_0; }
+		public RuleCall getValueSTRINGTerminalRuleCall_3_0_1_1_0() { return cValueSTRINGTerminalRuleCall_3_0_1_1_0; }
 		
-		//'"'
-		public Keyword getQuotationMarkKeyword_4_1_2() { return cQuotationMarkKeyword_4_1_2; }
+		//'saved' var=VARTYPE
+		public Group getGroup_3_0_1_2() { return cGroup_3_0_1_2; }
+		
+		//'saved'
+		public Keyword getSavedKeyword_3_0_1_2_0() { return cSavedKeyword_3_0_1_2_0; }
+		
+		//var=VARTYPE
+		public Assignment getVarAssignment_3_0_1_2_1() { return cVarAssignment_3_0_1_2_1; }
+		
+		//VARTYPE
+		public RuleCall getVarVARTYPETerminalRuleCall_3_0_1_2_1_0() { return cVarVARTYPETerminalRuleCall_3_0_1_2_1_0; }
+		
+		//'equals' ('saved' var=VARTYPE | value=STRING)
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//'equals'
+		public Keyword getEqualsKeyword_3_1_0() { return cEqualsKeyword_3_1_0; }
+		
+		//'saved' var=VARTYPE | value=STRING
+		public Alternatives getAlternatives_3_1_1() { return cAlternatives_3_1_1; }
+		
+		//'saved' var=VARTYPE
+		public Group getGroup_3_1_1_0() { return cGroup_3_1_1_0; }
+		
+		//'saved'
+		public Keyword getSavedKeyword_3_1_1_0_0() { return cSavedKeyword_3_1_1_0_0; }
+		
+		//var=VARTYPE
+		public Assignment getVarAssignment_3_1_1_0_1() { return cVarAssignment_3_1_1_0_1; }
+		
+		//VARTYPE
+		public RuleCall getVarVARTYPETerminalRuleCall_3_1_1_0_1_0() { return cVarVARTYPETerminalRuleCall_3_1_1_0_1_0; }
+		
+		//value=STRING
+		public Assignment getValueAssignment_3_1_1_1() { return cValueAssignment_3_1_1_1; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_3_1_1_1_0() { return cValueSTRINGTerminalRuleCall_3_1_1_1_0; }
 	}
 	public class PLAYElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.project.browserautomationdsl.Domainmodel.PLAY");
@@ -743,17 +760,14 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPlayKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cProcedureKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final RuleCall cVARTYPETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cQuotationMarkKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cParamsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cParamsSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cParamsAssignment_4_1.eContents().get(0);
-		private final Keyword cQuotationMarkKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cParamsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cParamsSTRINGTerminalRuleCall_4_0 = (RuleCall)cParamsAssignment_4.eContents().get(0);
 		
 		//PLAY:
-		//	{PLAY} 'play' 'procedure' VARTYPE ('"' params+=STRING '"')*;
+		//	{PLAY} 'play' 'procedure' VARTYPE params+=STRING*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PLAY} 'play' 'procedure' VARTYPE ('"' params+=STRING '"')*
+		//{PLAY} 'play' 'procedure' VARTYPE params+=STRING*
 		public Group getGroup() { return cGroup; }
 		
 		//{PLAY}
@@ -768,20 +782,11 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		//VARTYPE
 		public RuleCall getVARTYPETerminalRuleCall_3() { return cVARTYPETerminalRuleCall_3; }
 		
-		//('"' params+=STRING '"')*
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'"'
-		public Keyword getQuotationMarkKeyword_4_0() { return cQuotationMarkKeyword_4_0; }
-		
-		//params+=STRING
-		public Assignment getParamsAssignment_4_1() { return cParamsAssignment_4_1; }
+		//params+=STRING*
+		public Assignment getParamsAssignment_4() { return cParamsAssignment_4; }
 		
 		//STRING
-		public RuleCall getParamsSTRINGTerminalRuleCall_4_1_0() { return cParamsSTRINGTerminalRuleCall_4_1_0; }
-		
-		//'"'
-		public Keyword getQuotationMarkKeyword_4_2() { return cQuotationMarkKeyword_4_2; }
+		public RuleCall getParamsSTRINGTerminalRuleCall_4_0() { return cParamsSTRINGTerminalRuleCall_4_0; }
 	}
 	
 	
@@ -859,7 +864,7 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	//// IMPORT Procédure
 	//PROGRAMME:
 	//	('procedure' name=VARTYPE ('with' param=VARTYPE params+=VARTYPE*)?
-	//	inst+=INSTRUCTION*)?;
+	//	inst+=INSTRUCTION*)*;
 	public PROGRAMMEElements getPROGRAMMEAccess() {
 		return pPROGRAMME;
 	}
@@ -877,7 +882,7 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	//	| COUNT
 	//	| VERIFY
 	//	| SELECT
-	//	| GOTO
+	//	| {INSTRUCTION} GOTO
 	//	| FILL
 	//	| PLAY;
 	public INSTRUCTIONElements getINSTRUCTIONAccess() {
@@ -899,7 +904,7 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GOTO:
-	//	'go' 'to' ('"' val=VARTYPE '"' | 'given' val=VARTYPE);
+	//	'go to' 'given'? STRING;
 	public GOTOElements getGOTOAccess() {
 		return pGOTO;
 	}
@@ -919,7 +924,7 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FILL:
-	//	'fill' ('TEXTFIELD' | 'SEARCHFIELD') ELEMENTIDENTIFIER? 'with' ('saved' var=VARTYPE | '"' value=STRING '"');
+	//	'fill' ('TEXTFIELD' | 'SEARCHFIELD') ELEMENTIDENTIFIER? 'with' ('saved' var=VARTYPE | value=STRING);
 	public FILLElements getFILLAccess() {
 		return pFILL;
 	}
@@ -949,7 +954,7 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SELECT:
-	//	'select' '"' elem=STRING '"' 'in' 'COMBOBOX' ELEMENTIDENTIFIER?;
+	//	'select' elem=STRING 'in' 'COMBOBOX' ELEMENTIDENTIFIER?;
 	public SELECTElements getSELECTAccess() {
 		return pSELECT;
 	}
@@ -969,7 +974,7 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ELEMENTIDENTIFIER:
-	//	'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') '"' STRING '"';
+	//	'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') (STRING | 'given' VARTYPE);
 	public ELEMENTIDENTIFIERElements getELEMENTIDENTIFIERAccess() {
 		return pELEMENTIDENTIFIER;
 	}
@@ -999,8 +1004,8 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//VERIFY:
-	//	'verify' 'that' (COUNT | ('PAGE' | 'TEXT') ELEMENTIDENTIFIER?) 'contains' ('LINK' ELEMENTIDENTIFIER | '"'
-	//	value=STRING '"');
+	//	'verify' 'that' (COUNT | ('PAGE' | 'TEXT') ELEMENTIDENTIFIER?) ('contains' (('LINK' | 'IMAGE') ELEMENTIDENTIFIER |
+	//	value=STRING | 'saved' var=VARTYPE) | 'equals' ('saved' var=VARTYPE | value=STRING));
 	public VERIFYElements getVERIFYAccess() {
 		return pVERIFY;
 	}
@@ -1010,7 +1015,7 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PLAY:
-	//	{PLAY} 'play' 'procedure' VARTYPE ('"' params+=STRING '"')*;
+	//	{PLAY} 'play' 'procedure' VARTYPE params+=STRING*;
 	public PLAYElements getPLAYAccess() {
 		return pPLAY;
 	}

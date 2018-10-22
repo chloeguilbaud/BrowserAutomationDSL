@@ -14,6 +14,7 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getVar <em>Var</em>}</li>
  * </ul>
  *
  * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getVERIFY()
@@ -47,5 +48,31 @@ public interface VERIFY extends INSTRUCTION
    * @generated
    */
   void setValue(String value);
+
+  /**
+   * Returns the value of the '<em><b>Var</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Var</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var</em>' attribute.
+   * @see #setVar(String)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getVERIFY_Var()
+   * @model
+   * @generated
+   */
+  String getVar();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getVar <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var</em>' attribute.
+   * @see #getVar()
+   * @generated
+   */
+  void setVar(String value);
 
 } // VERIFY

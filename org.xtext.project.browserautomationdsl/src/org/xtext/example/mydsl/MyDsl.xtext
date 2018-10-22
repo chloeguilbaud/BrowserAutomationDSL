@@ -7,7 +7,7 @@ generate domainmodel "http://www.xtext.org/project/browserautomationdsl/Domainmo
 PROGRAMME:
 	('procedure' name=VARTYPE ('with' (param=VARTYPE) (params+=VARTYPE)* )?
 		(inst+=INSTRUCTION)*
-	)?
+	)*
 ;
 
 INSTRUCTION: 
@@ -19,7 +19,7 @@ INSTRUCTION:
 	| COUNT 
 	| VERIFY
 	| SELECT
-	| GOTO 
+	| {INSTRUCTION} GOTO 
 	| FILL
 	| PLAY
 ;
@@ -29,7 +29,7 @@ OPEN:
 ;
 
 GOTO: 
-	'go' 'to' ('"' (val=VARTYPE) '"' | 'given' (val=VARTYPE))
+	'go to' ('given')? (STRING)
 ;
 
 CLICK: 
@@ -37,7 +37,7 @@ CLICK:
 ;
 
 FILL: 
-	'fill' ('TEXTFIELD' | 'SEARCHFIELD') (ELEMENTIDENTIFIER)? 'with' ('saved' (var=VARTYPE) | '"' (value=STRING) '"')
+	'fill' ('TEXTFIELD' | 'SEARCHFIELD') (ELEMENTIDENTIFIER)? 'with' ('saved' (var=VARTYPE) | (value=STRING))
 ;
 
 CHECK: 
@@ -49,7 +49,7 @@ UNCHECK:
 ;
 
 SELECT: 
-	'select' '"' (elem=STRING) '"' 'in' 'COMBOBOX' (ELEMENTIDENTIFIER)?
+	'select' (elem=STRING) 'in' 'COMBOBOX' (ELEMENTIDENTIFIER)?
 ;
 
 READ:
@@ -57,7 +57,7 @@ READ:
 ;
 
 ELEMENTIDENTIFIER: 
-	'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') '"' STRING '"'
+	'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') (STRING | 'given' VARTYPE)
 ;
 
 COUNT: 
@@ -69,11 +69,11 @@ SAVEVAR:
 ;
 
 VERIFY:
-	'verify' 'that' ( ( COUNT ) | (('PAGE' | 'TEXT') (ELEMENTIDENTIFIER)?) ) 'contains' ((('LINK') ELEMENTIDENTIFIER) | ('"' (value=STRING) '"'))
+	'verify' 'that' ( ( COUNT ) | (('PAGE' | 'TEXT') (ELEMENTIDENTIFIER)?) ) ('contains' ((('LINK' | 'IMAGE') ELEMENTIDENTIFIER) | (value=STRING) | 'saved' (var=VARTYPE)) | ('equals' ('saved' var=VARTYPE | value=STRING)))
 ;
 
 PLAY: 
-	{PLAY} 'play' 'procedure' VARTYPE ('"' params+=STRING '"')*
+	{PLAY} 'play' 'procedure' VARTYPE (params+=STRING)*
 ;
 
 

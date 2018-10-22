@@ -86,11 +86,6 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
         return createINSTRUCTIONAdapter();
       }
       @Override
-      public Adapter caseGOTO(GOTO object)
-      {
-        return createGOTOAdapter();
-      }
-      @Override
       public Adapter caseFILL(FILL object)
       {
         return createFILLAdapter();
@@ -173,21 +168,6 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createINSTRUCTIONAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.GOTO <em>GOTO</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.GOTO
-   * @generated
-   */
-  public Adapter createGOTOAdapter()
   {
     return null;
   }

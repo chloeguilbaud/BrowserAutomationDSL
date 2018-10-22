@@ -226,6 +226,7 @@ public class SAVEVARImpl extends READImpl implements SAVEVAR
       switch (derivedFeatureID)
       {
         case DomainmodelPackage.SAVEVAR__VALUE: return DomainmodelPackage.VERIFY__VALUE;
+        case DomainmodelPackage.SAVEVAR__VAR: return DomainmodelPackage.VERIFY__VAR;
         default: return -1;
       }
     }
@@ -252,6 +253,7 @@ public class SAVEVARImpl extends READImpl implements SAVEVAR
       switch (baseFeatureID)
       {
         case DomainmodelPackage.VERIFY__VALUE: return DomainmodelPackage.SAVEVAR__VALUE;
+        case DomainmodelPackage.VERIFY__VAR: return DomainmodelPackage.SAVEVAR__VAR;
         default: return -1;
       }
     }

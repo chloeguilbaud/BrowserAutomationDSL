@@ -22,6 +22,7 @@ import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl#getVar <em>Var</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +48,26 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
    * @ordered
    */
   protected String value = VALUE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected static final String VAR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected String var = VAR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -97,6 +118,29 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getVar()
+  {
+    return var;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVar(String newVar)
+  {
+    String oldVar = var;
+    var = newVar;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.COUNT__VAR, oldVar, var));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -104,6 +148,8 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
     {
       case DomainmodelPackage.COUNT__VALUE:
         return getValue();
+      case DomainmodelPackage.COUNT__VAR:
+        return getVar();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,6 +166,9 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
     {
       case DomainmodelPackage.COUNT__VALUE:
         setValue((String)newValue);
+        return;
+      case DomainmodelPackage.COUNT__VAR:
+        setVar((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,6 +187,9 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
       case DomainmodelPackage.COUNT__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
+      case DomainmodelPackage.COUNT__VAR:
+        setVar(VAR_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -154,6 +206,8 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
     {
       case DomainmodelPackage.COUNT__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case DomainmodelPackage.COUNT__VAR:
+        return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
     }
     return super.eIsSet(featureID);
   }
@@ -171,6 +225,7 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
       switch (derivedFeatureID)
       {
         case DomainmodelPackage.COUNT__VALUE: return DomainmodelPackage.VERIFY__VALUE;
+        case DomainmodelPackage.COUNT__VAR: return DomainmodelPackage.VERIFY__VAR;
         default: return -1;
       }
     }
@@ -190,6 +245,7 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
       switch (baseFeatureID)
       {
         case DomainmodelPackage.VERIFY__VALUE: return DomainmodelPackage.COUNT__VALUE;
+        case DomainmodelPackage.VERIFY__VAR: return DomainmodelPackage.COUNT__VAR;
         default: return -1;
       }
     }
@@ -209,6 +265,8 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (value: ");
     result.append(value);
+    result.append(", var: ");
+    result.append(var);
     result.append(')');
     return result.toString();
   }

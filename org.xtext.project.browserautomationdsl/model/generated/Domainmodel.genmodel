@@ -13,9 +13,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//PROGRAMME/inst"/>
     </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//INSTRUCTION"/>
-    <genClasses ecoreClass="Domainmodel.ecore#//GOTO">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//GOTO/val"/>
-    </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//FILL">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//FILL/var"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//FILL/value"/>
@@ -25,11 +22,10 @@
     </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//READ"/>
     <genClasses ecoreClass="Domainmodel.ecore#//COUNT"/>
-    <genClasses ecoreClass="Domainmodel.ecore#//SAVEVAR">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//SAVEVAR/var"/>
-    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//SAVEVAR"/>
     <genClasses ecoreClass="Domainmodel.ecore#//VERIFY">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//VERIFY/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//VERIFY/var"/>
     </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//PLAY">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//PLAY/params"/>

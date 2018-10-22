@@ -42,15 +42,6 @@ public interface DomainmodelFactory extends EFactory
   INSTRUCTION createINSTRUCTION();
 
   /**
-   * Returns a new object of class '<em>GOTO</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>GOTO</em>'.
-   * @generated
-   */
-  GOTO createGOTO();
-
-  /**
    * Returns a new object of class '<em>FILL</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

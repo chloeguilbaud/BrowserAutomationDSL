@@ -11,9 +11,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="INSTRUCTION"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GOTO" eSuperTypes="#//INSTRUCTION">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FILL" eSuperTypes="#//INSTRUCTION">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -23,11 +20,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="READ" eSuperTypes="#//INSTRUCTION"/>
   <eClassifiers xsi:type="ecore:EClass" name="COUNT" eSuperTypes="#//INSTRUCTION #//VERIFY"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SAVEVAR" eSuperTypes="#//READ #//COUNT">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SAVEVAR" eSuperTypes="#//READ #//COUNT"/>
   <eClassifiers xsi:type="ecore:EClass" name="VERIFY" eSuperTypes="#//INSTRUCTION">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PLAY" eSuperTypes="#//INSTRUCTION">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="params" unique="false"
