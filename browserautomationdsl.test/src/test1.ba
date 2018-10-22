@@ -1,4 +1,0 @@
-procedure main with param1 coucou
-  open FIREFOX
-  go to "http://www.imt-atlantique.fr/fr"
-  verify that PAGE contains LINK identified by LABEL "Toutes les actualités"
