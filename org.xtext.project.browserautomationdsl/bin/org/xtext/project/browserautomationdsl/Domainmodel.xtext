@@ -2,44 +2,34 @@ grammar org.xtext.project.browserautomationdsl.Domainmodel with org.eclipse.xtex
 
 generate domainmodel "http://www.xtext.org/project/browserautomationdsl/Domainmodel"
 
-Import:
-	'import' importedNamespace=QualifiedImportName
-;
-	
-QualifiedImportName:
-	QualifiedName '.*'?
-;
-	
-QualifiedName:
-	ID ('.' ID)*
-;
+// IMPORT Procédure
 
 PROGRAMME:
-	{PROGRAMME} ('PROCEDURE' name=PROCEDURENAME ('with' (params+=STRING)+)?
+	('procedure' name=VARTYPE ('with' (param=VARTYPE) (params+=VARTYPE)* )?
 		(inst+=INSTRUCTION)*
 	)?
 ;
 
 INSTRUCTION: 
-	{INSTRUCTION} OPEN 
-	| {INSTRUCTION} GOTO 
-	| {INSTRUCTION} CLICK 
-	| {INSTRUCTION} FILL 
+	{INSTRUCTION} OPEN  
+	| {INSTRUCTION} CLICK  
 	| {INSTRUCTION} CHECK 
-	| {INSTRUCTION} UNCHECK 
-	| {INSTRUCTION} SELECT 
-	| {INSTRUCTION} READ 
-	| {INSTRUCTION} COUNT 
-	| {INSTRUCTION} VERIFY 
+	| {INSTRUCTION} UNCHECK  
+	| READ 
+	| COUNT 
+	| VERIFY
+	| SELECT
+	| GOTO 
+	| FILL
 	| PLAY
 ;
 
 OPEN: 
-	'open' ('firefox' | 'chrome')
+	'open' ('FIREFOX' | 'CHROME')
 ;
 
 GOTO: 
-	'go' 'to' (URL | 'given' PARAM)
+	'go' 'to' ('"' (val=VARTYPE) '"' | 'given' (val=VARTYPE))
 ;
 
 CLICK: 
@@ -47,7 +37,7 @@ CLICK:
 ;
 
 FILL: 
-	'fill' ('TEXTFIELD' | 'SEARCHFIELD') (ELEMENTIDENTIFIER)? 'with' ('saved' VARNAME | '"' STRING '"')
+	'fill' ('TEXTFIELD' | 'SEARCHFIELD') (ELEMENTIDENTIFIER)? 'with' ('saved' (var=VARTYPE) | '"' (value=STRING) '"')
 ;
 
 CHECK: 
@@ -59,11 +49,11 @@ UNCHECK:
 ;
 
 SELECT: 
-	'select' '"' STRING '"' 'in' 'COMBOBOX' (ELEMENTIDENTIFIER)?
+	'select' '"' (elem=STRING) '"' 'in' 'COMBOBOX' (ELEMENTIDENTIFIER)?
 ;
 
 READ:
-	'read' 'url' 'from' ('BUTTON' | 'LINK' | 'IMAGE' | 'TEXT') ELEMENTIDENTIFIER (SAVEVAR)?
+	{READ} 'read' 'url' 'from' ('BUTTON' | 'LINK' | 'IMAGE' | 'TEXT') ELEMENTIDENTIFIER (SAVEVAR)?
 ;
 
 ELEMENTIDENTIFIER: 
@@ -71,39 +61,39 @@ ELEMENTIDENTIFIER:
 ;
 
 COUNT: 
-	'count' 'ELEMENT' ELEMENTIDENTIFIER (SAVEVAR)?
+	{COUNT} 'count' 'ELEMENT' ELEMENTIDENTIFIER (SAVEVAR)?
 ;
 
 SAVEVAR: 
-	'and' 'save' 'in' VARNAME
+	'and' 'save' 'in' (var=VARTYPE)
 ;
 
 VERIFY:
-	'verify' 'that' ( (COUNT) | (('PAGE' | 'TEXT') (ELEMENTIDENTIFIER)?) ) 'contains' '"' STRING '"'
+	'verify' 'that' ( ( COUNT ) | (('PAGE' | 'TEXT') (ELEMENTIDENTIFIER)?) ) 'contains' ((('LINK') ELEMENTIDENTIFIER) | ('"' (value=STRING) '"'))
 ;
 
 PLAY: 
-	{PLAY} 'play' 'procedure' PROCEDURENAME ('"' params+=STRING '"')*
+	{PLAY} 'play' 'procedure' VARTYPE ('"' params+=STRING '"')*
 ;
 
 
 
-PROCEDURENAME: 
-	VAR
+/*terminal PROCEDURENAME: 
+	(('A'..'Z')|('a'..'z')|('0'..'9')|'_'|'-')*
 ;
 
-PARAM: 
-	VAR
+terminal PARAMTYPE: 
+	(('A'..'Z')|('a'..'z')|('0'..'9')|'_'|'-')*
 ;
 
 terminal URL: 
-	STRING
+	'http' STRING
 ;
 
-terminal VARNAME: 
-	VAR
-;
-
-terminal VAR: 
+terminal VARNAMETYPE: 
 	(('A'..'Z')|('a'..'z')|('0'..'9')|'_'|'-')*
+;*/
+
+terminal VARTYPE: 
+	(('A'..'Z')|('a'..'z')|INT|'_'|'-')*
 ;
