@@ -1,0 +1,7 @@
+procedure main
+  open FIREFOX
+  go to "http://www.imt-atlantique.fr/fr"
+  fill SEARCHFIELD with "2007"
+  select "Le mois dernier" in COMBOBOX
+  click on BUTTON identified by LABEL "Appliquer les filtres"
+  verify that PAGE contains "Aucun réultat ne correspond à votre recherche"
