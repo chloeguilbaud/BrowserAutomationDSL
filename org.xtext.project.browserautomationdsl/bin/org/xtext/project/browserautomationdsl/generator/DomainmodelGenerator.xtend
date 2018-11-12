@@ -3,10 +3,14 @@
  */
 package org.xtext.project.browserautomationdsl.generator
 
+import com.google.inject.Inject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+
+import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME;
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +19,28 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class DomainmodelGenerator extends AbstractGenerator {
 
+	@Inject extension IQualifiedNameProvider
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		for (p : resource.allContents.toIterable.filter(PROGRAMME)) {
+            	fsa.generateFile(
+	        	    p.fullyQualifiedName.toString("/") + ".java",
+    		        p.compile);
+        }
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
 //			resource.allContents
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
 	}
+	
+	def compile(PROGRAMME p) '''
+    	«IF p.eContainer.fullyQualifiedName !== null»
+    		package «p.eContainer.fullyQualifiedName»;
+    	«ENDIF»
+	   		     
+    	 public class «p.name» «IF p.superType !== null
+			»extends «p.superType.fullyQualifiedName» «ENDIF»{
+    	    }
+	'''
+	
 }

@@ -2,8 +2,6 @@ grammar org.xtext.project.browserautomationdsl.Domainmodel with org.eclipse.xtex
 
 generate domainmodel "http://www.xtext.org/project/browserautomationdsl/Domainmodel"
 
-// IMPORT Procédure
-
 PROGRAMME:
 	('procedure' name=VARTYPE ('with' (param=VARTYPE) (params+=VARTYPE)* )?
 		(inst+=INSTRUCTION)*
@@ -75,24 +73,6 @@ VERIFY:
 PLAY: 
 	{PLAY} 'play' 'procedure' VARTYPE (params+=STRING)*
 ;
-
-
-
-/*terminal PROCEDURENAME: 
-	(('A'..'Z')|('a'..'z')|('0'..'9')|'_'|'-')*
-;
-
-terminal PARAMTYPE: 
-	(('A'..'Z')|('a'..'z')|('0'..'9')|'_'|'-')*
-;
-
-terminal URL: 
-	'http' STRING
-;
-
-terminal VARNAMETYPE: 
-	(('A'..'Z')|('a'..'z')|('0'..'9')|'_'|'-')*
-;*/
 
 terminal VARTYPE: 
 	(('A'..'Z')|('a'..'z')|INT|'_'|'-')*

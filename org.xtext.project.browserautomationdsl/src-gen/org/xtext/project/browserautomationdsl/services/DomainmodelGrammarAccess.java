@@ -38,7 +38,6 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cInstAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cInstINSTRUCTIONParserRuleCall_3_0 = (RuleCall)cInstAssignment_3.eContents().get(0);
 		
-		//// IMPORT Procédure
 		//PROGRAMME:
 		//	('procedure' name=VARTYPE ('with' param=VARTYPE params+=VARTYPE*)?
 		//	inst+=INSTRUCTION*)*;
@@ -861,7 +860,6 @@ public class DomainmodelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//// IMPORT Procédure
 	//PROGRAMME:
 	//	('procedure' name=VARTYPE ('with' param=VARTYPE params+=VARTYPE*)?
 	//	inst+=INSTRUCTION*)*;
