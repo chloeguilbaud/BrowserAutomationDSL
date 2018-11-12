@@ -1,0 +1,4 @@
+procedure main
+  open FIREFOX
+  go to given 'http://www.imt-atlantique.fr/fr'
+  verify that PAGE contains LINK identified by LABEL "Toutes les actualités"
