@@ -5,7 +5,6 @@ package org.xtext.project.browserautomationdsl.domainmodel.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,15 +12,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
-import org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION;
+import org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE;
 import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME;
 
 /**
@@ -32,10 +29,7 @@ import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.PROGRAMMEImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.PROGRAMMEImpl#getParam <em>Param</em>}</li>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.PROGRAMMEImpl#getParams <em>Params</em>}</li>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.PROGRAMMEImpl#getInst <em>Inst</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.PROGRAMMEImpl#getProcedures <em>Procedures</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,64 +37,14 @@ import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME;
 public class PROGRAMMEImpl extends MinimalEObjectImpl.Container implements PROGRAMME
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getProcedures() <em>Procedures</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getProcedures()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getParam() <em>Param</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParam()
-   * @generated
-   * @ordered
-   */
-  protected static final String PARAM_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getParam() <em>Param</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParam()
-   * @generated
-   * @ordered
-   */
-  protected String param = PARAM_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getParams() <em>Params</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParams()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> params;
-
-  /**
-   * The cached value of the '{@link #getInst() <em>Inst</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInst()
-   * @generated
-   * @ordered
-   */
-  protected EList<INSTRUCTION> inst;
+  protected EList<PROCEDURE> procedures;
 
   /**
    * <!-- begin-user-doc -->
@@ -128,73 +72,13 @@ public class PROGRAMMEImpl extends MinimalEObjectImpl.Container implements PROGR
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<PROCEDURE> getProcedures()
   {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.PROGRAMME__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getParam()
-  {
-    return param;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParam(String newParam)
-  {
-    String oldParam = param;
-    param = newParam;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.PROGRAMME__PARAM, oldParam, param));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<String> getParams()
-  {
-    if (params == null)
+    if (procedures == null)
     {
-      params = new EDataTypeEList<String>(String.class, this, DomainmodelPackage.PROGRAMME__PARAMS);
+      procedures = new EObjectContainmentEList<PROCEDURE>(PROCEDURE.class, this, DomainmodelPackage.PROGRAMME__PROCEDURES);
     }
-    return params;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<INSTRUCTION> getInst()
-  {
-    if (inst == null)
-    {
-      inst = new EObjectContainmentEList<INSTRUCTION>(INSTRUCTION.class, this, DomainmodelPackage.PROGRAMME__INST);
-    }
-    return inst;
+    return procedures;
   }
 
   /**
@@ -207,8 +91,8 @@ public class PROGRAMMEImpl extends MinimalEObjectImpl.Container implements PROGR
   {
     switch (featureID)
     {
-      case DomainmodelPackage.PROGRAMME__INST:
-        return ((InternalEList<?>)getInst()).basicRemove(otherEnd, msgs);
+      case DomainmodelPackage.PROGRAMME__PROCEDURES:
+        return ((InternalEList<?>)getProcedures()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -223,14 +107,8 @@ public class PROGRAMMEImpl extends MinimalEObjectImpl.Container implements PROGR
   {
     switch (featureID)
     {
-      case DomainmodelPackage.PROGRAMME__NAME:
-        return getName();
-      case DomainmodelPackage.PROGRAMME__PARAM:
-        return getParam();
-      case DomainmodelPackage.PROGRAMME__PARAMS:
-        return getParams();
-      case DomainmodelPackage.PROGRAMME__INST:
-        return getInst();
+      case DomainmodelPackage.PROGRAMME__PROCEDURES:
+        return getProcedures();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -246,19 +124,9 @@ public class PROGRAMMEImpl extends MinimalEObjectImpl.Container implements PROGR
   {
     switch (featureID)
     {
-      case DomainmodelPackage.PROGRAMME__NAME:
-        setName((String)newValue);
-        return;
-      case DomainmodelPackage.PROGRAMME__PARAM:
-        setParam((String)newValue);
-        return;
-      case DomainmodelPackage.PROGRAMME__PARAMS:
-        getParams().clear();
-        getParams().addAll((Collection<? extends String>)newValue);
-        return;
-      case DomainmodelPackage.PROGRAMME__INST:
-        getInst().clear();
-        getInst().addAll((Collection<? extends INSTRUCTION>)newValue);
+      case DomainmodelPackage.PROGRAMME__PROCEDURES:
+        getProcedures().clear();
+        getProcedures().addAll((Collection<? extends PROCEDURE>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -274,17 +142,8 @@ public class PROGRAMMEImpl extends MinimalEObjectImpl.Container implements PROGR
   {
     switch (featureID)
     {
-      case DomainmodelPackage.PROGRAMME__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case DomainmodelPackage.PROGRAMME__PARAM:
-        setParam(PARAM_EDEFAULT);
-        return;
-      case DomainmodelPackage.PROGRAMME__PARAMS:
-        getParams().clear();
-        return;
-      case DomainmodelPackage.PROGRAMME__INST:
-        getInst().clear();
+      case DomainmodelPackage.PROGRAMME__PROCEDURES:
+        getProcedures().clear();
         return;
     }
     super.eUnset(featureID);
@@ -300,37 +159,10 @@ public class PROGRAMMEImpl extends MinimalEObjectImpl.Container implements PROGR
   {
     switch (featureID)
     {
-      case DomainmodelPackage.PROGRAMME__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainmodelPackage.PROGRAMME__PARAM:
-        return PARAM_EDEFAULT == null ? param != null : !PARAM_EDEFAULT.equals(param);
-      case DomainmodelPackage.PROGRAMME__PARAMS:
-        return params != null && !params.isEmpty();
-      case DomainmodelPackage.PROGRAMME__INST:
-        return inst != null && !inst.isEmpty();
+      case DomainmodelPackage.PROGRAMME__PROCEDURES:
+        return procedures != null && !procedures.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", param: ");
-    result.append(param);
-    result.append(", params: ");
-    result.append(params);
-    result.append(')');
-    return result.toString();
   }
 
 } //PROGRAMMEImpl

@@ -66,13 +66,19 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
     switch (eClass.getClassifierID())
     {
       case DomainmodelPackage.PROGRAMME: return createPROGRAMME();
+      case DomainmodelPackage.PROCEDURE: return createPROCEDURE();
       case DomainmodelPackage.INSTRUCTION: return createINSTRUCTION();
+      case DomainmodelPackage.OPEN: return createOPEN();
+      case DomainmodelPackage.GOTO: return createGOTO();
+      case DomainmodelPackage.CLICK: return createCLICK();
       case DomainmodelPackage.FILL: return createFILL();
+      case DomainmodelPackage.CHECK: return createCHECK();
+      case DomainmodelPackage.UNCHECK: return createUNCHECK();
       case DomainmodelPackage.SELECT: return createSELECT();
       case DomainmodelPackage.READ: return createREAD();
+      case DomainmodelPackage.VERIFY: return createVERIFY();
       case DomainmodelPackage.COUNT: return createCOUNT();
       case DomainmodelPackage.SAVEVAR: return createSAVEVAR();
-      case DomainmodelPackage.VERIFY: return createVERIFY();
       case DomainmodelPackage.PLAY: return createPLAY();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -95,6 +101,17 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * <!-- end-user-doc -->
    * @generated
    */
+  public PROCEDURE createPROCEDURE()
+  {
+    PROCEDUREImpl procedure = new PROCEDUREImpl();
+    return procedure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public INSTRUCTION createINSTRUCTION()
   {
     INSTRUCTIONImpl instruction = new INSTRUCTIONImpl();
@@ -106,10 +123,65 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * <!-- end-user-doc -->
    * @generated
    */
+  public OPEN createOPEN()
+  {
+    OPENImpl open = new OPENImpl();
+    return open;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GOTO createGOTO()
+  {
+    GOTOImpl goto_ = new GOTOImpl();
+    return goto_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CLICK createCLICK()
+  {
+    CLICKImpl click = new CLICKImpl();
+    return click;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public FILL createFILL()
   {
     FILLImpl fill = new FILLImpl();
     return fill;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CHECK createCHECK()
+  {
+    CHECKImpl check = new CHECKImpl();
+    return check;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UNCHECK createUNCHECK()
+  {
+    UNCHECKImpl uncheck = new UNCHECKImpl();
+    return uncheck;
   }
 
   /**
@@ -139,6 +211,17 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * <!-- end-user-doc -->
    * @generated
    */
+  public VERIFY createVERIFY()
+  {
+    VERIFYImpl verify = new VERIFYImpl();
+    return verify;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public COUNT createCOUNT()
   {
     COUNTImpl count = new COUNTImpl();
@@ -154,17 +237,6 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
   {
     SAVEVARImpl savevar = new SAVEVARImpl();
     return savevar;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VERIFY createVERIFY()
-  {
-    VERIFYImpl verify = new VERIFYImpl();
-    return verify;
   }
 
   /**

@@ -9,10 +9,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.project.browserautomationdsl.domainmodel.COUNT;
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
 import org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR;
-import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +20,6 @@ import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.SAVEVARImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.SAVEVARImpl#getVar <em>Var</em>}</li>
  * </ul>
  *
@@ -30,26 +27,6 @@ import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
  */
 public class SAVEVARImpl extends READImpl implements SAVEVAR
 {
-  /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
-
   /**
    * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -96,29 +73,6 @@ public class SAVEVARImpl extends READImpl implements SAVEVAR
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.SAVEVAR__VALUE, oldValue, value));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getVar()
   {
     return var;
@@ -147,8 +101,6 @@ public class SAVEVARImpl extends READImpl implements SAVEVAR
   {
     switch (featureID)
     {
-      case DomainmodelPackage.SAVEVAR__VALUE:
-        return getValue();
       case DomainmodelPackage.SAVEVAR__VAR:
         return getVar();
     }
@@ -165,9 +117,6 @@ public class SAVEVARImpl extends READImpl implements SAVEVAR
   {
     switch (featureID)
     {
-      case DomainmodelPackage.SAVEVAR__VALUE:
-        setValue((String)newValue);
-        return;
       case DomainmodelPackage.SAVEVAR__VAR:
         setVar((String)newValue);
         return;
@@ -185,9 +134,6 @@ public class SAVEVARImpl extends READImpl implements SAVEVAR
   {
     switch (featureID)
     {
-      case DomainmodelPackage.SAVEVAR__VALUE:
-        setValue(VALUE_EDEFAULT);
-        return;
       case DomainmodelPackage.SAVEVAR__VAR:
         setVar(VAR_EDEFAULT);
         return;
@@ -205,66 +151,10 @@ public class SAVEVARImpl extends READImpl implements SAVEVAR
   {
     switch (featureID)
     {
-      case DomainmodelPackage.SAVEVAR__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
       case DomainmodelPackage.SAVEVAR__VAR:
         return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == VERIFY.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case DomainmodelPackage.SAVEVAR__VALUE: return DomainmodelPackage.VERIFY__VALUE;
-        case DomainmodelPackage.SAVEVAR__VAR: return DomainmodelPackage.VERIFY__VAR;
-        default: return -1;
-      }
-    }
-    if (baseClass == COUNT.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == VERIFY.class)
-    {
-      switch (baseFeatureID)
-      {
-        case DomainmodelPackage.VERIFY__VALUE: return DomainmodelPackage.SAVEVAR__VALUE;
-        case DomainmodelPackage.VERIFY__VAR: return DomainmodelPackage.SAVEVAR__VAR;
-        default: return -1;
-      }
-    }
-    if (baseClass == COUNT.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -278,9 +168,7 @@ public class SAVEVARImpl extends READImpl implements SAVEVAR
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(", var: ");
+    result.append(" (var: ");
     result.append(var);
     result.append(')');
     return result.toString();

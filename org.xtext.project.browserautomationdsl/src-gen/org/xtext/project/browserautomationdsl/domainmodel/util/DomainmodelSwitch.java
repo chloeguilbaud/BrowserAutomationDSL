@@ -80,10 +80,41 @@ public class DomainmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainmodelPackage.PROCEDURE:
+      {
+        PROCEDURE procedure = (PROCEDURE)theEObject;
+        T result = casePROCEDURE(procedure);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainmodelPackage.INSTRUCTION:
       {
         INSTRUCTION instruction = (INSTRUCTION)theEObject;
         T result = caseINSTRUCTION(instruction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.OPEN:
+      {
+        OPEN open = (OPEN)theEObject;
+        T result = caseOPEN(open);
+        if (result == null) result = caseINSTRUCTION(open);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.GOTO:
+      {
+        GOTO goto_ = (GOTO)theEObject;
+        T result = caseGOTO(goto_);
+        if (result == null) result = caseINSTRUCTION(goto_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.CLICK:
+      {
+        CLICK click = (CLICK)theEObject;
+        T result = caseCLICK(click);
+        if (result == null) result = caseINSTRUCTION(click);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,6 +123,22 @@ public class DomainmodelSwitch<T> extends Switch<T>
         FILL fill = (FILL)theEObject;
         T result = caseFILL(fill);
         if (result == null) result = caseINSTRUCTION(fill);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.CHECK:
+      {
+        CHECK check = (CHECK)theEObject;
+        T result = caseCHECK(check);
+        if (result == null) result = caseINSTRUCTION(check);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.UNCHECK:
+      {
+        UNCHECK uncheck = (UNCHECK)theEObject;
+        T result = caseUNCHECK(uncheck);
+        if (result == null) result = caseINSTRUCTION(uncheck);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -111,11 +158,18 @@ public class DomainmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainmodelPackage.VERIFY:
+      {
+        VERIFY verify = (VERIFY)theEObject;
+        T result = caseVERIFY(verify);
+        if (result == null) result = caseINSTRUCTION(verify);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainmodelPackage.COUNT:
       {
         COUNT count = (COUNT)theEObject;
         T result = caseCOUNT(count);
-        if (result == null) result = caseVERIFY(count);
         if (result == null) result = caseINSTRUCTION(count);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -126,16 +180,7 @@ public class DomainmodelSwitch<T> extends Switch<T>
         T result = caseSAVEVAR(savevar);
         if (result == null) result = caseREAD(savevar);
         if (result == null) result = caseCOUNT(savevar);
-        if (result == null) result = caseVERIFY(savevar);
         if (result == null) result = caseINSTRUCTION(savevar);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.VERIFY:
-      {
-        VERIFY verify = (VERIFY)theEObject;
-        T result = caseVERIFY(verify);
-        if (result == null) result = caseINSTRUCTION(verify);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -168,6 +213,22 @@ public class DomainmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>PROCEDURE</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>PROCEDURE</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePROCEDURE(PROCEDURE object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>INSTRUCTION</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -184,6 +245,54 @@ public class DomainmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>OPEN</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>OPEN</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOPEN(OPEN object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>GOTO</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>GOTO</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGOTO(GOTO object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>CLICK</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>CLICK</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCLICK(CLICK object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>FILL</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -195,6 +304,38 @@ public class DomainmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFILL(FILL object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>CHECK</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>CHECK</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCHECK(CHECK object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UNCHECK</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UNCHECK</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUNCHECK(UNCHECK object)
   {
     return null;
   }
@@ -232,6 +373,22 @@ public class DomainmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>VERIFY</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>VERIFY</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVERIFY(VERIFY object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>COUNT</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -259,22 +416,6 @@ public class DomainmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSAVEVAR(SAVEVAR object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>VERIFY</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>VERIFY</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVERIFY(VERIFY object)
   {
     return null;
   }

@@ -4,11 +4,14 @@
 package org.xtext.project.browserautomationdsl.domainmodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.xtext.project.browserautomationdsl.domainmodel.COUNT;
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
 import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
 
@@ -20,6 +23,7 @@ import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl#getCount <em>Count</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl#getVar <em>Var</em>}</li>
  * </ul>
@@ -28,6 +32,16 @@ import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
  */
 public class VERIFYImpl extends INSTRUCTIONImpl implements VERIFY
 {
+  /**
+   * The cached value of the '{@link #getCount() <em>Count</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCount()
+   * @generated
+   * @ordered
+   */
+  protected COUNT count;
+
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -94,6 +108,54 @@ public class VERIFYImpl extends INSTRUCTIONImpl implements VERIFY
    * <!-- end-user-doc -->
    * @generated
    */
+  public COUNT getCount()
+  {
+    return count;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCount(COUNT newCount, NotificationChain msgs)
+  {
+    COUNT oldCount = count;
+    count = newCount;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainmodelPackage.VERIFY__COUNT, oldCount, newCount);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCount(COUNT newCount)
+  {
+    if (newCount != count)
+    {
+      NotificationChain msgs = null;
+      if (count != null)
+        msgs = ((InternalEObject)count).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.VERIFY__COUNT, null, msgs);
+      if (newCount != null)
+        msgs = ((InternalEObject)newCount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.VERIFY__COUNT, null, msgs);
+      msgs = basicSetCount(newCount, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.VERIFY__COUNT, newCount, newCount));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getValue()
   {
     return value;
@@ -141,10 +203,28 @@ public class VERIFYImpl extends INSTRUCTIONImpl implements VERIFY
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.VERIFY__COUNT:
+        return basicSetCount(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case DomainmodelPackage.VERIFY__COUNT:
+        return getCount();
       case DomainmodelPackage.VERIFY__VALUE:
         return getValue();
       case DomainmodelPackage.VERIFY__VAR:
@@ -163,6 +243,9 @@ public class VERIFYImpl extends INSTRUCTIONImpl implements VERIFY
   {
     switch (featureID)
     {
+      case DomainmodelPackage.VERIFY__COUNT:
+        setCount((COUNT)newValue);
+        return;
       case DomainmodelPackage.VERIFY__VALUE:
         setValue((String)newValue);
         return;
@@ -183,6 +266,9 @@ public class VERIFYImpl extends INSTRUCTIONImpl implements VERIFY
   {
     switch (featureID)
     {
+      case DomainmodelPackage.VERIFY__COUNT:
+        setCount((COUNT)null);
+        return;
       case DomainmodelPackage.VERIFY__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
@@ -203,6 +289,8 @@ public class VERIFYImpl extends INSTRUCTIONImpl implements VERIFY
   {
     switch (featureID)
     {
+      case DomainmodelPackage.VERIFY__COUNT:
+        return count != null;
       case DomainmodelPackage.VERIFY__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
       case DomainmodelPackage.VERIFY__VAR:

@@ -9,8 +9,20 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.naming.IQualifiedNameProvider
-
-import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME;
+import org.xtext.project.browserautomationdsl.domainmodel.CHECK
+import org.xtext.project.browserautomationdsl.domainmodel.CLICK
+import org.xtext.project.browserautomationdsl.domainmodel.COUNT
+import org.xtext.project.browserautomationdsl.domainmodel.FILL
+import org.xtext.project.browserautomationdsl.domainmodel.GOTO
+import org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION
+import org.xtext.project.browserautomationdsl.domainmodel.OPEN
+import org.xtext.project.browserautomationdsl.domainmodel.PLAY
+import org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE
+import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME
+import org.xtext.project.browserautomationdsl.domainmodel.READ
+import org.xtext.project.browserautomationdsl.domainmodel.SELECT
+import org.xtext.project.browserautomationdsl.domainmodel.UNCHECK
+import org.xtext.project.browserautomationdsl.domainmodel.VERIFY
 
 /**
  * Generates code from your model files on save.
@@ -23,24 +35,98 @@ class DomainmodelGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (p : resource.allContents.toIterable.filter(PROGRAMME)) {
             	fsa.generateFile(
-	        	    p.fullyQualifiedName.toString("/") + ".java",
-    		        p.compile);
+	        	    resource.getURI.lastSegment.substring(0, resource.getURI.lastSegment.indexOf(".ba")) + ".java",
+    		        p.compile(resource.getURI.lastSegment.substring(0, resource.getURI.lastSegment.indexOf(".ba"))));
         }
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
 	}
 	
-	def compile(PROGRAMME p) '''
-    	«IF p.eContainer.fullyQualifiedName !== null»
-    		package «p.eContainer.fullyQualifiedName»;
-    	«ENDIF»
-	   		     
-    	 public class «p.name» «IF p.superType !== null
-			»extends «p.superType.fullyQualifiedName» «ENDIF»{
-    	    }
+	def compile(PROGRAMME p, String s) '''
+    	 public class «s» {
+    	 	«FOR f : p.getProcedures()»
+    	 		  «f.compile»
+    	 	«ENDFOR»
+    	}
 	'''
 	
+	def compile(PROCEDURE p) '''
+			public void « p.name »(«IF p.param !== null
+				»String «p.param»«ENDIF»«FOR param : p.params», String «param»«ENDFOR») {
+				«FOR inst : p.inst»
+					«inst.compile»
+				«ENDFOR»
+			}
+	'''
+	
+	def compile(INSTRUCTION i) '''
+				«IF i instanceof OPEN»
+					«i.compile»
+				«ELSEIF i instanceof CLICK»
+					«i.compile»
+				«ELSEIF i instanceof CHECK»
+					«i.compile»
+				«ELSEIF i instanceof UNCHECK»
+					«i.compile»
+				«ELSEIF i instanceof READ»
+					«i.compile»
+				«ELSEIF i instanceof COUNT»
+					«i.compile»
+				«ELSEIF i instanceof VERIFY»
+					«i.compile»
+				«ELSEIF i instanceof SELECT»
+					«i.compile»
+				«ELSEIF i instanceof GOTO»
+					«i.compile»
+				«ELSEIF i instanceof FILL»
+					«i.compile»
+				«ELSEIF i instanceof PLAY»
+					«i.compile»
+				«ENDIF»
+	'''
+	
+	def compile(OPEN o) '''
+					WebDriver driver = new «IF o.value == "FIREFOX"
+						»FirefoxDriver();
+					«ELSE»ChromeDriver();«ENDIF»
+	'''
+	
+	def compile(CLICK c) '''
+					«c.name»
+	'''
+	
+	def compile(CHECK c) '''
+					«c.name»
+	'''
+	
+	def compile(UNCHECK u) '''
+					«u.name»
+	'''
+	
+	def compile(READ r) '''
+					«r.name»
+	'''
+	
+	def compile(COUNT c) '''
+					«c.name»
+	'''
+	
+	def compile(VERIFY v) '''
+					«v.name»
+					WebElement element = driver.findElement(By.name("q"));
+	'''
+	
+	def compile(SELECT s) '''
+					«s.name»
+	'''
+	
+	def compile(GOTO g) '''
+					driver.get("«g.value»");
+	'''
+	
+	def compile(FILL o) '''
+					«o.name»
+	'''
+	
+	def compile(PLAY o) '''
+					«o.name»
+	'''
 }

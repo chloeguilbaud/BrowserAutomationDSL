@@ -3,72 +3,20 @@
  */
 package org.xtext.project.browserautomationdsl.domainmodel.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.project.browserautomationdsl.domainmodel.COUNT;
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
-import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>COUNT</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl#getVar <em>Var</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
 {
-  /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVar()
-   * @generated
-   * @ordered
-   */
-  protected static final String VAR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVar()
-   * @generated
-   * @ordered
-   */
-  protected String var = VAR_EDEFAULT;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -88,187 +36,6 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
   protected EClass eStaticClass()
   {
     return DomainmodelPackage.Literals.COUNT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.COUNT__VALUE, oldValue, value));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getVar()
-  {
-    return var;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVar(String newVar)
-  {
-    String oldVar = var;
-    var = newVar;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.COUNT__VAR, oldVar, var));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case DomainmodelPackage.COUNT__VALUE:
-        return getValue();
-      case DomainmodelPackage.COUNT__VAR:
-        return getVar();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case DomainmodelPackage.COUNT__VALUE:
-        setValue((String)newValue);
-        return;
-      case DomainmodelPackage.COUNT__VAR:
-        setVar((String)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case DomainmodelPackage.COUNT__VALUE:
-        setValue(VALUE_EDEFAULT);
-        return;
-      case DomainmodelPackage.COUNT__VAR:
-        setVar(VAR_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case DomainmodelPackage.COUNT__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-      case DomainmodelPackage.COUNT__VAR:
-        return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
-    }
-    return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == VERIFY.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case DomainmodelPackage.COUNT__VALUE: return DomainmodelPackage.VERIFY__VALUE;
-        case DomainmodelPackage.COUNT__VAR: return DomainmodelPackage.VERIFY__VAR;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == VERIFY.class)
-    {
-      switch (baseFeatureID)
-      {
-        case DomainmodelPackage.VERIFY__VALUE: return DomainmodelPackage.COUNT__VALUE;
-        case DomainmodelPackage.VERIFY__VAR: return DomainmodelPackage.COUNT__VAR;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(", var: ");
-    result.append(var);
-    result.append(')');
-    return result.toString();
   }
 
 } //COUNTImpl

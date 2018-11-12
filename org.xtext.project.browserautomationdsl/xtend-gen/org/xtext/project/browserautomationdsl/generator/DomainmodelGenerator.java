@@ -3,17 +3,33 @@
  */
 package org.xtext.project.browserautomationdsl.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.project.browserautomationdsl.domainmodel.CHECK;
+import org.xtext.project.browserautomationdsl.domainmodel.CLICK;
+import org.xtext.project.browserautomationdsl.domainmodel.COUNT;
+import org.xtext.project.browserautomationdsl.domainmodel.FILL;
+import org.xtext.project.browserautomationdsl.domainmodel.GOTO;
+import org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION;
+import org.xtext.project.browserautomationdsl.domainmodel.OPEN;
+import org.xtext.project.browserautomationdsl.domainmodel.PLAY;
+import org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE;
 import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME;
+import org.xtext.project.browserautomationdsl.domainmodel.READ;
+import org.xtext.project.browserautomationdsl.domainmodel.SELECT;
+import org.xtext.project.browserautomationdsl.domainmodel.UNCHECK;
+import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
 
 /**
  * Generates code from your model files on save.
@@ -30,18 +46,242 @@ public class DomainmodelGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     Iterable<PROGRAMME> _filter = Iterables.<PROGRAMME>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), PROGRAMME.class);
     for (final PROGRAMME p : _filter) {
-      String _string = this._iQualifiedNameProvider.getFullyQualifiedName(p).toString("/");
-      String _plus = (_string + ".java");
+      String _substring = resource.getURI().lastSegment().substring(0, resource.getURI().lastSegment().indexOf(".ba"));
+      String _plus = (_substring + ".java");
       fsa.generateFile(_plus, 
-        this.compile(p));
+        this.compile(p, resource.getURI().lastSegment().substring(0, resource.getURI().lastSegment().indexOf(".ba"))));
     }
   }
   
-  public CharSequence compile(final PROGRAMME p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field superType is undefined for the type PROGRAMME"
-      + "\nThe method or field superType is undefined for the type PROGRAMME"
-      + "\n!== cannot be resolved"
-      + "\nfullyQualifiedName cannot be resolved");
+  public CharSequence compile(final PROGRAMME p, final String s) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("public class ");
+    _builder.append(s, " ");
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<PROCEDURE> _procedures = p.getProcedures();
+      for(final PROCEDURE f : _procedures) {
+        _builder.append(" \t");
+        CharSequence _compile = this.compile(f);
+        _builder.append(_compile, " \t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final PROCEDURE p) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public void ");
+    String _name = p.getName();
+    _builder.append(_name);
+    _builder.append("(");
+    {
+      String _param = p.getParam();
+      boolean _tripleNotEquals = (_param != null);
+      if (_tripleNotEquals) {
+        _builder.append("String ");
+        String _param_1 = p.getParam();
+        _builder.append(_param_1);
+      }
+    }
+    {
+      EList<String> _params = p.getParams();
+      for(final String param : _params) {
+        _builder.append(", String ");
+        _builder.append(param);
+      }
+    }
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<INSTRUCTION> _inst = p.getInst();
+      for(final INSTRUCTION inst : _inst) {
+        _builder.append("\t");
+        CharSequence _compile = this.compile(inst);
+        _builder.append(_compile, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final INSTRUCTION i) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((i instanceof OPEN)) {
+        CharSequence _compile = this.compile(((OPEN)i));
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      } else {
+        if ((i instanceof CLICK)) {
+          CharSequence _compile_1 = this.compile(((CLICK)i));
+          _builder.append(_compile_1);
+          _builder.newLineIfNotEmpty();
+        } else {
+          if ((i instanceof CHECK)) {
+            CharSequence _compile_2 = this.compile(((CHECK)i));
+            _builder.append(_compile_2);
+            _builder.newLineIfNotEmpty();
+          } else {
+            if ((i instanceof UNCHECK)) {
+              CharSequence _compile_3 = this.compile(((UNCHECK)i));
+              _builder.append(_compile_3);
+              _builder.newLineIfNotEmpty();
+            } else {
+              if ((i instanceof READ)) {
+                CharSequence _compile_4 = this.compile(((READ)i));
+                _builder.append(_compile_4);
+                _builder.newLineIfNotEmpty();
+              } else {
+                if ((i instanceof COUNT)) {
+                  CharSequence _compile_5 = this.compile(((COUNT)i));
+                  _builder.append(_compile_5);
+                  _builder.newLineIfNotEmpty();
+                } else {
+                  if ((i instanceof VERIFY)) {
+                    CharSequence _compile_6 = this.compile(((VERIFY)i));
+                    _builder.append(_compile_6);
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    if ((i instanceof SELECT)) {
+                      CharSequence _compile_7 = this.compile(((SELECT)i));
+                      _builder.append(_compile_7);
+                      _builder.newLineIfNotEmpty();
+                    } else {
+                      if ((i instanceof GOTO)) {
+                        CharSequence _compile_8 = this.compile(((GOTO)i));
+                        _builder.append(_compile_8);
+                        _builder.newLineIfNotEmpty();
+                      } else {
+                        if ((i instanceof FILL)) {
+                          CharSequence _compile_9 = this.compile(((FILL)i));
+                          _builder.append(_compile_9);
+                          _builder.newLineIfNotEmpty();
+                        } else {
+                          if ((i instanceof PLAY)) {
+                            CharSequence _compile_10 = this.compile(((PLAY)i));
+                            _builder.append(_compile_10);
+                            _builder.newLineIfNotEmpty();
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final OPEN o) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("WebDriver driver = new ");
+    {
+      String _value = o.getValue();
+      boolean _equals = Objects.equal(_value, "FIREFOX");
+      if (_equals) {
+        _builder.append("FirefoxDriver();");
+        _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("ChromeDriver();");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final CLICK c) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = c.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final CHECK c) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = c.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final UNCHECK u) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = u.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final READ r) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = r.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final COUNT c) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = c.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final VERIFY v) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = v.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    _builder.append("WebElement element = driver.findElement(By.name(\"q\"));");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final SELECT s) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = s.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final GOTO g) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("driver.get(\"");
+    String _value = g.getValue();
+    _builder.append(_value);
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final FILL o) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = o.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final PLAY o) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = o.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
 }

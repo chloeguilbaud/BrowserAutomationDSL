@@ -16,10 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getParam <em>Param</em>}</li>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getParams <em>Params</em>}</li>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getInst <em>Inst</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getProcedures <em>Procedures</em>}</li>
  * </ul>
  *
  * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getPROGRAMME()
@@ -29,87 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface PROGRAMME extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Procedures</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Procedures</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getPROGRAMME_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Param</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Param</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Param</em>' attribute.
-   * @see #setParam(String)
-   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getPROGRAMME_Param()
-   * @model
-   * @generated
-   */
-  String getParam();
-
-  /**
-   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getParam <em>Param</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Param</em>' attribute.
-   * @see #getParam()
-   * @generated
-   */
-  void setParam(String value);
-
-  /**
-   * Returns the value of the '<em><b>Params</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Params</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Params</em>' attribute list.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getPROGRAMME_Params()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getParams();
-
-  /**
-   * Returns the value of the '<em><b>Inst</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Inst</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Inst</em>' containment reference list.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getPROGRAMME_Inst()
+   * @return the value of the '<em>Procedures</em>' containment reference list.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getPROGRAMME_Procedures()
    * @model containment="true"
    * @generated
    */
-  EList<INSTRUCTION> getInst();
+  EList<PROCEDURE> getProcedures();
 
 } // PROGRAMME

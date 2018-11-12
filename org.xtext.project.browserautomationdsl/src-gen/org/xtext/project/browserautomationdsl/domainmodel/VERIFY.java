@@ -13,6 +13,7 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getCount <em>Count</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getValue <em>Value</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getVar <em>Var</em>}</li>
  * </ul>
@@ -23,6 +24,32 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  */
 public interface VERIFY extends INSTRUCTION
 {
+  /**
+   * Returns the value of the '<em><b>Count</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Count</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Count</em>' containment reference.
+   * @see #setCount(COUNT)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getVERIFY_Count()
+   * @model containment="true"
+   * @generated
+   */
+  COUNT getCount();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getCount <em>Count</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Count</em>' containment reference.
+   * @see #getCount()
+   * @generated
+   */
+  void setCount(COUNT value);
+
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->

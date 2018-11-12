@@ -3,6 +3,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="domainmodel" nsURI="http://www.xtext.org/project/browserautomationdsl/Domainmodel"
     nsPrefix="domainmodel">
   <eClassifiers xsi:type="ecore:EClass" name="PROGRAMME">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="procedures" upperBound="-1"
+        eType="#//PROCEDURE" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PROCEDURE">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="param" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="params" unique="false"
@@ -10,19 +14,37 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="inst" upperBound="-1" eType="#//INSTRUCTION"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="INSTRUCTION"/>
+  <eClassifiers xsi:type="ecore:EClass" name="INSTRUCTION">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OPEN" eSuperTypes="#//INSTRUCTION">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GOTO" eSuperTypes="#//INSTRUCTION">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CLICK" eSuperTypes="#//INSTRUCTION">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FILL" eSuperTypes="#//INSTRUCTION">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CHECK" eSuperTypes="#//INSTRUCTION"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UNCHECK" eSuperTypes="#//INSTRUCTION"/>
   <eClassifiers xsi:type="ecore:EClass" name="SELECT" eSuperTypes="#//INSTRUCTION">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="elem" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="READ" eSuperTypes="#//INSTRUCTION"/>
-  <eClassifiers xsi:type="ecore:EClass" name="COUNT" eSuperTypes="#//INSTRUCTION #//VERIFY"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SAVEVAR" eSuperTypes="#//READ #//COUNT"/>
   <eClassifiers xsi:type="ecore:EClass" name="VERIFY" eSuperTypes="#//INSTRUCTION">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//COUNT"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="COUNT" eSuperTypes="#//INSTRUCTION"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SAVEVAR" eSuperTypes="#//READ #//COUNT">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PLAY" eSuperTypes="#//INSTRUCTION">

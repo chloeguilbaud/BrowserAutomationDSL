@@ -33,6 +33,15 @@ public interface DomainmodelFactory extends EFactory
   PROGRAMME createPROGRAMME();
 
   /**
+   * Returns a new object of class '<em>PROCEDURE</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>PROCEDURE</em>'.
+   * @generated
+   */
+  PROCEDURE createPROCEDURE();
+
+  /**
    * Returns a new object of class '<em>INSTRUCTION</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -42,6 +51,33 @@ public interface DomainmodelFactory extends EFactory
   INSTRUCTION createINSTRUCTION();
 
   /**
+   * Returns a new object of class '<em>OPEN</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>OPEN</em>'.
+   * @generated
+   */
+  OPEN createOPEN();
+
+  /**
+   * Returns a new object of class '<em>GOTO</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>GOTO</em>'.
+   * @generated
+   */
+  GOTO createGOTO();
+
+  /**
+   * Returns a new object of class '<em>CLICK</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>CLICK</em>'.
+   * @generated
+   */
+  CLICK createCLICK();
+
+  /**
    * Returns a new object of class '<em>FILL</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +85,24 @@ public interface DomainmodelFactory extends EFactory
    * @generated
    */
   FILL createFILL();
+
+  /**
+   * Returns a new object of class '<em>CHECK</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>CHECK</em>'.
+   * @generated
+   */
+  CHECK createCHECK();
+
+  /**
+   * Returns a new object of class '<em>UNCHECK</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UNCHECK</em>'.
+   * @generated
+   */
+  UNCHECK createUNCHECK();
 
   /**
    * Returns a new object of class '<em>SELECT</em>'.
@@ -69,6 +123,15 @@ public interface DomainmodelFactory extends EFactory
   READ createREAD();
 
   /**
+   * Returns a new object of class '<em>VERIFY</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>VERIFY</em>'.
+   * @generated
+   */
+  VERIFY createVERIFY();
+
+  /**
    * Returns a new object of class '<em>COUNT</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,15 +148,6 @@ public interface DomainmodelFactory extends EFactory
    * @generated
    */
   SAVEVAR createSAVEVAR();
-
-  /**
-   * Returns a new object of class '<em>VERIFY</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>VERIFY</em>'.
-   * @generated
-   */
-  VERIFY createVERIFY();
 
   /**
    * Returns a new object of class '<em>PLAY</em>'.

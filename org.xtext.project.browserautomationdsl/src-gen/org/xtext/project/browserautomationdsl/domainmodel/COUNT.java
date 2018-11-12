@@ -14,6 +14,6 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  * @model
  * @generated
  */
-public interface COUNT extends INSTRUCTION, VERIFY
+public interface COUNT extends INSTRUCTION
 {
 } // COUNT

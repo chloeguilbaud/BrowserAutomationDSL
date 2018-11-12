@@ -14,15 +14,20 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.project.browserautomationdsl.domainmodel.CHECK;
+import org.xtext.project.browserautomationdsl.domainmodel.CLICK;
 import org.xtext.project.browserautomationdsl.domainmodel.COUNT;
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
 import org.xtext.project.browserautomationdsl.domainmodel.FILL;
-import org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION;
+import org.xtext.project.browserautomationdsl.domainmodel.GOTO;
+import org.xtext.project.browserautomationdsl.domainmodel.OPEN;
 import org.xtext.project.browserautomationdsl.domainmodel.PLAY;
+import org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE;
 import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME;
 import org.xtext.project.browserautomationdsl.domainmodel.READ;
 import org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR;
 import org.xtext.project.browserautomationdsl.domainmodel.SELECT;
+import org.xtext.project.browserautomationdsl.domainmodel.UNCHECK;
 import org.xtext.project.browserautomationdsl.domainmodel.VERIFY;
 import org.xtext.project.browserautomationdsl.services.DomainmodelGrammarAccess;
 
@@ -40,25 +45,29 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DomainmodelPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case DomainmodelPackage.CHECK:
+				sequence_CHECK(context, (CHECK) semanticObject); 
+				return; 
+			case DomainmodelPackage.CLICK:
+				sequence_CLICK(context, (CLICK) semanticObject); 
+				return; 
 			case DomainmodelPackage.COUNT:
-				if (rule == grammarAccess.getCOUNTRule()) {
-					sequence_COUNT_SAVEVAR(context, (COUNT) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getINSTRUCTIONRule()
-						|| rule == grammarAccess.getVERIFYRule()) {
-					sequence_COUNT_SAVEVAR_VERIFY(context, (COUNT) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_COUNT_SAVEVAR(context, (COUNT) semanticObject); 
+				return; 
 			case DomainmodelPackage.FILL:
 				sequence_FILL(context, (FILL) semanticObject); 
 				return; 
-			case DomainmodelPackage.INSTRUCTION:
-				sequence_INSTRUCTION(context, (INSTRUCTION) semanticObject); 
+			case DomainmodelPackage.GOTO:
+				sequence_GOTO(context, (GOTO) semanticObject); 
+				return; 
+			case DomainmodelPackage.OPEN:
+				sequence_OPEN(context, (OPEN) semanticObject); 
 				return; 
 			case DomainmodelPackage.PLAY:
 				sequence_PLAY(context, (PLAY) semanticObject); 
+				return; 
+			case DomainmodelPackage.PROCEDURE:
+				sequence_PROCEDURE(context, (PROCEDURE) semanticObject); 
 				return; 
 			case DomainmodelPackage.PROGRAMME:
 				sequence_PROGRAMME(context, (PROGRAMME) semanticObject); 
@@ -72,6 +81,9 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case DomainmodelPackage.SELECT:
 				sequence_SELECT(context, (SELECT) semanticObject); 
 				return; 
+			case DomainmodelPackage.UNCHECK:
+				sequence_UNCHECK(context, (UNCHECK) semanticObject); 
+				return; 
 			case DomainmodelPackage.VERIFY:
 				sequence_VERIFY(context, (VERIFY) semanticObject); 
 				return; 
@@ -82,12 +94,32 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Contexts:
-	 *     COUNT returns COUNT
+	 *     INSTRUCTION returns CHECK
+	 *     CHECK returns CHECK
 	 *
 	 * Constraint:
-	 *     var=VARTYPE?
+	 *     name='check'
 	 */
-	protected void sequence_COUNT_SAVEVAR(ISerializationContext context, COUNT semanticObject) {
+	protected void sequence_CHECK(ISerializationContext context, CHECK semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.INSTRUCTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.INSTRUCTION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCHECKAccess().getNameCheckKeyword_0_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     INSTRUCTION returns CLICK
+	 *     CLICK returns CLICK
+	 *
+	 * Constraint:
+	 *     (name='click' (type='BUTTON' | type='LINK' | type='IMAGE' | type='TEXT') value=ELEMENTIDENTIFIER)
+	 */
+	protected void sequence_CLICK(ISerializationContext context, CLICK semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -95,12 +127,12 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	/**
 	 * Contexts:
 	 *     INSTRUCTION returns COUNT
-	 *     VERIFY returns COUNT
+	 *     COUNT returns COUNT
 	 *
 	 * Constraint:
-	 *     (var=VARTYPE? (value=STRING | var=VARTYPE | var=VARTYPE | value=STRING)?)
+	 *     (name='count' var=VARTYPE?)
 	 */
-	protected void sequence_COUNT_SAVEVAR_VERIFY(ISerializationContext context, COUNT semanticObject) {
+	protected void sequence_COUNT_SAVEVAR(ISerializationContext context, COUNT semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -111,7 +143,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     FILL returns FILL
 	 *
 	 * Constraint:
-	 *     (var=VARTYPE | value=STRING)
+	 *     (name='fill' (var=VARTYPE | value=STRING))
 	 */
 	protected void sequence_FILL(ISerializationContext context, FILL semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -120,12 +152,35 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Contexts:
-	 *     INSTRUCTION returns INSTRUCTION
+	 *     INSTRUCTION returns GOTO
+	 *     GOTO returns GOTO
 	 *
 	 * Constraint:
-	 *     {INSTRUCTION}
+	 *     (name='go to' value=STRING)
 	 */
-	protected void sequence_INSTRUCTION(ISerializationContext context, INSTRUCTION semanticObject) {
+	protected void sequence_GOTO(ISerializationContext context, GOTO semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.INSTRUCTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.INSTRUCTION__NAME));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.GOTO__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.GOTO__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGOTOAccess().getNameGoToKeyword_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getGOTOAccess().getValueSTRINGTerminalRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     INSTRUCTION returns OPEN
+	 *     OPEN returns OPEN
+	 *
+	 * Constraint:
+	 *     (name='open' (value='FIREFOX' | value='CHROME'))
+	 */
+	protected void sequence_OPEN(ISerializationContext context, OPEN semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -136,9 +191,21 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     PLAY returns PLAY
 	 *
 	 * Constraint:
-	 *     params+=STRING*
+	 *     (name='play' params+=STRING*)
 	 */
 	protected void sequence_PLAY(ISerializationContext context, PLAY semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PROCEDURE returns PROCEDURE
+	 *
+	 * Constraint:
+	 *     (name=VARTYPE (param=VARTYPE params+=VARTYPE*)? inst+=INSTRUCTION*)
+	 */
+	protected void sequence_PROCEDURE(ISerializationContext context, PROCEDURE semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -148,7 +215,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     PROGRAMME returns PROGRAMME
 	 *
 	 * Constraint:
-	 *     (name=VARTYPE (param=VARTYPE params+=VARTYPE*)? inst+=INSTRUCTION*)+
+	 *     procedures+=PROCEDURE+
 	 */
 	protected void sequence_PROGRAMME(ISerializationContext context, PROGRAMME semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -161,7 +228,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     READ returns READ
 	 *
 	 * Constraint:
-	 *     var=VARTYPE?
+	 *     (name='read' var=VARTYPE?)
 	 */
 	protected void sequence_READ_SAVEVAR(ISerializationContext context, READ semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -177,8 +244,8 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_SAVEVAR(ISerializationContext context, SAVEVAR semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.VERIFY__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.VERIFY__VAR));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SAVEVAR__VAR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SAVEVAR__VAR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSAVEVARAccess().getVarVARTYPETerminalRuleCall_3_0(), semanticObject.getVar());
@@ -192,15 +259,37 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     SELECT returns SELECT
 	 *
 	 * Constraint:
-	 *     elem=STRING
+	 *     (name='select' elem=STRING)
 	 */
 	protected void sequence_SELECT(ISerializationContext context, SELECT semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.INSTRUCTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.INSTRUCTION__NAME));
 			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.SELECT__ELEM) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.SELECT__ELEM));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSELECTAccess().getNameSelectKeyword_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getSELECTAccess().getElemSTRINGTerminalRuleCall_1_0(), semanticObject.getElem());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     INSTRUCTION returns UNCHECK
+	 *     UNCHECK returns UNCHECK
+	 *
+	 * Constraint:
+	 *     name='uncheck'
+	 */
+	protected void sequence_UNCHECK(ISerializationContext context, UNCHECK semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.INSTRUCTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.INSTRUCTION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getUNCHECKAccess().getNameUncheckKeyword_0_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -211,7 +300,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     VERIFY returns VERIFY
 	 *
 	 * Constraint:
-	 *     (value=STRING | var=VARTYPE | var=VARTYPE | value=STRING)
+	 *     (name='verify' count=COUNT? (value=STRING | var=VARTYPE | var=VARTYPE | value=STRING)?)
 	 */
 	protected void sequence_VERIFY(ISerializationContext context, VERIFY semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

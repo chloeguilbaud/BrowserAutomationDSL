@@ -81,14 +81,44 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
         return createPROGRAMMEAdapter();
       }
       @Override
+      public Adapter casePROCEDURE(PROCEDURE object)
+      {
+        return createPROCEDUREAdapter();
+      }
+      @Override
       public Adapter caseINSTRUCTION(INSTRUCTION object)
       {
         return createINSTRUCTIONAdapter();
       }
       @Override
+      public Adapter caseOPEN(OPEN object)
+      {
+        return createOPENAdapter();
+      }
+      @Override
+      public Adapter caseGOTO(GOTO object)
+      {
+        return createGOTOAdapter();
+      }
+      @Override
+      public Adapter caseCLICK(CLICK object)
+      {
+        return createCLICKAdapter();
+      }
+      @Override
       public Adapter caseFILL(FILL object)
       {
         return createFILLAdapter();
+      }
+      @Override
+      public Adapter caseCHECK(CHECK object)
+      {
+        return createCHECKAdapter();
+      }
+      @Override
+      public Adapter caseUNCHECK(UNCHECK object)
+      {
+        return createUNCHECKAdapter();
       }
       @Override
       public Adapter caseSELECT(SELECT object)
@@ -101,6 +131,11 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
         return createREADAdapter();
       }
       @Override
+      public Adapter caseVERIFY(VERIFY object)
+      {
+        return createVERIFYAdapter();
+      }
+      @Override
       public Adapter caseCOUNT(COUNT object)
       {
         return createCOUNTAdapter();
@@ -109,11 +144,6 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSAVEVAR(SAVEVAR object)
       {
         return createSAVEVARAdapter();
-      }
-      @Override
-      public Adapter caseVERIFY(VERIFY object)
-      {
-        return createVERIFYAdapter();
       }
       @Override
       public Adapter casePLAY(PLAY object)
@@ -158,6 +188,21 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE <em>PROCEDURE</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE
+   * @generated
+   */
+  public Adapter createPROCEDUREAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION <em>INSTRUCTION</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -173,6 +218,51 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.OPEN <em>OPEN</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.OPEN
+   * @generated
+   */
+  public Adapter createOPENAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.GOTO <em>GOTO</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.GOTO
+   * @generated
+   */
+  public Adapter createGOTOAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK <em>CLICK</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.CLICK
+   * @generated
+   */
+  public Adapter createCLICKAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.FILL <em>FILL</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -183,6 +273,36 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFILLAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.CHECK <em>CHECK</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.CHECK
+   * @generated
+   */
+  public Adapter createCHECKAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.UNCHECK <em>UNCHECK</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.UNCHECK
+   * @generated
+   */
+  public Adapter createUNCHECKAdapter()
   {
     return null;
   }
@@ -218,6 +338,21 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY <em>VERIFY</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.VERIFY
+   * @generated
+   */
+  public Adapter createVERIFYAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.COUNT <em>COUNT</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -243,21 +378,6 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSAVEVARAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY <em>VERIFY</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.VERIFY
-   * @generated
-   */
-  public Adapter createVERIFYAdapter()
   {
     return null;
   }

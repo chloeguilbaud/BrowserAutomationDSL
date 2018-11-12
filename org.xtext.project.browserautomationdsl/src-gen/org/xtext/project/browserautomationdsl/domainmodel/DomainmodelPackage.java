@@ -68,40 +68,13 @@ public interface DomainmodelPackage extends EPackage
   int PROGRAMME = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Procedures</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAMME__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Param</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROGRAMME__PARAM = 1;
-
-  /**
-   * The feature id for the '<em><b>Params</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROGRAMME__PARAMS = 2;
-
-  /**
-   * The feature id for the '<em><b>Inst</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROGRAMME__INST = 3;
+  int PROGRAMME__PROCEDURES = 0;
 
   /**
    * The number of structural features of the '<em>PROGRAMME</em>' class.
@@ -110,7 +83,62 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAMME_FEATURE_COUNT = 4;
+  int PROGRAMME_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.PROCEDUREImpl <em>PROCEDURE</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.PROCEDUREImpl
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getPROCEDURE()
+   * @generated
+   */
+  int PROCEDURE = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Param</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__PARAM = 1;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__PARAMS = 2;
+
+  /**
+   * The feature id for the '<em><b>Inst</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__INST = 3;
+
+  /**
+   * The number of structural features of the '<em>PROCEDURE</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.INSTRUCTIONImpl <em>INSTRUCTION</em>}' class.
@@ -120,7 +148,16 @@ public interface DomainmodelPackage extends EPackage
    * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getINSTRUCTION()
    * @generated
    */
-  int INSTRUCTION = 1;
+  int INSTRUCTION = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTRUCTION__NAME = 0;
 
   /**
    * The number of structural features of the '<em>INSTRUCTION</em>' class.
@@ -129,7 +166,127 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSTRUCTION_FEATURE_COUNT = 0;
+  int INSTRUCTION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.OPENImpl <em>OPEN</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.OPENImpl
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getOPEN()
+   * @generated
+   */
+  int OPEN = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPEN__NAME = INSTRUCTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPEN__VALUE = INSTRUCTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>OPEN</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPEN_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.GOTOImpl <em>GOTO</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.GOTOImpl
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getGOTO()
+   * @generated
+   */
+  int GOTO = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOTO__NAME = INSTRUCTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOTO__VALUE = INSTRUCTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>GOTO</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOTO_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CLICKImpl <em>CLICK</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.CLICKImpl
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getCLICK()
+   * @generated
+   */
+  int CLICK = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLICK__NAME = INSTRUCTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLICK__TYPE = INSTRUCTION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLICK__VALUE = INSTRUCTION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>CLICK</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLICK_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.FILLImpl <em>FILL</em>}' class.
@@ -139,7 +296,16 @@ public interface DomainmodelPackage extends EPackage
    * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getFILL()
    * @generated
    */
-  int FILL = 2;
+  int FILL = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILL__NAME = INSTRUCTION__NAME;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' attribute.
@@ -169,6 +335,62 @@ public interface DomainmodelPackage extends EPackage
   int FILL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CHECKImpl <em>CHECK</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.CHECKImpl
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getCHECK()
+   * @generated
+   */
+  int CHECK = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK__NAME = INSTRUCTION__NAME;
+
+  /**
+   * The number of structural features of the '<em>CHECK</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.UNCHECKImpl <em>UNCHECK</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.UNCHECKImpl
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getUNCHECK()
+   * @generated
+   */
+  int UNCHECK = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNCHECK__NAME = INSTRUCTION__NAME;
+
+  /**
+   * The number of structural features of the '<em>UNCHECK</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNCHECK_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.SELECTImpl <em>SELECT</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -176,7 +398,16 @@ public interface DomainmodelPackage extends EPackage
    * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getSELECT()
    * @generated
    */
-  int SELECT = 3;
+  int SELECT = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECT__NAME = INSTRUCTION__NAME;
 
   /**
    * The feature id for the '<em><b>Elem</b></em>' attribute.
@@ -204,7 +435,16 @@ public interface DomainmodelPackage extends EPackage
    * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getREAD()
    * @generated
    */
-  int READ = 4;
+  int READ = 10;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int READ__NAME = INSTRUCTION__NAME;
 
   /**
    * The number of structural features of the '<em>READ</em>' class.
@@ -216,14 +456,32 @@ public interface DomainmodelPackage extends EPackage
   int READ_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl <em>COUNT</em>}' class.
+   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl <em>VERIFY</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl
-   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getCOUNT()
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getVERIFY()
    * @generated
    */
-  int COUNT = 5;
+  int VERIFY = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VERIFY__NAME = INSTRUCTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Count</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VERIFY__COUNT = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -232,7 +490,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COUNT__VALUE = INSTRUCTION_FEATURE_COUNT + 0;
+  int VERIFY__VALUE = INSTRUCTION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' attribute.
@@ -241,7 +499,35 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COUNT__VAR = INSTRUCTION_FEATURE_COUNT + 1;
+  int VERIFY__VAR = INSTRUCTION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>VERIFY</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VERIFY_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl <em>COUNT</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl
+   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getCOUNT()
+   * @generated
+   */
+  int COUNT = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COUNT__NAME = INSTRUCTION__NAME;
 
   /**
    * The number of structural features of the '<em>COUNT</em>' class.
@@ -250,7 +536,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COUNT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+  int COUNT_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.SAVEVARImpl <em>SAVEVAR</em>}' class.
@@ -260,16 +546,16 @@ public interface DomainmodelPackage extends EPackage
    * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getSAVEVAR()
    * @generated
    */
-  int SAVEVAR = 6;
+  int SAVEVAR = 13;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SAVEVAR__VALUE = READ_FEATURE_COUNT + 0;
+  int SAVEVAR__NAME = READ__NAME;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' attribute.
@@ -278,7 +564,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SAVEVAR__VAR = READ_FEATURE_COUNT + 1;
+  int SAVEVAR__VAR = READ_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>SAVEVAR</em>' class.
@@ -287,44 +573,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SAVEVAR_FEATURE_COUNT = READ_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl <em>VERIFY</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl
-   * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getVERIFY()
-   * @generated
-   */
-  int VERIFY = 7;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERIFY__VALUE = INSTRUCTION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Var</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERIFY__VAR = INSTRUCTION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>VERIFY</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERIFY_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
+  int SAVEVAR_FEATURE_COUNT = READ_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.PLAYImpl <em>PLAY</em>}' class.
@@ -334,7 +583,16 @@ public interface DomainmodelPackage extends EPackage
    * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getPLAY()
    * @generated
    */
-  int PLAY = 8;
+  int PLAY = 14;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLAY__NAME = INSTRUCTION__NAME;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' attribute list.
@@ -366,48 +624,69 @@ public interface DomainmodelPackage extends EPackage
   EClass getPROGRAMME();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getProcedures <em>Procedures</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Procedures</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getProcedures()
+   * @see #getPROGRAMME()
+   * @generated
+   */
+  EReference getPROGRAMME_Procedures();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE <em>PROCEDURE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>PROCEDURE</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE
+   * @generated
+   */
+  EClass getPROCEDURE();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getName()
-   * @see #getPROGRAMME()
+   * @see org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE#getName()
+   * @see #getPROCEDURE()
    * @generated
    */
-  EAttribute getPROGRAMME_Name();
+  EAttribute getPROCEDURE_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getParam <em>Param</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE#getParam <em>Param</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Param</em>'.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getParam()
-   * @see #getPROGRAMME()
+   * @see org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE#getParam()
+   * @see #getPROCEDURE()
    * @generated
    */
-  EAttribute getPROGRAMME_Param();
+  EAttribute getPROCEDURE_Param();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getParams <em>Params</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE#getParams <em>Params</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>Params</em>'.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getParams()
-   * @see #getPROGRAMME()
+   * @see org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE#getParams()
+   * @see #getPROCEDURE()
    * @generated
    */
-  EAttribute getPROGRAMME_Params();
+  EAttribute getPROCEDURE_Params();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getInst <em>Inst</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE#getInst <em>Inst</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Inst</em>'.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME#getInst()
-   * @see #getPROGRAMME()
+   * @see org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE#getInst()
+   * @see #getPROCEDURE()
    * @generated
    */
-  EReference getPROGRAMME_Inst();
+  EReference getPROCEDURE_Inst();
 
   /**
    * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION <em>INSTRUCTION</em>}'.
@@ -418,6 +697,91 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    */
   EClass getINSTRUCTION();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION#getName()
+   * @see #getINSTRUCTION()
+   * @generated
+   */
+  EAttribute getINSTRUCTION_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.OPEN <em>OPEN</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>OPEN</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.OPEN
+   * @generated
+   */
+  EClass getOPEN();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.OPEN#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.OPEN#getValue()
+   * @see #getOPEN()
+   * @generated
+   */
+  EAttribute getOPEN_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.GOTO <em>GOTO</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>GOTO</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.GOTO
+   * @generated
+   */
+  EClass getGOTO();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.GOTO#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.GOTO#getValue()
+   * @see #getGOTO()
+   * @generated
+   */
+  EAttribute getGOTO_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK <em>CLICK</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>CLICK</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.CLICK
+   * @generated
+   */
+  EClass getCLICK();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.CLICK#getType()
+   * @see #getCLICK()
+   * @generated
+   */
+  EAttribute getCLICK_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.CLICK#getValue()
+   * @see #getCLICK()
+   * @generated
+   */
+  EAttribute getCLICK_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.FILL <em>FILL</em>}'.
@@ -452,6 +816,26 @@ public interface DomainmodelPackage extends EPackage
   EAttribute getFILL_Value();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.CHECK <em>CHECK</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>CHECK</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.CHECK
+   * @generated
+   */
+  EClass getCHECK();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.UNCHECK <em>UNCHECK</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UNCHECK</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.UNCHECK
+   * @generated
+   */
+  EClass getUNCHECK();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.SELECT <em>SELECT</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -483,26 +867,6 @@ public interface DomainmodelPackage extends EPackage
   EClass getREAD();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.COUNT <em>COUNT</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>COUNT</em>'.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.COUNT
-   * @generated
-   */
-  EClass getCOUNT();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR <em>SAVEVAR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>SAVEVAR</em>'.
-   * @see org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR
-   * @generated
-   */
-  EClass getSAVEVAR();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY <em>VERIFY</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -511,6 +875,17 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    */
   EClass getVERIFY();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getCount <em>Count</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Count</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getCount()
+   * @see #getVERIFY()
+   * @generated
+   */
+  EReference getVERIFY_Count();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY#getValue <em>Value</em>}'.
@@ -533,6 +908,37 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    */
   EAttribute getVERIFY_Var();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.COUNT <em>COUNT</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>COUNT</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.COUNT
+   * @generated
+   */
+  EClass getCOUNT();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR <em>SAVEVAR</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>SAVEVAR</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR
+   * @generated
+   */
+  EClass getSAVEVAR();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Var</em>'.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR#getVar()
+   * @see #getSAVEVAR()
+   * @generated
+   */
+  EAttribute getSAVEVAR_Var();
 
   /**
    * Returns the meta object for class '{@link org.xtext.project.browserautomationdsl.domainmodel.PLAY <em>PLAY</em>}'.
@@ -589,12 +995,30 @@ public interface DomainmodelPackage extends EPackage
     EClass PROGRAMME = eINSTANCE.getPROGRAMME();
 
     /**
+     * The meta object literal for the '<em><b>Procedures</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROGRAMME__PROCEDURES = eINSTANCE.getPROGRAMME_Procedures();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.PROCEDUREImpl <em>PROCEDURE</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.PROCEDUREImpl
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getPROCEDURE()
+     * @generated
+     */
+    EClass PROCEDURE = eINSTANCE.getPROCEDURE();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROGRAMME__NAME = eINSTANCE.getPROGRAMME_Name();
+    EAttribute PROCEDURE__NAME = eINSTANCE.getPROCEDURE_Name();
 
     /**
      * The meta object literal for the '<em><b>Param</b></em>' attribute feature.
@@ -602,7 +1026,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROGRAMME__PARAM = eINSTANCE.getPROGRAMME_Param();
+    EAttribute PROCEDURE__PARAM = eINSTANCE.getPROCEDURE_Param();
 
     /**
      * The meta object literal for the '<em><b>Params</b></em>' attribute list feature.
@@ -610,7 +1034,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROGRAMME__PARAMS = eINSTANCE.getPROGRAMME_Params();
+    EAttribute PROCEDURE__PARAMS = eINSTANCE.getPROCEDURE_Params();
 
     /**
      * The meta object literal for the '<em><b>Inst</b></em>' containment reference list feature.
@@ -618,7 +1042,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PROGRAMME__INST = eINSTANCE.getPROGRAMME_Inst();
+    EReference PROCEDURE__INST = eINSTANCE.getPROCEDURE_Inst();
 
     /**
      * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.INSTRUCTIONImpl <em>INSTRUCTION</em>}' class.
@@ -629,6 +1053,76 @@ public interface DomainmodelPackage extends EPackage
      * @generated
      */
     EClass INSTRUCTION = eINSTANCE.getINSTRUCTION();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INSTRUCTION__NAME = eINSTANCE.getINSTRUCTION_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.OPENImpl <em>OPEN</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.OPENImpl
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getOPEN()
+     * @generated
+     */
+    EClass OPEN = eINSTANCE.getOPEN();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPEN__VALUE = eINSTANCE.getOPEN_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.GOTOImpl <em>GOTO</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.GOTOImpl
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getGOTO()
+     * @generated
+     */
+    EClass GOTO = eINSTANCE.getGOTO();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GOTO__VALUE = eINSTANCE.getGOTO_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CLICKImpl <em>CLICK</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.CLICKImpl
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getCLICK()
+     * @generated
+     */
+    EClass CLICK = eINSTANCE.getCLICK();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLICK__TYPE = eINSTANCE.getCLICK_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLICK__VALUE = eINSTANCE.getCLICK_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.FILLImpl <em>FILL</em>}' class.
@@ -655,6 +1149,26 @@ public interface DomainmodelPackage extends EPackage
      * @generated
      */
     EAttribute FILL__VALUE = eINSTANCE.getFILL_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CHECKImpl <em>CHECK</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.CHECKImpl
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getCHECK()
+     * @generated
+     */
+    EClass CHECK = eINSTANCE.getCHECK();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.UNCHECKImpl <em>UNCHECK</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.UNCHECKImpl
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getUNCHECK()
+     * @generated
+     */
+    EClass UNCHECK = eINSTANCE.getUNCHECK();
 
     /**
      * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.SELECTImpl <em>SELECT</em>}' class.
@@ -685,6 +1199,40 @@ public interface DomainmodelPackage extends EPackage
     EClass READ = eINSTANCE.getREAD();
 
     /**
+     * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl <em>VERIFY</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl
+     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getVERIFY()
+     * @generated
+     */
+    EClass VERIFY = eINSTANCE.getVERIFY();
+
+    /**
+     * The meta object literal for the '<em><b>Count</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VERIFY__COUNT = eINSTANCE.getVERIFY_Count();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VERIFY__VALUE = eINSTANCE.getVERIFY_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VERIFY__VAR = eINSTANCE.getVERIFY_Var();
+
+    /**
      * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl <em>COUNT</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -705,30 +1253,12 @@ public interface DomainmodelPackage extends EPackage
     EClass SAVEVAR = eINSTANCE.getSAVEVAR();
 
     /**
-     * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl <em>VERIFY</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.VERIFYImpl
-     * @see org.xtext.project.browserautomationdsl.domainmodel.impl.DomainmodelPackageImpl#getVERIFY()
-     * @generated
-     */
-    EClass VERIFY = eINSTANCE.getVERIFY();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VERIFY__VALUE = eINSTANCE.getVERIFY_Value();
-
-    /**
      * The meta object literal for the '<em><b>Var</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VERIFY__VAR = eINSTANCE.getVERIFY_Var();
+    EAttribute SAVEVAR__VAR = eINSTANCE.getSAVEVAR_Var();
 
     /**
      * The meta object literal for the '{@link org.xtext.project.browserautomationdsl.domainmodel.impl.PLAYImpl <em>PLAY</em>}' class.
