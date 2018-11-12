@@ -1,0 +1,14 @@
+procedure main
+  play procedure pro_1 'COMMUNIQUES DE PRESSE'
+  play procedure pro_1 'DOSSIERS DE PRESSE'
+  play procedure pro_1 'VISUELS POUR LA PRESSE'
+  play procedure pro_1 'LA PRESSE EN PARLE'
+  play procedure pro_1 'TRIBUNE DE PRESSE'
+  play procedure pro_1 'LE PARLMARES'
+
+procedure pro_1 with pageName
+  open FIREFOX
+  go to "http://www.imt-atlantique.fr/fr"
+  click on LINK identified by LABEL given pageName
+  verify that PAGE contains IMAGE identified by LABEL "Imprimer"
+  click on IMAGE identified by LABEL "Imprimer"
