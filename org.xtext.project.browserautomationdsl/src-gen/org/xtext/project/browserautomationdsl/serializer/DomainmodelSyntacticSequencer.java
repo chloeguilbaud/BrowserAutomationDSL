@@ -21,66 +21,23 @@ import org.xtext.project.browserautomationdsl.services.DomainmodelGrammarAccess;
 public class DomainmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DomainmodelGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_CHECK_AllKeyword_1_q;
-	protected AbstractElementAlias match_CHECK_ELEMENTIDENTIFIERParserRuleCall_3_q;
-	protected AbstractElementAlias match_FILL_ELEMENTIDENTIFIERParserRuleCall_2_q;
-	protected AbstractElementAlias match_FILL_SEARCHFIELDKeyword_1_1_or_TEXTFIELDKeyword_1_0;
 	protected AbstractElementAlias match_GOTO_GivenKeyword_1_q;
 	protected AbstractElementAlias match_READ_BUTTONKeyword_3_0_or_IMAGEKeyword_3_2_or_LINKKeyword_3_1_or_TEXTKeyword_3_3;
-	protected AbstractElementAlias match_SELECT_ELEMENTIDENTIFIERParserRuleCall_4_q;
-	protected AbstractElementAlias match_UNCHECK_AllKeyword_1_q;
-	protected AbstractElementAlias match_UNCHECK_ELEMENTIDENTIFIERParserRuleCall_3_q;
-	protected AbstractElementAlias match_VERIFY_ELEMENTIDENTIFIERParserRuleCall_2_1_1_q;
-	protected AbstractElementAlias match_VERIFY_IMAGEKeyword_3_0_1_0_0_1_or_LINKKeyword_3_0_1_0_0_0;
-	protected AbstractElementAlias match_VERIFY_PAGEKeyword_2_1_0_0_or_TEXTKeyword_2_1_0_1;
+	protected AbstractElementAlias match_VERIFY_CONTAINS_IMAGEKeyword_5_0_0_1_or_LINKKeyword_5_0_0_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DomainmodelGrammarAccess) access;
-		match_CHECK_AllKeyword_1_q = new TokenAlias(false, true, grammarAccess.getCHECKAccess().getAllKeyword_1());
-		match_CHECK_ELEMENTIDENTIFIERParserRuleCall_3_q = new TokenAlias(false, true, grammarAccess.getCHECKAccess().getELEMENTIDENTIFIERParserRuleCall_3());
-		match_FILL_ELEMENTIDENTIFIERParserRuleCall_2_q = new TokenAlias(false, true, grammarAccess.getFILLAccess().getELEMENTIDENTIFIERParserRuleCall_2());
-		match_FILL_SEARCHFIELDKeyword_1_1_or_TEXTFIELDKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getFILLAccess().getSEARCHFIELDKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getFILLAccess().getTEXTFIELDKeyword_1_0()));
 		match_GOTO_GivenKeyword_1_q = new TokenAlias(false, true, grammarAccess.getGOTOAccess().getGivenKeyword_1());
 		match_READ_BUTTONKeyword_3_0_or_IMAGEKeyword_3_2_or_LINKKeyword_3_1_or_TEXTKeyword_3_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getREADAccess().getBUTTONKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getREADAccess().getIMAGEKeyword_3_2()), new TokenAlias(false, false, grammarAccess.getREADAccess().getLINKKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getREADAccess().getTEXTKeyword_3_3()));
-		match_SELECT_ELEMENTIDENTIFIERParserRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getSELECTAccess().getELEMENTIDENTIFIERParserRuleCall_4());
-		match_UNCHECK_AllKeyword_1_q = new TokenAlias(false, true, grammarAccess.getUNCHECKAccess().getAllKeyword_1());
-		match_UNCHECK_ELEMENTIDENTIFIERParserRuleCall_3_q = new TokenAlias(false, true, grammarAccess.getUNCHECKAccess().getELEMENTIDENTIFIERParserRuleCall_3());
-		match_VERIFY_ELEMENTIDENTIFIERParserRuleCall_2_1_1_q = new TokenAlias(false, true, grammarAccess.getVERIFYAccess().getELEMENTIDENTIFIERParserRuleCall_2_1_1());
-		match_VERIFY_IMAGEKeyword_3_0_1_0_0_1_or_LINKKeyword_3_0_1_0_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getVERIFYAccess().getIMAGEKeyword_3_0_1_0_0_1()), new TokenAlias(false, false, grammarAccess.getVERIFYAccess().getLINKKeyword_3_0_1_0_0_0()));
-		match_VERIFY_PAGEKeyword_2_1_0_0_or_TEXTKeyword_2_1_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getVERIFYAccess().getPAGEKeyword_2_1_0_0()), new TokenAlias(false, false, grammarAccess.getVERIFYAccess().getTEXTKeyword_2_1_0_1()));
+		match_VERIFY_CONTAINS_IMAGEKeyword_5_0_0_1_or_LINKKeyword_5_0_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getVERIFY_CONTAINSAccess().getIMAGEKeyword_5_0_0_1()), new TokenAlias(false, false, grammarAccess.getVERIFY_CONTAINSAccess().getLINKKeyword_5_0_0_0()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getELEMENTIDENTIFIERRule())
-			return getELEMENTIDENTIFIERToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getVARTYPERule())
-			return getVARTYPEToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * ELEMENTIDENTIFIER: 
-	 * 	'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') (STRING | 'given' VARTYPE)
-	 * ;
-	 */
-	protected String getELEMENTIDENTIFIERToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "identifiedbyLABEL\"\"";
-	}
-	
-	/**
-	 * terminal VARTYPE: 
-	 * 	(('A'..'Z')|('a'..'z')|INT|'_'|'-')*
-	 * ;
-	 */
-	protected String getVARTYPEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -88,80 +45,16 @@ public class DomainmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_CHECK_AllKeyword_1_q.equals(syntax))
-				emit_CHECK_AllKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_CHECK_ELEMENTIDENTIFIERParserRuleCall_3_q.equals(syntax))
-				emit_CHECK_ELEMENTIDENTIFIERParserRuleCall_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_FILL_ELEMENTIDENTIFIERParserRuleCall_2_q.equals(syntax))
-				emit_FILL_ELEMENTIDENTIFIERParserRuleCall_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_FILL_SEARCHFIELDKeyword_1_1_or_TEXTFIELDKeyword_1_0.equals(syntax))
-				emit_FILL_SEARCHFIELDKeyword_1_1_or_TEXTFIELDKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_GOTO_GivenKeyword_1_q.equals(syntax))
+			if (match_GOTO_GivenKeyword_1_q.equals(syntax))
 				emit_GOTO_GivenKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_READ_BUTTONKeyword_3_0_or_IMAGEKeyword_3_2_or_LINKKeyword_3_1_or_TEXTKeyword_3_3.equals(syntax))
 				emit_READ_BUTTONKeyword_3_0_or_IMAGEKeyword_3_2_or_LINKKeyword_3_1_or_TEXTKeyword_3_3(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_SELECT_ELEMENTIDENTIFIERParserRuleCall_4_q.equals(syntax))
-				emit_SELECT_ELEMENTIDENTIFIERParserRuleCall_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UNCHECK_AllKeyword_1_q.equals(syntax))
-				emit_UNCHECK_AllKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UNCHECK_ELEMENTIDENTIFIERParserRuleCall_3_q.equals(syntax))
-				emit_UNCHECK_ELEMENTIDENTIFIERParserRuleCall_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_VERIFY_ELEMENTIDENTIFIERParserRuleCall_2_1_1_q.equals(syntax))
-				emit_VERIFY_ELEMENTIDENTIFIERParserRuleCall_2_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_VERIFY_IMAGEKeyword_3_0_1_0_0_1_or_LINKKeyword_3_0_1_0_0_0.equals(syntax))
-				emit_VERIFY_IMAGEKeyword_3_0_1_0_0_1_or_LINKKeyword_3_0_1_0_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_VERIFY_PAGEKeyword_2_1_0_0_or_TEXTKeyword_2_1_0_1.equals(syntax))
-				emit_VERIFY_PAGEKeyword_2_1_0_0_or_TEXTKeyword_2_1_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_VERIFY_CONTAINS_IMAGEKeyword_5_0_0_1_or_LINKKeyword_5_0_0_0.equals(syntax))
+				emit_VERIFY_CONTAINS_IMAGEKeyword_5_0_0_1_or_LINKKeyword_5_0_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     'all'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name='check' (ambiguity) 'CHECKBOX' ELEMENTIDENTIFIER? (rule end)
-	 */
-	protected void emit_CHECK_AllKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ELEMENTIDENTIFIER?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name='check' 'all'? 'CHECKBOX' (ambiguity) (rule end)
-	 */
-	protected void emit_CHECK_ELEMENTIDENTIFIERParserRuleCall_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ELEMENTIDENTIFIER?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name='fill' ('TEXTFIELD' | 'SEARCHFIELD') (ambiguity) 'with' 'saved' var=VARTYPE
-	 *     name='fill' ('TEXTFIELD' | 'SEARCHFIELD') (ambiguity) 'with' value=STRING
-	 */
-	protected void emit_FILL_ELEMENTIDENTIFIERParserRuleCall_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'TEXTFIELD' | 'SEARCHFIELD'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name='fill' (ambiguity) ELEMENTIDENTIFIER? 'with' 'saved' var=VARTYPE
-	 *     name='fill' (ambiguity) ELEMENTIDENTIFIER? 'with' value=STRING
-	 */
-	protected void emit_FILL_SEARCHFIELDKeyword_1_1_or_TEXTFIELDKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Ambiguous syntax:
 	 *     'given'?
@@ -178,58 +71,9 @@ public class DomainmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'BUTTON' | 'LINK' | 'IMAGE' | 'TEXT'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name='read' 'url' 'from' (ambiguity) ELEMENTIDENTIFIER 'and' 'save' 'in' var=VARTYPE
-	 *     name='read' 'url' 'from' (ambiguity) ELEMENTIDENTIFIER (rule end)
+	 *     name='read' 'url' 'from' (ambiguity) identifier=ELEMENTIDENTIFIER
 	 */
 	protected void emit_READ_BUTTONKeyword_3_0_or_IMAGEKeyword_3_2_or_LINKKeyword_3_1_or_TEXTKeyword_3_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ELEMENTIDENTIFIER?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     elem=STRING 'in' 'COMBOBOX' (ambiguity) (rule end)
-	 */
-	protected void emit_SELECT_ELEMENTIDENTIFIERParserRuleCall_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'all'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name='uncheck' (ambiguity) 'CHECKBOX' ELEMENTIDENTIFIER? (rule end)
-	 */
-	protected void emit_UNCHECK_AllKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ELEMENTIDENTIFIER?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name='uncheck' 'all'? 'CHECKBOX' (ambiguity) (rule end)
-	 */
-	protected void emit_UNCHECK_ELEMENTIDENTIFIERParserRuleCall_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ELEMENTIDENTIFIER?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name='verify' 'that' ('PAGE' | 'TEXT') (ambiguity) 'contains' 'saved' var=VARTYPE
-	 *     name='verify' 'that' ('PAGE' | 'TEXT') (ambiguity) 'contains' ('LINK' | 'IMAGE') ELEMENTIDENTIFIER (rule end)
-	 *     name='verify' 'that' ('PAGE' | 'TEXT') (ambiguity) 'contains' value=STRING
-	 *     name='verify' 'that' ('PAGE' | 'TEXT') (ambiguity) 'equals' 'saved' var=VARTYPE
-	 *     name='verify' 'that' ('PAGE' | 'TEXT') (ambiguity) 'equals' value=STRING
-	 */
-	protected void emit_VERIFY_ELEMENTIDENTIFIERParserRuleCall_2_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -238,25 +82,11 @@ public class DomainmodelSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'LINK' | 'IMAGE'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     count=COUNT 'contains' (ambiguity) ELEMENTIDENTIFIER (rule end)
-	 *     name='verify' 'that' ('PAGE' | 'TEXT') ELEMENTIDENTIFIER? 'contains' (ambiguity) ELEMENTIDENTIFIER (rule end)
+	 *     identifier=ELEMENTIDENTIFIER 'contains' (ambiguity) containedIdentifier=ELEMENTIDENTIFIER
+	 *     type='PAGE' 'contains' (ambiguity) containedIdentifier=ELEMENTIDENTIFIER
+	 *     type='TEXT' 'contains' (ambiguity) containedIdentifier=ELEMENTIDENTIFIER
 	 */
-	protected void emit_VERIFY_IMAGEKeyword_3_0_1_0_0_1_or_LINKKeyword_3_0_1_0_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'PAGE' | 'TEXT'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name='verify' 'that' (ambiguity) ELEMENTIDENTIFIER? 'contains' 'saved' var=VARTYPE
-	 *     name='verify' 'that' (ambiguity) ELEMENTIDENTIFIER? 'contains' ('LINK' | 'IMAGE') ELEMENTIDENTIFIER (rule end)
-	 *     name='verify' 'that' (ambiguity) ELEMENTIDENTIFIER? 'contains' value=STRING
-	 *     name='verify' 'that' (ambiguity) ELEMENTIDENTIFIER? 'equals' 'saved' var=VARTYPE
-	 *     name='verify' 'that' (ambiguity) ELEMENTIDENTIFIER? 'equals' value=STRING
-	 */
-	protected void emit_VERIFY_PAGEKeyword_2_1_0_0_or_TEXTKeyword_2_1_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_VERIFY_CONTAINS_IMAGEKeyword_5_0_0_1_or_LINKKeyword_5_0_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

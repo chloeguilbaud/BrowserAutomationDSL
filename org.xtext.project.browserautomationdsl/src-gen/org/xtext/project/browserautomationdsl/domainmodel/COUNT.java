@@ -9,6 +9,14 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  * A representation of the model object '<em><b>COUNT</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.COUNT#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.COUNT#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.COUNT#getSaveVariable <em>Save Variable</em>}</li>
+ * </ul>
  *
  * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getCOUNT()
  * @model
@@ -16,4 +24,82 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  */
 public interface COUNT extends INSTRUCTION
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getCOUNT_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.COUNT#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Identifier</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Identifier</em>' containment reference.
+   * @see #setIdentifier(ELEMENTIDENTIFIER)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getCOUNT_Identifier()
+   * @model containment="true"
+   * @generated
+   */
+  ELEMENTIDENTIFIER getIdentifier();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.COUNT#getIdentifier <em>Identifier</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Identifier</em>' containment reference.
+   * @see #getIdentifier()
+   * @generated
+   */
+  void setIdentifier(ELEMENTIDENTIFIER value);
+
+  /**
+   * Returns the value of the '<em><b>Save Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Save Variable</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Save Variable</em>' containment reference.
+   * @see #setSaveVariable(SAVEVAR)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getCOUNT_SaveVariable()
+   * @model containment="true"
+   * @generated
+   */
+  SAVEVAR getSaveVariable();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.COUNT#getSaveVariable <em>Save Variable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Save Variable</em>' containment reference.
+   * @see #getSaveVariable()
+   * @generated
+   */
+  void setSaveVariable(SAVEVAR value);
+
 } // COUNT

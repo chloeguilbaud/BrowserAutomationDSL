@@ -3,6 +3,7 @@
  */
 package org.xtext.project.browserautomationdsl.domainmodel;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  * @model
  * @generated
  */
-public interface SAVEVAR extends READ, COUNT
+public interface SAVEVAR extends EObject
 {
   /**
    * Returns the value of the '<em><b>Var</b></em>' attribute.

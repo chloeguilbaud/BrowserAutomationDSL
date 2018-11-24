@@ -3,20 +3,76 @@
  */
 package org.xtext.project.browserautomationdsl.domainmodel.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.project.browserautomationdsl.domainmodel.COUNT;
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
+import org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER;
+import org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>COUNT</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.COUNTImpl#getSaveVariable <em>Save Variable</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentifier()
+   * @generated
+   * @ordered
+   */
+  protected ELEMENTIDENTIFIER identifier;
+
+  /**
+   * The cached value of the '{@link #getSaveVariable() <em>Save Variable</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSaveVariable()
+   * @generated
+   * @ordered
+   */
+  protected SAVEVAR saveVariable;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +92,246 @@ public class COUNTImpl extends INSTRUCTIONImpl implements COUNT
   protected EClass eStaticClass()
   {
     return DomainmodelPackage.Literals.COUNT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.COUNT__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ELEMENTIDENTIFIER getIdentifier()
+  {
+    return identifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIdentifier(ELEMENTIDENTIFIER newIdentifier, NotificationChain msgs)
+  {
+    ELEMENTIDENTIFIER oldIdentifier = identifier;
+    identifier = newIdentifier;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainmodelPackage.COUNT__IDENTIFIER, oldIdentifier, newIdentifier);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdentifier(ELEMENTIDENTIFIER newIdentifier)
+  {
+    if (newIdentifier != identifier)
+    {
+      NotificationChain msgs = null;
+      if (identifier != null)
+        msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.COUNT__IDENTIFIER, null, msgs);
+      if (newIdentifier != null)
+        msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.COUNT__IDENTIFIER, null, msgs);
+      msgs = basicSetIdentifier(newIdentifier, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.COUNT__IDENTIFIER, newIdentifier, newIdentifier));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SAVEVAR getSaveVariable()
+  {
+    return saveVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSaveVariable(SAVEVAR newSaveVariable, NotificationChain msgs)
+  {
+    SAVEVAR oldSaveVariable = saveVariable;
+    saveVariable = newSaveVariable;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainmodelPackage.COUNT__SAVE_VARIABLE, oldSaveVariable, newSaveVariable);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSaveVariable(SAVEVAR newSaveVariable)
+  {
+    if (newSaveVariable != saveVariable)
+    {
+      NotificationChain msgs = null;
+      if (saveVariable != null)
+        msgs = ((InternalEObject)saveVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.COUNT__SAVE_VARIABLE, null, msgs);
+      if (newSaveVariable != null)
+        msgs = ((InternalEObject)newSaveVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.COUNT__SAVE_VARIABLE, null, msgs);
+      msgs = basicSetSaveVariable(newSaveVariable, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.COUNT__SAVE_VARIABLE, newSaveVariable, newSaveVariable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.COUNT__IDENTIFIER:
+        return basicSetIdentifier(null, msgs);
+      case DomainmodelPackage.COUNT__SAVE_VARIABLE:
+        return basicSetSaveVariable(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.COUNT__NAME:
+        return getName();
+      case DomainmodelPackage.COUNT__IDENTIFIER:
+        return getIdentifier();
+      case DomainmodelPackage.COUNT__SAVE_VARIABLE:
+        return getSaveVariable();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.COUNT__NAME:
+        setName((String)newValue);
+        return;
+      case DomainmodelPackage.COUNT__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)newValue);
+        return;
+      case DomainmodelPackage.COUNT__SAVE_VARIABLE:
+        setSaveVariable((SAVEVAR)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.COUNT__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case DomainmodelPackage.COUNT__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)null);
+        return;
+      case DomainmodelPackage.COUNT__SAVE_VARIABLE:
+        setSaveVariable((SAVEVAR)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.COUNT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainmodelPackage.COUNT__IDENTIFIER:
+        return identifier != null;
+      case DomainmodelPackage.COUNT__SAVE_VARIABLE:
+        return saveVariable != null;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //COUNTImpl

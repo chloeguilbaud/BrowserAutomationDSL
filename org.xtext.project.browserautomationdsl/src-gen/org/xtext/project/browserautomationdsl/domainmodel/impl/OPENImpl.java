@@ -20,6 +20,7 @@ import org.xtext.project.browserautomationdsl.domainmodel.OPEN;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.OPENImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.OPENImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -27,6 +28,26 @@ import org.xtext.project.browserautomationdsl.domainmodel.OPEN;
  */
 public class OPENImpl extends INSTRUCTIONImpl implements OPEN
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -73,6 +94,29 @@ public class OPENImpl extends INSTRUCTIONImpl implements OPEN
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.OPEN__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getValue()
   {
     return value;
@@ -101,6 +145,8 @@ public class OPENImpl extends INSTRUCTIONImpl implements OPEN
   {
     switch (featureID)
     {
+      case DomainmodelPackage.OPEN__NAME:
+        return getName();
       case DomainmodelPackage.OPEN__VALUE:
         return getValue();
     }
@@ -117,6 +163,9 @@ public class OPENImpl extends INSTRUCTIONImpl implements OPEN
   {
     switch (featureID)
     {
+      case DomainmodelPackage.OPEN__NAME:
+        setName((String)newValue);
+        return;
       case DomainmodelPackage.OPEN__VALUE:
         setValue((String)newValue);
         return;
@@ -134,6 +183,9 @@ public class OPENImpl extends INSTRUCTIONImpl implements OPEN
   {
     switch (featureID)
     {
+      case DomainmodelPackage.OPEN__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case DomainmodelPackage.OPEN__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
@@ -151,6 +203,8 @@ public class OPENImpl extends INSTRUCTIONImpl implements OPEN
   {
     switch (featureID)
     {
+      case DomainmodelPackage.OPEN__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainmodelPackage.OPEN__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
@@ -168,7 +222,9 @@ public class OPENImpl extends INSTRUCTIONImpl implements OPEN
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", value: ");
     result.append(value);
     result.append(')');
     return result.toString();

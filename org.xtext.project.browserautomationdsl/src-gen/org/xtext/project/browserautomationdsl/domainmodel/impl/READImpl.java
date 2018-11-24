@@ -3,20 +3,76 @@
  */
 package org.xtext.project.browserautomationdsl.domainmodel.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
+import org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER;
 import org.xtext.project.browserautomationdsl.domainmodel.READ;
+import org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>READ</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.READImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.READImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.READImpl#getSavePath <em>Save Path</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class READImpl extends INSTRUCTIONImpl implements READ
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentifier()
+   * @generated
+   * @ordered
+   */
+  protected ELEMENTIDENTIFIER identifier;
+
+  /**
+   * The cached value of the '{@link #getSavePath() <em>Save Path</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSavePath()
+   * @generated
+   * @ordered
+   */
+  protected SAVEVAR savePath;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +92,246 @@ public class READImpl extends INSTRUCTIONImpl implements READ
   protected EClass eStaticClass()
   {
     return DomainmodelPackage.Literals.READ;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.READ__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ELEMENTIDENTIFIER getIdentifier()
+  {
+    return identifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIdentifier(ELEMENTIDENTIFIER newIdentifier, NotificationChain msgs)
+  {
+    ELEMENTIDENTIFIER oldIdentifier = identifier;
+    identifier = newIdentifier;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainmodelPackage.READ__IDENTIFIER, oldIdentifier, newIdentifier);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdentifier(ELEMENTIDENTIFIER newIdentifier)
+  {
+    if (newIdentifier != identifier)
+    {
+      NotificationChain msgs = null;
+      if (identifier != null)
+        msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.READ__IDENTIFIER, null, msgs);
+      if (newIdentifier != null)
+        msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.READ__IDENTIFIER, null, msgs);
+      msgs = basicSetIdentifier(newIdentifier, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.READ__IDENTIFIER, newIdentifier, newIdentifier));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SAVEVAR getSavePath()
+  {
+    return savePath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSavePath(SAVEVAR newSavePath, NotificationChain msgs)
+  {
+    SAVEVAR oldSavePath = savePath;
+    savePath = newSavePath;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainmodelPackage.READ__SAVE_PATH, oldSavePath, newSavePath);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSavePath(SAVEVAR newSavePath)
+  {
+    if (newSavePath != savePath)
+    {
+      NotificationChain msgs = null;
+      if (savePath != null)
+        msgs = ((InternalEObject)savePath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.READ__SAVE_PATH, null, msgs);
+      if (newSavePath != null)
+        msgs = ((InternalEObject)newSavePath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.READ__SAVE_PATH, null, msgs);
+      msgs = basicSetSavePath(newSavePath, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.READ__SAVE_PATH, newSavePath, newSavePath));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.READ__IDENTIFIER:
+        return basicSetIdentifier(null, msgs);
+      case DomainmodelPackage.READ__SAVE_PATH:
+        return basicSetSavePath(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.READ__NAME:
+        return getName();
+      case DomainmodelPackage.READ__IDENTIFIER:
+        return getIdentifier();
+      case DomainmodelPackage.READ__SAVE_PATH:
+        return getSavePath();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.READ__NAME:
+        setName((String)newValue);
+        return;
+      case DomainmodelPackage.READ__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)newValue);
+        return;
+      case DomainmodelPackage.READ__SAVE_PATH:
+        setSavePath((SAVEVAR)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.READ__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case DomainmodelPackage.READ__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)null);
+        return;
+      case DomainmodelPackage.READ__SAVE_PATH:
+        setSavePath((SAVEVAR)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.READ__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainmodelPackage.READ__IDENTIFIER:
+        return identifier != null;
+      case DomainmodelPackage.READ__SAVE_PATH:
+        return savePath != null;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //READImpl

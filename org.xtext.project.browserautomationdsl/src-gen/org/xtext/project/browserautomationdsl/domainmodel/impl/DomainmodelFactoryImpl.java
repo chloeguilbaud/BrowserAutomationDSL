@@ -76,7 +76,11 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
       case DomainmodelPackage.UNCHECK: return createUNCHECK();
       case DomainmodelPackage.SELECT: return createSELECT();
       case DomainmodelPackage.READ: return createREAD();
+      case DomainmodelPackage.ELEMENTIDENTIFIER: return createELEMENTIDENTIFIER();
       case DomainmodelPackage.VERIFY: return createVERIFY();
+      case DomainmodelPackage.VERIFY_CONTAINS: return createVERIFY_CONTAINS();
+      case DomainmodelPackage.VERIFY_EQUALS: return createVERIFY_EQUALS();
+      case DomainmodelPackage.REGISTERED_VALUE: return createREGISTERED_VALUE();
       case DomainmodelPackage.COUNT: return createCOUNT();
       case DomainmodelPackage.SAVEVAR: return createSAVEVAR();
       case DomainmodelPackage.PLAY: return createPLAY();
@@ -211,10 +215,54 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * <!-- end-user-doc -->
    * @generated
    */
+  public ELEMENTIDENTIFIER createELEMENTIDENTIFIER()
+  {
+    ELEMENTIDENTIFIERImpl elementidentifier = new ELEMENTIDENTIFIERImpl();
+    return elementidentifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public VERIFY createVERIFY()
   {
     VERIFYImpl verify = new VERIFYImpl();
     return verify;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VERIFY_CONTAINS createVERIFY_CONTAINS()
+  {
+    VERIFY_CONTAINSImpl verifY_CONTAINS = new VERIFY_CONTAINSImpl();
+    return verifY_CONTAINS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VERIFY_EQUALS createVERIFY_EQUALS()
+  {
+    VERIFY_EQUALSImpl verifY_EQUALS = new VERIFY_EQUALSImpl();
+    return verifY_EQUALS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public REGISTERED_VALUE createREGISTERED_VALUE()
+  {
+    REGISTERED_VALUEImpl registereD_VALUE = new REGISTERED_VALUEImpl();
+    return registereD_VALUE;
   }
 
   /**

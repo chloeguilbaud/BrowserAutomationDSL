@@ -13,6 +13,9 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.FILL#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.FILL#getFieldType <em>Field Type</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.FILL#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.FILL#getVar <em>Var</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.FILL#getValue <em>Value</em>}</li>
  * </ul>
@@ -23,6 +26,84 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  */
 public interface FILL extends INSTRUCTION
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getFILL_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.FILL#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Field Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Field Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Field Type</em>' attribute.
+   * @see #setFieldType(String)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getFILL_FieldType()
+   * @model
+   * @generated
+   */
+  String getFieldType();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.FILL#getFieldType <em>Field Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Field Type</em>' attribute.
+   * @see #getFieldType()
+   * @generated
+   */
+  void setFieldType(String value);
+
+  /**
+   * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Identifier</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Identifier</em>' containment reference.
+   * @see #setIdentifier(ELEMENTIDENTIFIER)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getFILL_Identifier()
+   * @model containment="true"
+   * @generated
+   */
+  ELEMENTIDENTIFIER getIdentifier();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.FILL#getIdentifier <em>Identifier</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Identifier</em>' containment reference.
+   * @see #getIdentifier()
+   * @generated
+   */
+  void setIdentifier(ELEMENTIDENTIFIER value);
+
   /**
    * Returns the value of the '<em><b>Var</b></em>' attribute.
    * <!-- begin-user-doc -->

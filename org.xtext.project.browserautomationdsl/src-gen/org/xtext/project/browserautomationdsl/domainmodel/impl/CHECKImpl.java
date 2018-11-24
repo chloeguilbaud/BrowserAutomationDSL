@@ -3,20 +3,85 @@
  */
 package org.xtext.project.browserautomationdsl.domainmodel.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.project.browserautomationdsl.domainmodel.CHECK;
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
+import org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>CHECK</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CHECKImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CHECKImpl#getAll <em>All</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CHECKImpl#getIdentifier <em>Identifier</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class CHECKImpl extends INSTRUCTIONImpl implements CHECK
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getAll() <em>All</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAll()
+   * @generated
+   * @ordered
+   */
+  protected static final String ALL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAll() <em>All</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAll()
+   * @generated
+   * @ordered
+   */
+  protected String all = ALL_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentifier()
+   * @generated
+   * @ordered
+   */
+  protected ELEMENTIDENTIFIER identifier;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +101,221 @@ public class CHECKImpl extends INSTRUCTIONImpl implements CHECK
   protected EClass eStaticClass()
   {
     return DomainmodelPackage.Literals.CHECK;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.CHECK__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAll()
+  {
+    return all;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAll(String newAll)
+  {
+    String oldAll = all;
+    all = newAll;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.CHECK__ALL, oldAll, all));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ELEMENTIDENTIFIER getIdentifier()
+  {
+    return identifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIdentifier(ELEMENTIDENTIFIER newIdentifier, NotificationChain msgs)
+  {
+    ELEMENTIDENTIFIER oldIdentifier = identifier;
+    identifier = newIdentifier;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainmodelPackage.CHECK__IDENTIFIER, oldIdentifier, newIdentifier);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdentifier(ELEMENTIDENTIFIER newIdentifier)
+  {
+    if (newIdentifier != identifier)
+    {
+      NotificationChain msgs = null;
+      if (identifier != null)
+        msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.CHECK__IDENTIFIER, null, msgs);
+      if (newIdentifier != null)
+        msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.CHECK__IDENTIFIER, null, msgs);
+      msgs = basicSetIdentifier(newIdentifier, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.CHECK__IDENTIFIER, newIdentifier, newIdentifier));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.CHECK__IDENTIFIER:
+        return basicSetIdentifier(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.CHECK__NAME:
+        return getName();
+      case DomainmodelPackage.CHECK__ALL:
+        return getAll();
+      case DomainmodelPackage.CHECK__IDENTIFIER:
+        return getIdentifier();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.CHECK__NAME:
+        setName((String)newValue);
+        return;
+      case DomainmodelPackage.CHECK__ALL:
+        setAll((String)newValue);
+        return;
+      case DomainmodelPackage.CHECK__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.CHECK__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case DomainmodelPackage.CHECK__ALL:
+        setAll(ALL_EDEFAULT);
+        return;
+      case DomainmodelPackage.CHECK__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.CHECK__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainmodelPackage.CHECK__ALL:
+        return ALL_EDEFAULT == null ? all != null : !ALL_EDEFAULT.equals(all);
+      case DomainmodelPackage.CHECK__IDENTIFIER:
+        return identifier != null;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", all: ");
+    result.append(all);
+    result.append(')');
+    return result.toString();
   }
 
 } //CHECKImpl

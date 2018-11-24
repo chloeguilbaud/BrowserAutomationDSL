@@ -2,5 +2,5 @@ procedure main
   open FIREFOX
   go to "http://www.imt-atlantique.fr/fr"
   click on LINK identified by LABEL "Toutes les actualités"
-  click on IMAGE identified by ALT "Acceuil"
-  verify that PAGE contains LINK identified by LABEL "Toutes les activitÃ©s"
+  click on IMAGE identified by ALT "Accueil"
+  verify that PAGE contains LINK identified by LABEL "Toutes les actualités"

@@ -15,39 +15,81 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//PROCEDURE/params"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//PROCEDURE/inst"/>
     </genClasses>
-    <genClasses ecoreClass="Domainmodel.ecore#//INSTRUCTION">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//INSTRUCTION/name"/>
-    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//INSTRUCTION"/>
     <genClasses ecoreClass="Domainmodel.ecore#//OPEN">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//OPEN/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//OPEN/value"/>
     </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//GOTO">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//GOTO/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//GOTO/value"/>
     </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//CLICK">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//CLICK/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//CLICK/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//CLICK/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//CLICK/identifier"/>
     </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//FILL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//FILL/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//FILL/fieldType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//FILL/identifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//FILL/var"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//FILL/value"/>
     </genClasses>
-    <genClasses ecoreClass="Domainmodel.ecore#//CHECK"/>
-    <genClasses ecoreClass="Domainmodel.ecore#//UNCHECK"/>
+    <genClasses ecoreClass="Domainmodel.ecore#//CHECK">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//CHECK/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//CHECK/all"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//CHECK/identifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//UNCHECK">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//UNCHECK/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//UNCHECK/all"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//UNCHECK/identifier"/>
+    </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//SELECT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//SELECT/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//SELECT/elem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//SELECT/identifier"/>
     </genClasses>
-    <genClasses ecoreClass="Domainmodel.ecore#//READ"/>
+    <genClasses ecoreClass="Domainmodel.ecore#//READ">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//READ/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//READ/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//READ/savePath"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//ELEMENTIDENTIFIER">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//ELEMENTIDENTIFIER/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//ELEMENTIDENTIFIER/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//ELEMENTIDENTIFIER/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//ELEMENTIDENTIFIER/info"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//ELEMENTIDENTIFIER/var"/>
+    </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//VERIFY">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//VERIFY/count"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//VERIFY/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//VERIFY/var"/>
     </genClasses>
-    <genClasses ecoreClass="Domainmodel.ecore#//COUNT"/>
+    <genClasses ecoreClass="Domainmodel.ecore#//VERIFY_CONTAINS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//VERIFY_CONTAINS/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//VERIFY_CONTAINS/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//VERIFY_CONTAINS/containedIdentifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//VERIFY_CONTAINS/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//VERIFY_EQUALS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//VERIFY_EQUALS/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//VERIFY_EQUALS/registeredValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//REGISTERED_VALUE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//REGISTERED_VALUE/var"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//COUNT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//COUNT/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//COUNT/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//COUNT/saveVariable"/>
+    </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//SAVEVAR">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//SAVEVAR/var"/>
     </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//PLAY">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//PLAY/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//PLAY/preocedure"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//PLAY/params"/>
     </genClasses>
   </genPackages>

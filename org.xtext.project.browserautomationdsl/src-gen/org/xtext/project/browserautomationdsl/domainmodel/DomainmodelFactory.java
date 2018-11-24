@@ -123,6 +123,15 @@ public interface DomainmodelFactory extends EFactory
   READ createREAD();
 
   /**
+   * Returns a new object of class '<em>ELEMENTIDENTIFIER</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>ELEMENTIDENTIFIER</em>'.
+   * @generated
+   */
+  ELEMENTIDENTIFIER createELEMENTIDENTIFIER();
+
+  /**
    * Returns a new object of class '<em>VERIFY</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,6 +139,33 @@ public interface DomainmodelFactory extends EFactory
    * @generated
    */
   VERIFY createVERIFY();
+
+  /**
+   * Returns a new object of class '<em>VERIFY CONTAINS</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>VERIFY CONTAINS</em>'.
+   * @generated
+   */
+  VERIFY_CONTAINS createVERIFY_CONTAINS();
+
+  /**
+   * Returns a new object of class '<em>VERIFY EQUALS</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>VERIFY EQUALS</em>'.
+   * @generated
+   */
+  VERIFY_EQUALS createVERIFY_EQUALS();
+
+  /**
+   * Returns a new object of class '<em>REGISTERED VALUE</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>REGISTERED VALUE</em>'.
+   * @generated
+   */
+  REGISTERED_VALUE createREGISTERED_VALUE();
 
   /**
    * Returns a new object of class '<em>COUNT</em>'.

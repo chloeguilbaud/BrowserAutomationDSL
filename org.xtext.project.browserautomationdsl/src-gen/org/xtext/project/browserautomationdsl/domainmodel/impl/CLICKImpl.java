@@ -4,13 +4,16 @@
 package org.xtext.project.browserautomationdsl.domainmodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.project.browserautomationdsl.domainmodel.CLICK;
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
+import org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,14 +23,35 @@ import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CLICKImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CLICKImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CLICKImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.CLICKImpl#getIdentifier <em>Identifier</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -49,24 +73,14 @@ public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getIdentifier()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected ELEMENTIDENTIFIER identifier;
 
   /**
    * <!-- begin-user-doc -->
@@ -87,6 +101,29 @@ public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
   protected EClass eStaticClass()
   {
     return DomainmodelPackage.Literals.CLICK;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.CLICK__NAME, oldName, name));
   }
 
   /**
@@ -117,9 +154,9 @@ public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public ELEMENTIDENTIFIER getIdentifier()
   {
-    return value;
+    return identifier;
   }
 
   /**
@@ -127,12 +164,53 @@ public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public NotificationChain basicSetIdentifier(ELEMENTIDENTIFIER newIdentifier, NotificationChain msgs)
   {
-    String oldValue = value;
-    value = newValue;
+    ELEMENTIDENTIFIER oldIdentifier = identifier;
+    identifier = newIdentifier;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.CLICK__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainmodelPackage.CLICK__IDENTIFIER, oldIdentifier, newIdentifier);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdentifier(ELEMENTIDENTIFIER newIdentifier)
+  {
+    if (newIdentifier != identifier)
+    {
+      NotificationChain msgs = null;
+      if (identifier != null)
+        msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.CLICK__IDENTIFIER, null, msgs);
+      if (newIdentifier != null)
+        msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.CLICK__IDENTIFIER, null, msgs);
+      msgs = basicSetIdentifier(newIdentifier, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.CLICK__IDENTIFIER, newIdentifier, newIdentifier));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.CLICK__IDENTIFIER:
+        return basicSetIdentifier(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -145,10 +223,12 @@ public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
   {
     switch (featureID)
     {
+      case DomainmodelPackage.CLICK__NAME:
+        return getName();
       case DomainmodelPackage.CLICK__TYPE:
         return getType();
-      case DomainmodelPackage.CLICK__VALUE:
-        return getValue();
+      case DomainmodelPackage.CLICK__IDENTIFIER:
+        return getIdentifier();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -163,11 +243,14 @@ public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
   {
     switch (featureID)
     {
+      case DomainmodelPackage.CLICK__NAME:
+        setName((String)newValue);
+        return;
       case DomainmodelPackage.CLICK__TYPE:
         setType((String)newValue);
         return;
-      case DomainmodelPackage.CLICK__VALUE:
-        setValue((String)newValue);
+      case DomainmodelPackage.CLICK__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,11 +266,14 @@ public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
   {
     switch (featureID)
     {
+      case DomainmodelPackage.CLICK__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case DomainmodelPackage.CLICK__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case DomainmodelPackage.CLICK__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case DomainmodelPackage.CLICK__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)null);
         return;
     }
     super.eUnset(featureID);
@@ -203,10 +289,12 @@ public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
   {
     switch (featureID)
     {
+      case DomainmodelPackage.CLICK__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainmodelPackage.CLICK__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case DomainmodelPackage.CLICK__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case DomainmodelPackage.CLICK__IDENTIFIER:
+        return identifier != null;
     }
     return super.eIsSet(featureID);
   }
@@ -222,10 +310,10 @@ public class CLICKImpl extends INSTRUCTIONImpl implements CLICK
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (type: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", type: ");
     result.append(type);
-    result.append(", value: ");
-    result.append(value);
     result.append(')');
     return result.toString();
   }

@@ -13,8 +13,9 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK#getIdentifier <em>Identifier</em>}</li>
  * </ul>
  *
  * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getCLICK()
@@ -23,6 +24,32 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  */
 public interface CLICK extends INSTRUCTION
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getCLICK_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -50,29 +77,29 @@ public interface CLICK extends INSTRUCTION
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Identifier</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
-   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getCLICK_Value()
-   * @model
+   * @return the value of the '<em>Identifier</em>' containment reference.
+   * @see #setIdentifier(ELEMENTIDENTIFIER)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getCLICK_Identifier()
+   * @model containment="true"
    * @generated
    */
-  String getValue();
+  ELEMENTIDENTIFIER getIdentifier();
 
   /**
-   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.CLICK#getIdentifier <em>Identifier</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
+   * @param value the new value of the '<em>Identifier</em>' containment reference.
+   * @see #getIdentifier()
    * @generated
    */
-  void setValue(String value);
+  void setIdentifier(ELEMENTIDENTIFIER value);
 
 } // CLICK

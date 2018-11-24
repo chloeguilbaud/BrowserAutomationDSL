@@ -35,39 +35,51 @@ GOTO:
 ;
 
 CLICK: 
-	name='click' 'on' type=('BUTTON' | 'LINK' | 'IMAGE' | 'TEXT') value=ELEMENTIDENTIFIER
+	name='click' 'on' type=('BUTTON' | 'LINK' | 'IMAGE' | 'TEXT') identifier=ELEMENTIDENTIFIER
 ;
 
 FILL: 
-	name='fill' ('TEXTFIELD' | 'SEARCHFIELD') (ELEMENTIDENTIFIER)? 'with' ('saved' (var=VARTYPE) | (value=STRING))
+	name='fill' fieldType=('TEXTFIELD' | 'SEARCHFIELD') identifier=(ELEMENTIDENTIFIER)? 'with' ('saved' (var=VARTYPE) | (value=STRING))
 ;
 
 CHECK: 
-	name='check' ('all')? 'CHECKBOX' (ELEMENTIDENTIFIER)? 
+	name='check' all=('all')? 'CHECKBOX' identifier=(ELEMENTIDENTIFIER)
 ;
 	
 UNCHECK: 
-	name='uncheck' ('all')? 'CHECKBOX' (ELEMENTIDENTIFIER)?
+	name='uncheck' all=('all')? 'CHECKBOX' identifier=(ELEMENTIDENTIFIER)
 ;
 
 SELECT: 
-	name='select' (elem=STRING) 'in' 'COMBOBOX' (ELEMENTIDENTIFIER)?
+	name='select' (elem=STRING) 'in' 'COMBOBOX' identifier=(ELEMENTIDENTIFIER)
 ;
 
 READ:
-	name='read' 'url' 'from' ('BUTTON' | 'LINK' | 'IMAGE' | 'TEXT') ELEMENTIDENTIFIER (SAVEVAR)?
+	name='read' 'url' 'from' ('BUTTON' | 'LINK' | 'IMAGE' | 'TEXT') identifier=ELEMENTIDENTIFIER savePath=(SAVEVAR)?
 ;
 
 ELEMENTIDENTIFIER: 
-	'identified' 'by' ('LABEL' | 'CLASS' | 'ID' | 'ALT') (STRING | 'given' VARTYPE)
+	name='identified' 'by' type=('LABEL' | 'CLASS' | 'ID' | 'ALT') (value=STRING | info='given' var=VARTYPE)
 ;
 
 VERIFY:
-	name='verify that' ( ( count=COUNT ) | (type=('PAGE' | 'TEXT') (ELEMENTIDENTIFIER)?) ) ('contains' ((('LINK' | 'IMAGE') ELEMENTIDENTIFIER) | (value=STRING) | 'saved' (var=VARTYPE)) | ('equals' ('saved' var=VARTYPE | value=STRING)))
+	VERIFY_CONTAINS | VERIFY_EQUALS
+;
+
+VERIFY_CONTAINS:
+	'verify' 'that' type=('PAGE' | 'TEXT') identifier=ELEMENTIDENTIFIER? 'contains' ((('LINK' | 'IMAGE') containedIdentifier=ELEMENTIDENTIFIER) | (value=STRING | variable=REGISTERED_VALUE)) 
+;
+
+VERIFY_EQUALS:
+	'verify' 'that' operation=COUNT 'equals' (value=STRING | registeredValue=REGISTERED_VALUE)
+;
+
+REGISTERED_VALUE:
+	'saved' var=VARTYPE
 ;
 
 COUNT: 
-	name='count' 'ELEMENT' ELEMENTIDENTIFIER (SAVEVAR)?
+	name='count' 'ELEMENT' identifier=ELEMENTIDENTIFIER saveVariable=(SAVEVAR)?
 ;
 
 SAVEVAR: 
@@ -75,7 +87,7 @@ SAVEVAR:
 ;
 
 PLAY: 
-	name='play' 'procedure' VARTYPE (params+=STRING)*
+	name='play' 'procedure' preocedure=VARTYPE (params+=STRING)*
 ;
 
 terminal VARTYPE: 

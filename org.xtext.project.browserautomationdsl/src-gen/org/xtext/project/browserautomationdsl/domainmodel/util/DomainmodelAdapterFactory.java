@@ -131,9 +131,29 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
         return createREADAdapter();
       }
       @Override
+      public Adapter caseELEMENTIDENTIFIER(ELEMENTIDENTIFIER object)
+      {
+        return createELEMENTIDENTIFIERAdapter();
+      }
+      @Override
       public Adapter caseVERIFY(VERIFY object)
       {
         return createVERIFYAdapter();
+      }
+      @Override
+      public Adapter caseVERIFY_CONTAINS(VERIFY_CONTAINS object)
+      {
+        return createVERIFY_CONTAINSAdapter();
+      }
+      @Override
+      public Adapter caseVERIFY_EQUALS(VERIFY_EQUALS object)
+      {
+        return createVERIFY_EQUALSAdapter();
+      }
+      @Override
+      public Adapter caseREGISTERED_VALUE(REGISTERED_VALUE object)
+      {
+        return createREGISTERED_VALUEAdapter();
       }
       @Override
       public Adapter caseCOUNT(COUNT object)
@@ -338,6 +358,21 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER <em>ELEMENTIDENTIFIER</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER
+   * @generated
+   */
+  public Adapter createELEMENTIDENTIFIERAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY <em>VERIFY</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -348,6 +383,51 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVERIFYAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY_CONTAINS <em>VERIFY CONTAINS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.VERIFY_CONTAINS
+   * @generated
+   */
+  public Adapter createVERIFY_CONTAINSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.VERIFY_EQUALS <em>VERIFY EQUALS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.VERIFY_EQUALS
+   * @generated
+   */
+  public Adapter createVERIFY_EQUALSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.project.browserautomationdsl.domainmodel.REGISTERED_VALUE <em>REGISTERED VALUE</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.project.browserautomationdsl.domainmodel.REGISTERED_VALUE
+   * @generated
+   */
+  public Adapter createREGISTERED_VALUEAdapter()
   {
     return null;
   }

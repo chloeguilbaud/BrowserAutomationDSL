@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
 import org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR;
@@ -25,7 +26,7 @@ import org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR;
  *
  * @generated
  */
-public class SAVEVARImpl extends READImpl implements SAVEVAR
+public class SAVEVARImpl extends MinimalEObjectImpl.Container implements SAVEVAR
 {
   /**
    * The default value of the '{@link #getVar() <em>Var</em>}' attribute.

@@ -103,7 +103,35 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass elementidentifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass verifyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass verifY_CONTAINSEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass verifY_EQUALSEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass registereD_VALUEEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -274,16 +302,6 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getINSTRUCTION_Name()
-  {
-    return (EAttribute)instructionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getOPEN()
   {
     return openEClass;
@@ -294,9 +312,19 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getOPEN_Value()
+  public EAttribute getOPEN_Name()
   {
     return (EAttribute)openEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOPEN_Value()
+  {
+    return (EAttribute)openEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -314,9 +342,19 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGOTO_Value()
+  public EAttribute getGOTO_Name()
   {
     return (EAttribute)gotoEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGOTO_Value()
+  {
+    return (EAttribute)gotoEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -334,7 +372,7 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCLICK_Type()
+  public EAttribute getCLICK_Name()
   {
     return (EAttribute)clickEClass.getEStructuralFeatures().get(0);
   }
@@ -344,9 +382,19 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCLICK_Value()
+  public EAttribute getCLICK_Type()
   {
     return (EAttribute)clickEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCLICK_Identifier()
+  {
+    return (EReference)clickEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -364,7 +412,7 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFILL_Var()
+  public EAttribute getFILL_Name()
   {
     return (EAttribute)fillEClass.getEStructuralFeatures().get(0);
   }
@@ -374,9 +422,39 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFILL_Value()
+  public EAttribute getFILL_FieldType()
   {
     return (EAttribute)fillEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFILL_Identifier()
+  {
+    return (EReference)fillEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFILL_Var()
+  {
+    return (EAttribute)fillEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFILL_Value()
+  {
+    return (EAttribute)fillEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -394,9 +472,69 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getCHECK_Name()
+  {
+    return (EAttribute)checkEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCHECK_All()
+  {
+    return (EAttribute)checkEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCHECK_Identifier()
+  {
+    return (EReference)checkEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getUNCHECK()
   {
     return uncheckEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUNCHECK_Name()
+  {
+    return (EAttribute)uncheckEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUNCHECK_All()
+  {
+    return (EAttribute)uncheckEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUNCHECK_Identifier()
+  {
+    return (EReference)uncheckEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -414,9 +552,29 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSELECT_Elem()
+  public EAttribute getSELECT_Name()
   {
     return (EAttribute)selectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSELECT_Elem()
+  {
+    return (EAttribute)selectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSELECT_Identifier()
+  {
+    return (EReference)selectEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -434,6 +592,96 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getREAD_Name()
+  {
+    return (EAttribute)readEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getREAD_Identifier()
+  {
+    return (EReference)readEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getREAD_SavePath()
+  {
+    return (EReference)readEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getELEMENTIDENTIFIER()
+  {
+    return elementidentifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getELEMENTIDENTIFIER_Name()
+  {
+    return (EAttribute)elementidentifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getELEMENTIDENTIFIER_Type()
+  {
+    return (EAttribute)elementidentifierEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getELEMENTIDENTIFIER_Value()
+  {
+    return (EAttribute)elementidentifierEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getELEMENTIDENTIFIER_Info()
+  {
+    return (EAttribute)elementidentifierEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getELEMENTIDENTIFIER_Var()
+  {
+    return (EAttribute)elementidentifierEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getVERIFY()
   {
     return verifyEClass;
@@ -444,19 +692,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getVERIFY_Count()
-  {
-    return (EReference)verifyEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getVERIFY_Value()
   {
-    return (EAttribute)verifyEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)verifyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -464,9 +702,99 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVERIFY_Var()
+  public EClass getVERIFY_CONTAINS()
   {
-    return (EAttribute)verifyEClass.getEStructuralFeatures().get(2);
+    return verifY_CONTAINSEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVERIFY_CONTAINS_Type()
+  {
+    return (EAttribute)verifY_CONTAINSEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVERIFY_CONTAINS_Identifier()
+  {
+    return (EReference)verifY_CONTAINSEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVERIFY_CONTAINS_ContainedIdentifier()
+  {
+    return (EReference)verifY_CONTAINSEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVERIFY_CONTAINS_Variable()
+  {
+    return (EReference)verifY_CONTAINSEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVERIFY_EQUALS()
+  {
+    return verifY_EQUALSEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVERIFY_EQUALS_Operation()
+  {
+    return (EReference)verifY_EQUALSEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVERIFY_EQUALS_RegisteredValue()
+  {
+    return (EReference)verifY_EQUALSEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getREGISTERED_VALUE()
+  {
+    return registereD_VALUEEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getREGISTERED_VALUE_Var()
+  {
+    return (EAttribute)registereD_VALUEEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -477,6 +805,36 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
   public EClass getCOUNT()
   {
     return countEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCOUNT_Name()
+  {
+    return (EAttribute)countEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCOUNT_Identifier()
+  {
+    return (EReference)countEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCOUNT_SaveVariable()
+  {
+    return (EReference)countEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -514,9 +872,29 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPLAY_Params()
+  public EAttribute getPLAY_Name()
   {
     return (EAttribute)playEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPLAY_Preocedure()
+  {
+    return (EAttribute)playEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPLAY_Params()
+  {
+    return (EAttribute)playEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -559,42 +937,81 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     createEReference(procedureEClass, PROCEDURE__INST);
 
     instructionEClass = createEClass(INSTRUCTION);
-    createEAttribute(instructionEClass, INSTRUCTION__NAME);
 
     openEClass = createEClass(OPEN);
+    createEAttribute(openEClass, OPEN__NAME);
     createEAttribute(openEClass, OPEN__VALUE);
 
     gotoEClass = createEClass(GOTO);
+    createEAttribute(gotoEClass, GOTO__NAME);
     createEAttribute(gotoEClass, GOTO__VALUE);
 
     clickEClass = createEClass(CLICK);
+    createEAttribute(clickEClass, CLICK__NAME);
     createEAttribute(clickEClass, CLICK__TYPE);
-    createEAttribute(clickEClass, CLICK__VALUE);
+    createEReference(clickEClass, CLICK__IDENTIFIER);
 
     fillEClass = createEClass(FILL);
+    createEAttribute(fillEClass, FILL__NAME);
+    createEAttribute(fillEClass, FILL__FIELD_TYPE);
+    createEReference(fillEClass, FILL__IDENTIFIER);
     createEAttribute(fillEClass, FILL__VAR);
     createEAttribute(fillEClass, FILL__VALUE);
 
     checkEClass = createEClass(CHECK);
+    createEAttribute(checkEClass, CHECK__NAME);
+    createEAttribute(checkEClass, CHECK__ALL);
+    createEReference(checkEClass, CHECK__IDENTIFIER);
 
     uncheckEClass = createEClass(UNCHECK);
+    createEAttribute(uncheckEClass, UNCHECK__NAME);
+    createEAttribute(uncheckEClass, UNCHECK__ALL);
+    createEReference(uncheckEClass, UNCHECK__IDENTIFIER);
 
     selectEClass = createEClass(SELECT);
+    createEAttribute(selectEClass, SELECT__NAME);
     createEAttribute(selectEClass, SELECT__ELEM);
+    createEReference(selectEClass, SELECT__IDENTIFIER);
 
     readEClass = createEClass(READ);
+    createEAttribute(readEClass, READ__NAME);
+    createEReference(readEClass, READ__IDENTIFIER);
+    createEReference(readEClass, READ__SAVE_PATH);
+
+    elementidentifierEClass = createEClass(ELEMENTIDENTIFIER);
+    createEAttribute(elementidentifierEClass, ELEMENTIDENTIFIER__NAME);
+    createEAttribute(elementidentifierEClass, ELEMENTIDENTIFIER__TYPE);
+    createEAttribute(elementidentifierEClass, ELEMENTIDENTIFIER__VALUE);
+    createEAttribute(elementidentifierEClass, ELEMENTIDENTIFIER__INFO);
+    createEAttribute(elementidentifierEClass, ELEMENTIDENTIFIER__VAR);
 
     verifyEClass = createEClass(VERIFY);
-    createEReference(verifyEClass, VERIFY__COUNT);
     createEAttribute(verifyEClass, VERIFY__VALUE);
-    createEAttribute(verifyEClass, VERIFY__VAR);
+
+    verifY_CONTAINSEClass = createEClass(VERIFY_CONTAINS);
+    createEAttribute(verifY_CONTAINSEClass, VERIFY_CONTAINS__TYPE);
+    createEReference(verifY_CONTAINSEClass, VERIFY_CONTAINS__IDENTIFIER);
+    createEReference(verifY_CONTAINSEClass, VERIFY_CONTAINS__CONTAINED_IDENTIFIER);
+    createEReference(verifY_CONTAINSEClass, VERIFY_CONTAINS__VARIABLE);
+
+    verifY_EQUALSEClass = createEClass(VERIFY_EQUALS);
+    createEReference(verifY_EQUALSEClass, VERIFY_EQUALS__OPERATION);
+    createEReference(verifY_EQUALSEClass, VERIFY_EQUALS__REGISTERED_VALUE);
+
+    registereD_VALUEEClass = createEClass(REGISTERED_VALUE);
+    createEAttribute(registereD_VALUEEClass, REGISTERED_VALUE__VAR);
 
     countEClass = createEClass(COUNT);
+    createEAttribute(countEClass, COUNT__NAME);
+    createEReference(countEClass, COUNT__IDENTIFIER);
+    createEReference(countEClass, COUNT__SAVE_VARIABLE);
 
     savevarEClass = createEClass(SAVEVAR);
     createEAttribute(savevarEClass, SAVEVAR__VAR);
 
     playEClass = createEClass(PLAY);
+    createEAttribute(playEClass, PLAY__NAME);
+    createEAttribute(playEClass, PLAY__PREOCEDURE);
     createEAttribute(playEClass, PLAY__PARAMS);
   }
 
@@ -636,9 +1053,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     selectEClass.getESuperTypes().add(this.getINSTRUCTION());
     readEClass.getESuperTypes().add(this.getINSTRUCTION());
     verifyEClass.getESuperTypes().add(this.getINSTRUCTION());
+    verifY_CONTAINSEClass.getESuperTypes().add(this.getVERIFY());
+    verifY_EQUALSEClass.getESuperTypes().add(this.getVERIFY());
     countEClass.getESuperTypes().add(this.getINSTRUCTION());
-    savevarEClass.getESuperTypes().add(this.getREAD());
-    savevarEClass.getESuperTypes().add(this.getCOUNT());
     playEClass.getESuperTypes().add(this.getINSTRUCTION());
 
     // Initialize classes and features; add operations and parameters
@@ -652,42 +1069,81 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     initEReference(getPROCEDURE_Inst(), this.getINSTRUCTION(), null, "inst", null, 0, -1, org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(instructionEClass, org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION.class, "INSTRUCTION", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getINSTRUCTION_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(openEClass, org.xtext.project.browserautomationdsl.domainmodel.OPEN.class, "OPEN", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOPEN_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.OPEN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOPEN_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.OPEN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gotoEClass, org.xtext.project.browserautomationdsl.domainmodel.GOTO.class, "GOTO", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGOTO_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.GOTO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGOTO_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.GOTO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(clickEClass, org.xtext.project.browserautomationdsl.domainmodel.CLICK.class, "CLICK", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCLICK_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.CLICK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCLICK_Type(), ecorePackage.getEString(), "type", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.CLICK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCLICK_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.CLICK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCLICK_Identifier(), this.getELEMENTIDENTIFIER(), null, "identifier", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.CLICK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fillEClass, org.xtext.project.browserautomationdsl.domainmodel.FILL.class, "FILL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFILL_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.FILL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFILL_FieldType(), ecorePackage.getEString(), "fieldType", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.FILL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFILL_Identifier(), this.getELEMENTIDENTIFIER(), null, "identifier", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.FILL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFILL_Var(), ecorePackage.getEString(), "var", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.FILL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFILL_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.FILL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(checkEClass, org.xtext.project.browserautomationdsl.domainmodel.CHECK.class, "CHECK", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCHECK_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.CHECK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCHECK_All(), ecorePackage.getEString(), "all", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.CHECK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCHECK_Identifier(), this.getELEMENTIDENTIFIER(), null, "identifier", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.CHECK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(uncheckEClass, org.xtext.project.browserautomationdsl.domainmodel.UNCHECK.class, "UNCHECK", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUNCHECK_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.UNCHECK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUNCHECK_All(), ecorePackage.getEString(), "all", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.UNCHECK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUNCHECK_Identifier(), this.getELEMENTIDENTIFIER(), null, "identifier", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.UNCHECK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectEClass, org.xtext.project.browserautomationdsl.domainmodel.SELECT.class, "SELECT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSELECT_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.SELECT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSELECT_Elem(), ecorePackage.getEString(), "elem", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.SELECT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSELECT_Identifier(), this.getELEMENTIDENTIFIER(), null, "identifier", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.SELECT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(readEClass, org.xtext.project.browserautomationdsl.domainmodel.READ.class, "READ", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getREAD_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.READ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getREAD_Identifier(), this.getELEMENTIDENTIFIER(), null, "identifier", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.READ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getREAD_SavePath(), this.getSAVEVAR(), null, "savePath", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.READ.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elementidentifierEClass, org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER.class, "ELEMENTIDENTIFIER", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getELEMENTIDENTIFIER_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getELEMENTIDENTIFIER_Type(), ecorePackage.getEString(), "type", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getELEMENTIDENTIFIER_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getELEMENTIDENTIFIER_Info(), ecorePackage.getEString(), "info", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getELEMENTIDENTIFIER_Var(), ecorePackage.getEString(), "var", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(verifyEClass, org.xtext.project.browserautomationdsl.domainmodel.VERIFY.class, "VERIFY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVERIFY_Count(), this.getCOUNT(), null, "count", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVERIFY_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVERIFY_Var(), ecorePackage.getEString(), "var", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(verifY_CONTAINSEClass, org.xtext.project.browserautomationdsl.domainmodel.VERIFY_CONTAINS.class, "VERIFY_CONTAINS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVERIFY_CONTAINS_Type(), ecorePackage.getEString(), "type", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY_CONTAINS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVERIFY_CONTAINS_Identifier(), this.getELEMENTIDENTIFIER(), null, "identifier", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY_CONTAINS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVERIFY_CONTAINS_ContainedIdentifier(), this.getELEMENTIDENTIFIER(), null, "containedIdentifier", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY_CONTAINS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVERIFY_CONTAINS_Variable(), this.getREGISTERED_VALUE(), null, "variable", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY_CONTAINS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(verifY_EQUALSEClass, org.xtext.project.browserautomationdsl.domainmodel.VERIFY_EQUALS.class, "VERIFY_EQUALS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVERIFY_EQUALS_Operation(), this.getCOUNT(), null, "operation", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY_EQUALS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVERIFY_EQUALS_RegisteredValue(), this.getREGISTERED_VALUE(), null, "registeredValue", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.VERIFY_EQUALS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(registereD_VALUEEClass, org.xtext.project.browserautomationdsl.domainmodel.REGISTERED_VALUE.class, "REGISTERED_VALUE", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getREGISTERED_VALUE_Var(), ecorePackage.getEString(), "var", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.REGISTERED_VALUE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(countEClass, org.xtext.project.browserautomationdsl.domainmodel.COUNT.class, "COUNT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCOUNT_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.COUNT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCOUNT_Identifier(), this.getELEMENTIDENTIFIER(), null, "identifier", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.COUNT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCOUNT_SaveVariable(), this.getSAVEVAR(), null, "saveVariable", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.COUNT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(savevarEClass, org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR.class, "SAVEVAR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSAVEVAR_Var(), ecorePackage.getEString(), "var", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(playEClass, org.xtext.project.browserautomationdsl.domainmodel.PLAY.class, "PLAY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPLAY_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.PLAY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPLAY_Preocedure(), ecorePackage.getEString(), "preocedure", null, 0, 1, org.xtext.project.browserautomationdsl.domainmodel.PLAY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPLAY_Params(), ecorePackage.getEString(), "params", null, 0, -1, org.xtext.project.browserautomationdsl.domainmodel.PLAY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

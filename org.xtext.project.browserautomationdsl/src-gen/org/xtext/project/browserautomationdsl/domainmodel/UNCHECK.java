@@ -9,6 +9,14 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  * A representation of the model object '<em><b>UNCHECK</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.UNCHECK#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.UNCHECK#getAll <em>All</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.UNCHECK#getIdentifier <em>Identifier</em>}</li>
+ * </ul>
  *
  * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getUNCHECK()
  * @model
@@ -16,4 +24,82 @@ package org.xtext.project.browserautomationdsl.domainmodel;
  */
 public interface UNCHECK extends INSTRUCTION
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getUNCHECK_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.UNCHECK#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>All</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>All</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>All</em>' attribute.
+   * @see #setAll(String)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getUNCHECK_All()
+   * @model
+   * @generated
+   */
+  String getAll();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.UNCHECK#getAll <em>All</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>All</em>' attribute.
+   * @see #getAll()
+   * @generated
+   */
+  void setAll(String value);
+
+  /**
+   * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Identifier</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Identifier</em>' containment reference.
+   * @see #setIdentifier(ELEMENTIDENTIFIER)
+   * @see org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage#getUNCHECK_Identifier()
+   * @model containment="true"
+   * @generated
+   */
+  ELEMENTIDENTIFIER getIdentifier();
+
+  /**
+   * Sets the value of the '{@link org.xtext.project.browserautomationdsl.domainmodel.UNCHECK#getIdentifier <em>Identifier</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Identifier</em>' containment reference.
+   * @see #getIdentifier()
+   * @generated
+   */
+  void setIdentifier(ELEMENTIDENTIFIER value);
+
 } // UNCHECK

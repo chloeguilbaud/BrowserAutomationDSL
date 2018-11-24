@@ -158,11 +158,43 @@ public class DomainmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DomainmodelPackage.ELEMENTIDENTIFIER:
+      {
+        ELEMENTIDENTIFIER elementidentifier = (ELEMENTIDENTIFIER)theEObject;
+        T result = caseELEMENTIDENTIFIER(elementidentifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DomainmodelPackage.VERIFY:
       {
         VERIFY verify = (VERIFY)theEObject;
         T result = caseVERIFY(verify);
         if (result == null) result = caseINSTRUCTION(verify);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.VERIFY_CONTAINS:
+      {
+        VERIFY_CONTAINS verifY_CONTAINS = (VERIFY_CONTAINS)theEObject;
+        T result = caseVERIFY_CONTAINS(verifY_CONTAINS);
+        if (result == null) result = caseVERIFY(verifY_CONTAINS);
+        if (result == null) result = caseINSTRUCTION(verifY_CONTAINS);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.VERIFY_EQUALS:
+      {
+        VERIFY_EQUALS verifY_EQUALS = (VERIFY_EQUALS)theEObject;
+        T result = caseVERIFY_EQUALS(verifY_EQUALS);
+        if (result == null) result = caseVERIFY(verifY_EQUALS);
+        if (result == null) result = caseINSTRUCTION(verifY_EQUALS);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.REGISTERED_VALUE:
+      {
+        REGISTERED_VALUE registereD_VALUE = (REGISTERED_VALUE)theEObject;
+        T result = caseREGISTERED_VALUE(registereD_VALUE);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -178,9 +210,6 @@ public class DomainmodelSwitch<T> extends Switch<T>
       {
         SAVEVAR savevar = (SAVEVAR)theEObject;
         T result = caseSAVEVAR(savevar);
-        if (result == null) result = caseREAD(savevar);
-        if (result == null) result = caseCOUNT(savevar);
-        if (result == null) result = caseINSTRUCTION(savevar);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -373,6 +402,22 @@ public class DomainmodelSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>ELEMENTIDENTIFIER</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>ELEMENTIDENTIFIER</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseELEMENTIDENTIFIER(ELEMENTIDENTIFIER object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>VERIFY</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -384,6 +429,54 @@ public class DomainmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseVERIFY(VERIFY object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>VERIFY CONTAINS</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>VERIFY CONTAINS</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVERIFY_CONTAINS(VERIFY_CONTAINS object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>VERIFY EQUALS</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>VERIFY EQUALS</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVERIFY_EQUALS(VERIFY_EQUALS object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>REGISTERED VALUE</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>REGISTERED VALUE</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseREGISTERED_VALUE(REGISTERED_VALUE object)
   {
     return null;
   }

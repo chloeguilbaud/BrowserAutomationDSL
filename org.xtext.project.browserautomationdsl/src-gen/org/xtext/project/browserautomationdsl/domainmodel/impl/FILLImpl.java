@@ -4,12 +4,15 @@
 package org.xtext.project.browserautomationdsl.domainmodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.project.browserautomationdsl.domainmodel.DomainmodelPackage;
+import org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER;
 import org.xtext.project.browserautomationdsl.domainmodel.FILL;
 
 /**
@@ -20,6 +23,9 @@ import org.xtext.project.browserautomationdsl.domainmodel.FILL;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.FILLImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.FILLImpl#getFieldType <em>Field Type</em>}</li>
+ *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.FILLImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.FILLImpl#getVar <em>Var</em>}</li>
  *   <li>{@link org.xtext.project.browserautomationdsl.domainmodel.impl.FILLImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -28,6 +34,56 @@ import org.xtext.project.browserautomationdsl.domainmodel.FILL;
  */
 public class FILLImpl extends INSTRUCTIONImpl implements FILL
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFieldType() <em>Field Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFieldType()
+   * @generated
+   * @ordered
+   */
+  protected static final String FIELD_TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFieldType() <em>Field Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFieldType()
+   * @generated
+   * @ordered
+   */
+  protected String fieldType = FIELD_TYPE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentifier()
+   * @generated
+   * @ordered
+   */
+  protected ELEMENTIDENTIFIER identifier;
+
   /**
    * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -94,6 +150,100 @@ public class FILLImpl extends INSTRUCTIONImpl implements FILL
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.FILL__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getFieldType()
+  {
+    return fieldType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFieldType(String newFieldType)
+  {
+    String oldFieldType = fieldType;
+    fieldType = newFieldType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.FILL__FIELD_TYPE, oldFieldType, fieldType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ELEMENTIDENTIFIER getIdentifier()
+  {
+    return identifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIdentifier(ELEMENTIDENTIFIER newIdentifier, NotificationChain msgs)
+  {
+    ELEMENTIDENTIFIER oldIdentifier = identifier;
+    identifier = newIdentifier;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DomainmodelPackage.FILL__IDENTIFIER, oldIdentifier, newIdentifier);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdentifier(ELEMENTIDENTIFIER newIdentifier)
+  {
+    if (newIdentifier != identifier)
+    {
+      NotificationChain msgs = null;
+      if (identifier != null)
+        msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.FILL__IDENTIFIER, null, msgs);
+      if (newIdentifier != null)
+        msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DomainmodelPackage.FILL__IDENTIFIER, null, msgs);
+      msgs = basicSetIdentifier(newIdentifier, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.FILL__IDENTIFIER, newIdentifier, newIdentifier));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getVar()
   {
     return var;
@@ -141,10 +291,32 @@ public class FILLImpl extends INSTRUCTIONImpl implements FILL
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DomainmodelPackage.FILL__IDENTIFIER:
+        return basicSetIdentifier(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
+      case DomainmodelPackage.FILL__NAME:
+        return getName();
+      case DomainmodelPackage.FILL__FIELD_TYPE:
+        return getFieldType();
+      case DomainmodelPackage.FILL__IDENTIFIER:
+        return getIdentifier();
       case DomainmodelPackage.FILL__VAR:
         return getVar();
       case DomainmodelPackage.FILL__VALUE:
@@ -163,6 +335,15 @@ public class FILLImpl extends INSTRUCTIONImpl implements FILL
   {
     switch (featureID)
     {
+      case DomainmodelPackage.FILL__NAME:
+        setName((String)newValue);
+        return;
+      case DomainmodelPackage.FILL__FIELD_TYPE:
+        setFieldType((String)newValue);
+        return;
+      case DomainmodelPackage.FILL__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)newValue);
+        return;
       case DomainmodelPackage.FILL__VAR:
         setVar((String)newValue);
         return;
@@ -183,6 +364,15 @@ public class FILLImpl extends INSTRUCTIONImpl implements FILL
   {
     switch (featureID)
     {
+      case DomainmodelPackage.FILL__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case DomainmodelPackage.FILL__FIELD_TYPE:
+        setFieldType(FIELD_TYPE_EDEFAULT);
+        return;
+      case DomainmodelPackage.FILL__IDENTIFIER:
+        setIdentifier((ELEMENTIDENTIFIER)null);
+        return;
       case DomainmodelPackage.FILL__VAR:
         setVar(VAR_EDEFAULT);
         return;
@@ -203,6 +393,12 @@ public class FILLImpl extends INSTRUCTIONImpl implements FILL
   {
     switch (featureID)
     {
+      case DomainmodelPackage.FILL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case DomainmodelPackage.FILL__FIELD_TYPE:
+        return FIELD_TYPE_EDEFAULT == null ? fieldType != null : !FIELD_TYPE_EDEFAULT.equals(fieldType);
+      case DomainmodelPackage.FILL__IDENTIFIER:
+        return identifier != null;
       case DomainmodelPackage.FILL__VAR:
         return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
       case DomainmodelPackage.FILL__VALUE:
@@ -222,7 +418,11 @@ public class FILLImpl extends INSTRUCTIONImpl implements FILL
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (var: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", fieldType: ");
+    result.append(fieldType);
+    result.append(", var: ");
     result.append(var);
     result.append(", value: ");
     result.append(value);

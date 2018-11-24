@@ -12,6 +12,7 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.xtext.project.browserautomationdsl.domainmodel.CHECK
 import org.xtext.project.browserautomationdsl.domainmodel.CLICK
 import org.xtext.project.browserautomationdsl.domainmodel.COUNT
+import org.xtext.project.browserautomationdsl.domainmodel.ELEMENTIDENTIFIER
 import org.xtext.project.browserautomationdsl.domainmodel.FILL
 import org.xtext.project.browserautomationdsl.domainmodel.GOTO
 import org.xtext.project.browserautomationdsl.domainmodel.INSTRUCTION
@@ -20,9 +21,12 @@ import org.xtext.project.browserautomationdsl.domainmodel.PLAY
 import org.xtext.project.browserautomationdsl.domainmodel.PROCEDURE
 import org.xtext.project.browserautomationdsl.domainmodel.PROGRAMME
 import org.xtext.project.browserautomationdsl.domainmodel.READ
+import org.xtext.project.browserautomationdsl.domainmodel.REGISTERED_VALUE
+import org.xtext.project.browserautomationdsl.domainmodel.SAVEVAR
 import org.xtext.project.browserautomationdsl.domainmodel.SELECT
 import org.xtext.project.browserautomationdsl.domainmodel.UNCHECK
-import org.xtext.project.browserautomationdsl.domainmodel.VERIFY
+import org.xtext.project.browserautomationdsl.domainmodel.VERIFY_CONTAINS
+import org.xtext.project.browserautomationdsl.domainmodel.VERIFY_EQUALS
 
 /**
  * Generates code from your model files on save.
@@ -41,7 +45,20 @@ class DomainmodelGenerator extends AbstractGenerator {
 	}
 	
 	def compile(PROGRAMME p, String s) '''
-    	 public class «s» {
+    	import org.junit.Test;
+    	import java.util.List;
+    	import org.openqa.selenium.By;
+    	import org.openqa.selenium.WebDriver;
+    	import org.openqa.selenium.WebElement;
+    	import org.openqa.selenium.firefox.FirefoxDriver;
+    	import static org.junit.Assert.assertTrue;
+    	import org.openqa.selenium.JavascriptExecutor;
+    	import org.openqa.selenium.remote.DesiredCapabilities;
+    	
+    	
+    	public class «s» {
+    		
+    		@Test
     	 	«FOR f : p.getProcedures()»
     	 		  «f.compile»
     	 	«ENDFOR»
@@ -51,6 +68,8 @@ class DomainmodelGenerator extends AbstractGenerator {
 	def compile(PROCEDURE p) '''
 			public void « p.name »(«IF p.param !== null
 				»String «p.param»«ENDIF»«FOR param : p.params», String «param»«ENDFOR») {
+				List<WebElement> elements;
+				WebElement element = null;
 				«FOR inst : p.inst»
 					«inst.compile»
 				«ENDFOR»
@@ -70,52 +89,116 @@ class DomainmodelGenerator extends AbstractGenerator {
 					«i.compile»
 				«ELSEIF i instanceof COUNT»
 					«i.compile»
-				«ELSEIF i instanceof VERIFY»
-					«i.compile»
 				«ELSEIF i instanceof SELECT»
+					«i.compile»
+				«ELSEIF i instanceof VERIFY_CONTAINS»
+					«i.compile»
+				«ELSEIF i instanceof VERIFY_EQUALS»
 					«i.compile»
 				«ELSEIF i instanceof GOTO»
 					«i.compile»
 				«ELSEIF i instanceof FILL»
 					«i.compile»
 				«ELSEIF i instanceof PLAY»
-					«i.compile»
+					«i.compile.subSequence(0, i.compile.length - 3)»);
 				«ENDIF»
 	'''
 	
 	def compile(OPEN o) '''
+					System.setProperty("webdriver.gecko.driver", "./geckodriver.exe");
+					DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+					capabilities.setCapability("marionette", true);
 					WebDriver driver = new «IF o.value == "FIREFOX"
-						»FirefoxDriver();
-					«ELSE»ChromeDriver();«ENDIF»
+												»FirefoxDriver«
+											ELSE
+												»ChromeDriver«
+											ENDIF»(capabilities);
+					
+					JavascriptExecutor jse = ((JavascriptExecutor) driver);
+					driver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
 	'''
 	
 	def compile(CLICK c) '''
-					«c.name»
+«««					driver.findElement(«c.identifier.compile()»).click();
+					«find(c.identifier.compile())»
+					element.click();
+	'''
+	
+	def find(CharSequence c) '''
+					element = null;
+					elements = driver.findElements(«c»);
+					for (WebElement e : elements) {
+						if (!e.getTagName().isEmpty()) {
+							jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
+							element = e;
+						}
+					}
 	'''
 	
 	def compile(CHECK c) '''
-					«c.name»
+					«IF c.all == "all"»
+					«IF c.identifier != null»
+					List<WebElement> checkboxes = driver.findElements(«c.identifier.compile»);
+					«ELSE»
+					List<WebElement> checkboxes = driver.findElements(By.checkbox);
+					«ENDIF»
+					checkboxes.forEach((element) -> {
+					«ELSE»
+					element = driver.findElement(«c.identifier.compile»);
+					«ENDIF»
+					if(!element.isSelected()){
+					    checkBox.click();
+					}
+					«IF c.all == "all"»
+					});
+					«ENDIF»
 	'''
 	
 	def compile(UNCHECK u) '''
-					«u.name»
+					«IF u.all == "all"»
+					«IF u.identifier != null»
+					List<WebElement> checkboxes = driver.findElements(«u.identifier.compile»);
+					«ELSE»
+					List<WebElement> checkboxes = driver.findElements(By.checkbox);
+					«ENDIF»
+					checkboxes.forEach((element) -> {
+					«ELSE»
+					element = driver.findElement(«u.identifier.compile»);
+					«ENDIF»
+					if(element.isSelected()){
+					    checkBox.click();
+					}
+					«IF u.all == "all"»
+					});
+					«ENDIF»
 	'''
 	
 	def compile(READ r) '''
-					«r.name»
+					«find(r.identifier.compile())»
+					String «r.savePath.compile» = element;
 	'''
 	
 	def compile(COUNT c) '''
-					«c.name»
+					«IF c.saveVariable != null»int «c.saveVariable.compile» = «ENDIF»driver.findElements(«c.identifier.compile»).length«IF c.saveVariable != null»;«ENDIF»'''
+					
+	def compile(VERIFY_EQUALS v)'''
+					assertTrue(«v.operation.compile».equals(«IF v.value != null»«v.value»«ELSE»«v.registeredValue.^var»«ENDIF»));
 	'''
 	
-	def compile(VERIFY v) '''
-					«v.name»
-					WebElement element = driver.findElement(By.name("q"));
-	'''
+	def compile(VERIFY_CONTAINS v) {'''
+					element = null;
+					elements = driver.findElements(«IF v.containedIdentifier != null»«v.containedIdentifier.compile»«ELSE»By.xpath("//*[contains(text(), «IF v.value != null»'«v.value»')]"«ELSE»" + «v.variable.^var» + "')]«ENDIF»)«ENDIF»);
+					for (WebElement e : elements) {
+						if (!e.getTagName().isEmpty()) {
+							jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
+							element = e;
+						}
+					}
+					assertTrue(element != null);'''
+	}
 	
 	def compile(SELECT s) '''
-					«s.name»
+					new Select(web.findElement(«s.identifier.compile»)).selectByValue("«s.elem»");
 	'''
 	
 	def compile(GOTO g) '''
@@ -123,10 +206,60 @@ class DomainmodelGenerator extends AbstractGenerator {
 	'''
 	
 	def compile(FILL o) '''
-					«o.name»
+					element = null;
+					elements = driver.findElements(«IF o.fieldType == "TEXTFIELD"»«o.identifier.compile»«ELSE»"SEARCHFILED"«ENDIF»);
+					for (WebElement e : elements) {
+						if (!e.getTagName().isEmpty()) {
+							jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
+							element = e;
+						}
+					}
+					element.click();
+					element.clear();
+					element.sendKeys(«IF o.value != null»"«o.value»"«ELSEIF o.^var != null»«o.^var»«ENDIF»);
 	'''
 	
 	def compile(PLAY o) '''
-					«o.name»
+					this.«o.preocedure»(«FOR param : o.params»"«param»",«ENDFOR»
 	'''
+	
+	def compile(SAVEVAR s) '''
+					«s.^var»'''
+	
+	def compile(ELEMENTIDENTIFIER e) '''
+		By.«
+		IF e.type == "LABEL"
+			»xpath("//*[contains(text(), '«
+					IF e.info == "given"
+						»"+«e.^var»+"«
+					ELSE
+						»«e.value»«
+					ENDIF
+					»')]")«
+		ELSEIF e.type == "CLASS"
+			»className(«
+					IF e.info == "given"
+						»«e.^var»«
+					ELSE
+						»"«e.value»"«
+					ENDIF
+					»)«
+		ELSEIF e.type == "ID"
+			»id(«
+					IF e.info == "given"
+						»«e.^var»«
+					ELSE
+						»"«e.value»"«
+					ENDIF
+					»)«
+		ELSEIF e.type == "ALT"
+			»xpath("//img[contains(@alt, '«
+					IF e.info == "given"
+						»"+«e.^var»+"«
+					ELSE
+						»«e.value»«
+					ENDIF
+					»')]")«
+		ENDIF
+		»'''
 }
