@@ -44,9 +44,9 @@ public class test8 {
  			}
  		}
  		element.click();
- 		Integer nbResults = driver.findElements(By.className("views-row")).size();
+ 		String nbResults = (driver.findElements(By.className("views-row")).size() + "");
  		element = null;
- 		elements = driver.findElements(By.id("test"));
+ 		elements = driver.findElements(By.id("edit-submit-recherche2"));
  		for (WebElement e : elements) {
  			if (!e.getTagName().isEmpty()) {
  				jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
@@ -54,23 +54,6 @@ public class test8 {
  			}
  		}
  		element.click();
- 		element = null;
- 		elements = driver.findElements(By.xpath("//*[contains(text(), 'Le mois dernier')]"));
- 		for (WebElement e : elements) {
- 			if (!e.getTagName().isEmpty()) {
- 				jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
- 				element = e;
- 			}
- 		}
- 		element = null;
- 		elements = driver.findElements(By.xpath("//*[contains(text(), 'Appliquer les filtres')]"));
- 		for (WebElement e : elements) {
- 			if (!e.getTagName().isEmpty()) {
- 				jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
- 				element = e;
- 			}
- 		}
- 		element.click();
- 		assertTrue(driver.findElements(By.className("views-row")).size().equals(nbResults));
+ 		assertTrue((driver.findElements(By.className("views-row")).size() + "").equals(nbResults));
  	}
 }

@@ -430,16 +430,16 @@ public class DomainmodelGenerator extends AbstractGenerator {
       SAVEVAR _saveVariable = c.getSaveVariable();
       boolean _notEquals = (!Objects.equal(_saveVariable, null));
       if (_notEquals) {
-        _builder.append("Integer ");
+        _builder.append("String ");
         CharSequence _compile = this.compile(c.getSaveVariable());
         _builder.append(_compile);
         _builder.append(" = ");
       }
     }
-    _builder.append("driver.findElements(");
+    _builder.append("(driver.findElements(");
     CharSequence _compile_1 = this.compile(c.getIdentifier());
     _builder.append(_compile_1);
-    _builder.append(").size()");
+    _builder.append(").size() + \"\")");
     {
       SAVEVAR _saveVariable_1 = c.getSaveVariable();
       boolean _notEquals_1 = (!Objects.equal(_saveVariable_1, null));

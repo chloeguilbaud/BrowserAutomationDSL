@@ -4,6 +4,6 @@ procedure main
   fill TEXTFIELD identified by ID "edit-rechercher" with "2007"
   click on BUTTON identified by ID "edit-btn-submit"
   count ELEMENT identified by CLASS 'views-row' and save in nbResults
-  select 'Le mois dernier' in COMBOBOX identified by ID "test"
-  click on BUTTON identified by LABEL "Appliquer les filtres"
+  // select 'Le mois dernier' in COMBOBOX identified by ID "test"
+  click on BUTTON identified by ID "edit-submit-recherche2"
   verify that count ELEMENT identified by CLASS 'views-row' equals saved nbResults

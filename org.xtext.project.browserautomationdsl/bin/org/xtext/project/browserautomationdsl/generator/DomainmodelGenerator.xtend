@@ -191,7 +191,7 @@ class DomainmodelGenerator extends AbstractGenerator {
 	'''
 	
 	def compile(COUNT c) '''
-					«IF c.saveVariable != null»Integer «c.saveVariable.compile» = «ENDIF»driver.findElements(«c.identifier.compile»).size()«IF c.saveVariable != null»;«ENDIF»'''
+					«IF c.saveVariable != null»String «c.saveVariable.compile» = «ENDIF»(driver.findElements(«c.identifier.compile»).size() + "")«IF c.saveVariable != null»;«ENDIF»'''
 					
 	def compile(VERIFY_EQUALS v)'''
 					assertTrue(«v.operation.compile».equals(«IF v.value != null»«v.value»«ELSE»«v.registeredValue.^var»«ENDIF»));
