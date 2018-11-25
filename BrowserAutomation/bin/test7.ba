@@ -3,6 +3,6 @@ procedure main
   go to "http://www.imt-atlantique.fr/fr"
   read url from LINK identified by CLASS 'actu_home_ctner_inner_cell1_titre' and save in monUrl
   go to "http://www.imt-atlantique.fr/fr/rechercher"
-  fill SEARCHFIELD with saved monUrl
-  click on BUTTON identified by LABEL "Appliquer les filtres"
-  verify that PAGE contains saved monUrl
+  fill TEXTFIELD identified by ID "edit-search-api-fulltext" with saved monUrl
+  click on BUTTON identified by ID "edit-submit-recherche2"
+  verify that PAGE contains "Aucun résultat ne correspond à votre recherche"

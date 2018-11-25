@@ -1,7 +1,8 @@
 procedure main
   open FIREFOX
   go to "http://www.imt-atlantique.fr/fr"
-  fill SEARCHFIELD with "2007"
-  select "Le mois dernier" in COMBOBOX identified by ID "test"
-  click on BUTTON identified by LABEL "Appliquer les filtres"
-  verify that PAGE contains "Aucun réultat ne correspond à votre recherche"
+  fill TEXTFIELD identified by ID "edit-rechercher" with "2007"
+  click on BUTTON identified by ID "edit-btn-submit"
+  select "Le mois dernier" in COMBOBOX identified by LABEL "- Toutes périodes -"
+  click on BUTTON identified by ID "edit-submit-recherche2"
+  verify that PAGE contains "Audrey Francisco-Bosson, lauréate de la bourse L'Oréal-Unesco 2018"

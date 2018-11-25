@@ -76,6 +76,8 @@ public class DomainmodelGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("import org.openqa.selenium.remote.DesiredCapabilities;");
     _builder.newLine();
+    _builder.append("import org.openqa.selenium.support.ui.Select;");
+    _builder.newLine();
     _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
@@ -417,7 +419,7 @@ public class DomainmodelGenerator extends AbstractGenerator {
     _builder.append("String ");
     CharSequence _compile = this.compile(r.getSavePath());
     _builder.append(_compile);
-    _builder.append(" = element;");
+    _builder.append(" = element.getText();");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -428,7 +430,7 @@ public class DomainmodelGenerator extends AbstractGenerator {
       SAVEVAR _saveVariable = c.getSaveVariable();
       boolean _notEquals = (!Objects.equal(_saveVariable, null));
       if (_notEquals) {
-        _builder.append("int ");
+        _builder.append("Integer ");
         CharSequence _compile = this.compile(c.getSaveVariable());
         _builder.append(_compile);
         _builder.append(" = ");
@@ -437,7 +439,7 @@ public class DomainmodelGenerator extends AbstractGenerator {
     _builder.append("driver.findElements(");
     CharSequence _compile_1 = this.compile(c.getIdentifier());
     _builder.append(_compile_1);
-    _builder.append(").length");
+    _builder.append(").size()");
     {
       SAVEVAR _saveVariable_1 = c.getSaveVariable();
       boolean _notEquals_1 = (!Objects.equal(_saveVariable_1, null));
@@ -492,10 +494,10 @@ public class DomainmodelGenerator extends AbstractGenerator {
             _builder.append(_value_1);
             _builder.append("\')]\"");
           } else {
-            _builder.append("\" + ");
+            _builder.append("\'\" + ");
             String _var = v.getVariable().getVar();
             _builder.append(_var);
-            _builder.append(" + \"\')]");
+            _builder.append(" + \"\')]\"");
           }
         }
         _builder.append(")");
@@ -525,13 +527,16 @@ public class DomainmodelGenerator extends AbstractGenerator {
   
   public CharSequence compile(final SELECT s) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("new Select(web.findElement(");
-    CharSequence _compile = this.compile(s.getIdentifier());
-    _builder.append(_compile);
-    _builder.append(")).selectByValue(\"");
+    CharSequence _find = this.find(this.compile(s.getIdentifier()));
+    _builder.append(_find);
+    _builder.newLineIfNotEmpty();
+    _builder.append("element.click();");
+    _builder.newLine();
     String _elem = s.getElem();
-    _builder.append(_elem);
-    _builder.append("\");");
+    String _plus = ("By.xpath(\"//*[contains(text(), \'" + _elem);
+    String _plus_1 = (_plus + "\')]\")");
+    CharSequence _find_1 = this.find(_plus_1);
+    _builder.append(_find_1);
     _builder.newLineIfNotEmpty();
     return _builder;
   }

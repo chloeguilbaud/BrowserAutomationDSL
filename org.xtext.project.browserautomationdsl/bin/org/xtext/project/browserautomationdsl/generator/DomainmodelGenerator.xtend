@@ -54,6 +54,7 @@ class DomainmodelGenerator extends AbstractGenerator {
     	import static org.junit.Assert.assertTrue;
     	import org.openqa.selenium.JavascriptExecutor;
     	import org.openqa.selenium.remote.DesiredCapabilities;
+    	import org.openqa.selenium.support.ui.Select;
     	
     	
     	public class «s» {
@@ -186,11 +187,11 @@ class DomainmodelGenerator extends AbstractGenerator {
 	
 	def compile(READ r) '''
 					«find(r.identifier.compile())»
-					String «r.savePath.compile» = element;
+					String «r.savePath.compile» = element.getText();
 	'''
 	
 	def compile(COUNT c) '''
-					«IF c.saveVariable != null»int «c.saveVariable.compile» = «ENDIF»driver.findElements(«c.identifier.compile»).length«IF c.saveVariable != null»;«ENDIF»'''
+					«IF c.saveVariable != null»Integer «c.saveVariable.compile» = «ENDIF»driver.findElements(«c.identifier.compile»).size()«IF c.saveVariable != null»;«ENDIF»'''
 					
 	def compile(VERIFY_EQUALS v)'''
 					assertTrue(«v.operation.compile».equals(«IF v.value != null»«v.value»«ELSE»«v.registeredValue.^var»«ENDIF»));
@@ -198,7 +199,7 @@ class DomainmodelGenerator extends AbstractGenerator {
 	
 	def compile(VERIFY_CONTAINS v) {'''
 					element = null;
-					elements = driver.findElements(«IF v.containedIdentifier != null»«v.containedIdentifier.compile»«ELSE»By.xpath("//*[contains(text(), «IF v.value != null»'«v.value»')]"«ELSE»" + «v.variable.^var» + "')]«ENDIF»)«ENDIF»);
+					elements = driver.findElements(«IF v.containedIdentifier != null»«v.containedIdentifier.compile»«ELSE»By.xpath("//*[contains(text(), «IF v.value != null»'«v.value»')]"«ELSE»'" + «v.variable.^var» + "')]"«ENDIF»)«ENDIF»);
 					for (WebElement e : elements) {
 						if (!e.getTagName().isEmpty()) {
 							jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
@@ -209,7 +210,10 @@ class DomainmodelGenerator extends AbstractGenerator {
 	}
 	
 	def compile(SELECT s) '''
-					new Select(web.findElement(«s.identifier.compile»)).selectByValue("«s.elem»");
+					«find(s.identifier.compile)»
+					element.click();
+					«find("By.xpath(\"//*[contains(text(), '" + s.elem + "')]\")")»
+«««					new Select(element).selectByValue("«s.elem»");
 	'''
 	
 	def compile(GOTO g) '''
