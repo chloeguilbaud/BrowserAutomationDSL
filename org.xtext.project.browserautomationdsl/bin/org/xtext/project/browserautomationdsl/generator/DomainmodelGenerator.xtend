@@ -59,6 +59,9 @@ class DomainmodelGenerator extends AbstractGenerator {
     	
     	public class «s» {
     		
+    		private WebDriver driver;
+    		private JavascriptExecutor jse;
+    		
     		@Test
     	 	«FOR f : p.getProcedures()»
     	 		  «f.compile»
@@ -109,13 +112,13 @@ class DomainmodelGenerator extends AbstractGenerator {
 					System.setProperty("webdriver.gecko.driver", "./geckodriver.exe");
 					DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 					capabilities.setCapability("marionette", true);
-					WebDriver driver = new «IF o.value == "FIREFOX"
+					driver = new «IF o.value == "FIREFOX"
 												»FirefoxDriver«
 											ELSE
 												»ChromeDriver«
 											ENDIF»(capabilities);
 					
-					JavascriptExecutor jse = ((JavascriptExecutor) driver);
+					jse = ((JavascriptExecutor) driver);
 					driver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
 	'''
 	

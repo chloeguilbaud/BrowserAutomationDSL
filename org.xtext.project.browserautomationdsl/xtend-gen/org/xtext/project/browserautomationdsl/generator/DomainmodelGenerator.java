@@ -87,6 +87,14 @@ public class DomainmodelGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("private WebDriver driver;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private JavascriptExecutor jse;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("@Test");
     _builder.newLine();
     {
@@ -237,7 +245,7 @@ public class DomainmodelGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("capabilities.setCapability(\"marionette\", true);");
     _builder.newLine();
-    _builder.append("WebDriver driver = new ");
+    _builder.append("driver = new ");
     {
       String _value = o.getValue();
       boolean _equals = Objects.equal(_value, "FIREFOX");
@@ -250,7 +258,7 @@ public class DomainmodelGenerator extends AbstractGenerator {
     _builder.append("(capabilities);");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("JavascriptExecutor jse = ((JavascriptExecutor) driver);");
+    _builder.append("jse = ((JavascriptExecutor) driver);");
     _builder.newLine();
     _builder.append("driver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);");
     _builder.newLine();
