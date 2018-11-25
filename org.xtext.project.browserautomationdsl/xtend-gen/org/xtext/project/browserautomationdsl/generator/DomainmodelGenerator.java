@@ -312,31 +312,42 @@ public class DomainmodelGenerator extends AbstractGenerator {
             _builder.newLine();
           }
         }
-        _builder.append("checkboxes.forEach((element) -> {");
+        _builder.append("checkboxes.forEach((e) -> {");
         _builder.newLine();
-      } else {
-        _builder.append("element = driver.findElement(");
-        CharSequence _compile_1 = this.compile(c.getIdentifier());
-        _builder.append(_compile_1);
-        _builder.append(");");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("if(!element.isSelected()){");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("checkBox.click();");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    {
-      String _all_1 = c.getAll();
-      boolean _equals_1 = Objects.equal(_all_1, "all");
-      if (_equals_1) {
+        _builder.append("\t");
+        _builder.append("if (!e.getTagName().isEmpty()) {");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("jse.executeScript(\"window.scrollTo(\"+ e.getLocation().x + \", \" + (e.getLocation().y - e.getRect().height * 3) + \")\");");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("if(!e.isSelected()){");
+        _builder.newLine();
+        _builder.append("\t\t    ");
+        _builder.append("e.click();");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
         _builder.append("});");
         _builder.newLine();
+      } else {
+        CharSequence _find = this.find(this.compile(c.getIdentifier()));
+        _builder.append(_find);
+        _builder.newLineIfNotEmpty();
+        _builder.append("if(!element.isSelected()){");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("element.click();");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
       }
     }
+    _builder.newLine();
     return _builder;
   }
   
@@ -360,28 +371,38 @@ public class DomainmodelGenerator extends AbstractGenerator {
             _builder.newLine();
           }
         }
-        _builder.append("checkboxes.forEach((element) -> {");
+        _builder.append("checkboxes.forEach((e) -> {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("if (!e.getTagName().isEmpty()) {");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("jse.executeScript(\"window.scrollTo(\"+ e.getLocation().x + \", \" + (e.getLocation().y - e.getRect().height * 3) + \")\");");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("if(e.isSelected()){");
+        _builder.newLine();
+        _builder.append("\t\t    ");
+        _builder.append("e.click();");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("});");
         _builder.newLine();
       } else {
-        _builder.append("element = driver.findElement(");
-        CharSequence _compile_1 = this.compile(u.getIdentifier());
-        _builder.append(_compile_1);
-        _builder.append(");");
+        CharSequence _find = this.find(this.compile(u.getIdentifier()));
+        _builder.append(_find);
         _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("if(element.isSelected()){");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("checkBox.click();");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    {
-      String _all_1 = u.getAll();
-      boolean _equals_1 = Objects.equal(_all_1, "all");
-      if (_equals_1) {
-        _builder.append("});");
+        _builder.append("if(element.isSelected()){");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("element.click();");
+        _builder.newLine();
+        _builder.append("}");
         _builder.newLine();
       }
     }

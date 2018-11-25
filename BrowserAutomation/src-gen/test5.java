@@ -23,22 +23,50 @@ public class test5 {
  		JavascriptExecutor jse = ((JavascriptExecutor) driver);
  		driver.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
  		driver.get("http://www.imt-atlantique.fr/fr");
- 		List<WebElement> checkboxes = driver.findElements(By.className("test"));
- 		checkboxes.forEach((checkBox) -> {
- 		if(checkBox.isSelected()){
- 		    checkBox.click();
- 		}
- 		});
- 		element = driver.findElement(By.xpath("//*[contains(text(), 'Anglais')]"));
- 		if(!element.isSelected()){
- 			element.click();
- 		}
- 		element = driver.findElement(By.xpath("//*[contains(text(), 'A domicile')]"));
- 		if(!element.isSelected()){
- 			element.click();
- 		}
  		element = null;
- 		elements = driver.findElements(By.id("edit-btn-submit"));
+ 		elements = driver.findElements(By.xpath("//*[contains(text(), 'Trouver ma formation')]"));
+ 		for (WebElement e : elements) {
+ 			if (!e.getTagName().isEmpty()) {
+ 				jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
+ 				element = e;
+ 			}
+ 		}
+ 		element.click();
+ 		List<WebElement> checkboxes = driver.findElements(By.className("js-form-type-checkbox"));
+ 		checkboxes.forEach((e) -> {
+ 			if (!e.getTagName().isEmpty()) {
+ 				jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
+ 				if(e.isSelected()){
+ 				    e.click();
+ 				}
+ 			}
+ 		});
+ 		element = null;
+ 		elements = driver.findElements(By.xpath("//*[contains(text(), 'Anglais')]"));
+ 		for (WebElement e : elements) {
+ 			if (!e.getTagName().isEmpty()) {
+ 				jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
+ 				element = e;
+ 			}
+ 		}
+ 		if(!element.isSelected()){
+ 			element.click();
+ 		}
+ 		
+ 		element = null;
+ 		elements = driver.findElements(By.xpath("//*[contains(text(), 'A domicile')]"));
+ 		for (WebElement e : elements) {
+ 			if (!e.getTagName().isEmpty()) {
+ 				jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
+ 				element = e;
+ 			}
+ 		}
+ 		if(!element.isSelected()){
+ 			element.click();
+ 		}
+ 		
+ 		element = null;
+ 		elements = driver.findElements(By.id("edit-submit-trouver-ma-formation"));
  		for (WebElement e : elements) {
  			if (!e.getTagName().isEmpty()) {
  				jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
@@ -47,7 +75,7 @@ public class test5 {
  		}
  		element.click();
  		element = null;
- 		elements = driver.findElements(By.xpath("//*[contains(text(), 'Aucune formation trouvée répondant à vos critères')]"));
+ 		elements = driver.findElements(By.xpath("//*[contains(text(), 'Advanced Algorithmics and Graph Theory with Python')]"));
  		for (WebElement e : elements) {
  			if (!e.getTagName().isEmpty()) {
  				jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");

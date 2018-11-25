@@ -137,39 +137,50 @@ class DomainmodelGenerator extends AbstractGenerator {
 	
 	def compile(CHECK c) '''
 					«IF c.all == "all"»
-					«IF c.identifier != null»
-					List<WebElement> checkboxes = driver.findElements(«c.identifier.compile»);
+						«IF c.identifier != null»
+							List<WebElement> checkboxes = driver.findElements(«c.identifier.compile»);
+						«ELSE»
+							List<WebElement> checkboxes = driver.findElements(By.checkbox);
+						«ENDIF»
+						checkboxes.forEach((e) -> {
+							if (!e.getTagName().isEmpty()) {
+								jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
+								if(!e.isSelected()){
+								    e.click();
+								}
+							}
+						});
 					«ELSE»
-					List<WebElement> checkboxes = driver.findElements(By.checkbox);
+						«find(c.identifier.compile)»
+«««						element = finddriver.findElement(«c.identifier.compile»);
+						if(!element.isSelected()){
+							element.click();
+						}
 					«ENDIF»
-					checkboxes.forEach((element) -> {
-					«ELSE»
-					element = driver.findElement(«c.identifier.compile»);
-					«ENDIF»
-					if(!element.isSelected()){
-					    checkBox.click();
-					}
-					«IF c.all == "all"»
-					});
-					«ENDIF»
+					
 	'''
 	
 	def compile(UNCHECK u) '''
 					«IF u.all == "all"»
-					«IF u.identifier != null»
-					List<WebElement> checkboxes = driver.findElements(«u.identifier.compile»);
+						«IF u.identifier != null»
+							List<WebElement> checkboxes = driver.findElements(«u.identifier.compile»);
+						«ELSE»
+							List<WebElement> checkboxes = driver.findElements(By.checkbox);
+						«ENDIF»
+						checkboxes.forEach((e) -> {
+							if (!e.getTagName().isEmpty()) {
+								jse.executeScript("window.scrollTo("+ e.getLocation().x + ", " + (e.getLocation().y - e.getRect().height * 3) + ")");
+								if(e.isSelected()){
+								    e.click();
+								}
+							}
+						});
 					«ELSE»
-					List<WebElement> checkboxes = driver.findElements(By.checkbox);
-					«ENDIF»
-					checkboxes.forEach((element) -> {
-					«ELSE»
-					element = driver.findElement(«u.identifier.compile»);
-					«ENDIF»
-					if(element.isSelected()){
-					    checkBox.click();
-					}
-					«IF u.all == "all"»
-					});
+						«find(u.identifier.compile)»
+«««						element = finddriver.findElement(«c.identifier.compile»);
+						if(element.isSelected()){
+							element.click();
+						}
 					«ENDIF»
 	'''
 	

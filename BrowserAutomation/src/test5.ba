@@ -1,8 +1,9 @@
 procedure main
   open FIREFOX
   go to "http://www.imt-atlantique.fr/fr"
-  uncheck all CHECKBOX identified by CLASS "test"
+  click on LINK identified by LABEL "Trouver ma formation"
+  uncheck all CHECKBOX identified by CLASS "js-form-type-checkbox"
   check CHECKBOX identified by LABEL "Anglais"
   check CHECKBOX identified by LABEL "A domicile"
-  click on BUTTON identified by ID "edit-btn-submit"
-  verify that PAGE contains "Aucune formation trouvée répondant à vos critères"
+  click on BUTTON identified by ID "edit-submit-trouver-ma-formation"
+  verify that PAGE contains "Advanced Algorithmics and Graph Theory with Python"
